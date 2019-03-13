@@ -4,15 +4,15 @@
       <mat-card>
         <mat-card-title>Login</mat-card-title>
         <div fxLayout="column">
-            <mat-form-field>
-                <input matInput placeholder="Email adres" type="email" #userName/>
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Wachtwoord" type="password" #userPassword />
-              </mat-form-field>
-              <button mat-flat-button color="primary">
-                Bevestig
-              </button>
+          <mat-form-field>
+            <input matInput placeholder="Email adres" type="email" #userName />
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Wachtwoord" type="password" #userPassword />
+          </mat-form-field>
+          <button (click)="login(userName,userPassword)" mat-flat-button color="primary">
+            Bevestig
+          </button>
         </div>
       </mat-card>
     </mat-tab>
@@ -21,21 +21,21 @@
       <mat-card>
         <mat-card-title>Registreer</mat-card-title>
         <div fxLayout="column">
-            <mat-card-subtitle>Algemeen</mat-card-subtitle>
+          <mat-card-subtitle>Algemeen</mat-card-subtitle>
           <mat-form-field>
-            <input matInput placeholder="Voornaam">
+            <input matInput placeholder="Voornaam" #firstName >
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="Familienaaam">
+            <input matInput placeholder="Familienaaam" #familyName>
           </mat-form-field>
 
           <mat-form-field>
-              <input matInput placeholder="Waarde klassement" type="number" />
-            </mat-form-field>
+            <input matInput placeholder="Waarde klassement" type="number" #tennisVlaanderenRanking />
+          </mat-form-field>
 
           <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" #dateOfBirth>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
@@ -45,11 +45,11 @@
           <br>
 
           <mat-form-field>
-            <input matInput placeholder="Wachtwoord" type="password" />
+            <input matInput placeholder="Wachtwoord" type="password" #password/>
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="Bevestig Wachtwoord" type="password" />
+            <input matInput placeholder="Bevestig Wachtwoord" type="password" #passwordConfirmation/>
           </mat-form-field>
 
           <br>
@@ -57,19 +57,19 @@
           <br>
 
           <mat-form-field>
-            <input matInput placeholder="GSM-nummer" type="text" />
+            <input matInput placeholder="GSM-nummer" type="text" #phoneNumber/>
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="Email adres" type="email" />
+            <input matInput placeholder="Email adres" type="email" #email />
           </mat-form-field>
 
-          <mat-radio-group>
-            <mat-radio-button value="1">Man</mat-radio-button>
-            <mat-radio-button value="2">Vrouw</mat-radio-button>
+          <mat-radio-group name = "geslacht">
+            <mat-radio-button value="man">Man</mat-radio-button>
+            <mat-radio-button value="vrouw">Vrouw</mat-radio-button>
           </mat-radio-group>
 
-          <button mat-flat-button color="primary">Bevestig</button>
+          <button (click)="register()" mat-flat-button color="primary">Bevestig</button>
         </div>
       </mat-card>
     </mat-tab>

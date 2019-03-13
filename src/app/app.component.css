@@ -4,4 +4,5 @@
   width: 98%;
   margin: 1%;
   box-sizing: border-box;
+  z-index: 1000;
 }
