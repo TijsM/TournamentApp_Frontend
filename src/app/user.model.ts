@@ -9,7 +9,7 @@ export class User {
     private _password: string,
     private _phoneNumber: string,
     private _email: string,
-    private _geslacht: string
+    private _gender: string
   ) {}
 
   get firstName(): string {
@@ -34,7 +34,7 @@ export class User {
     return this._email;
   }
   get gender(): string {
-    return this._geslacht;
+    return this._gender;
   }
 
   set firstName(value: string) {
@@ -58,8 +58,8 @@ export class User {
   set email(value: string) {
     this._email = value;
   }
-  set geslacht(value: string) {
-    this._geslacht = value;
+  set gender(value: string) {
+    this._gender = value;
   }
 
   static fromJSON(json: any): User {

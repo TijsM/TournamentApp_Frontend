@@ -16,4 +16,6 @@ export class TournamentDataService {
       .get(`${environment.apiUrl}/users/`)
       .pipe(map((list: any[]): User[] => list.map(User.fromJSON)));
   }
+
+ 
 }
