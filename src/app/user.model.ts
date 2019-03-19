@@ -33,7 +33,7 @@ export class User {
   get email(): string {
     return this._email;
   }
-  get geslacht(): string {
+  get gender(): string {
     return this._geslacht;
   }
 
@@ -60,5 +60,18 @@ export class User {
   }
   set geslacht(value: string) {
     this._geslacht = value;
+  }
+
+  static fromJSON(json: any): User {
+    return new User(
+      json.firstName,
+      json.familyName,
+      json.tennisVlaanderenRanking,
+      json.dateOfBirth,
+      json.password,
+      json.phoneNumber,
+      json.email,
+      json.gender
+    );
   }
 }

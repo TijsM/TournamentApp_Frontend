@@ -19,11 +19,14 @@ import {
   MatMenuModule,
   MatTabsModule
 } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { RankingComponent } from './ranking/ranking.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent],
+  declarations: [AppComponent, RegisterComponent, RankingComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatInputModule,
