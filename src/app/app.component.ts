@@ -9,15 +9,12 @@ import { User } from './user.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private _fetchRecipes$: Observable<User[]> = this._tournamenDataService
-    .users$;
-  private _participants: User[];
+  private _fetchUsers$: Observable<User[]> = this._tournamenDataService.users$;
+  private _users: User[];
 
-  constructor(private _tournamenDataService: TournamentDataService) {
-   
-  }
+  constructor(private _tournamenDataService: TournamentDataService) {}
 
-  get participants$(): Observable<User[]> {
-    return this._fetchRecipes$;
+  get users$(): Observable<User[]> {
+    return this._fetchUsers$;
   }
 }

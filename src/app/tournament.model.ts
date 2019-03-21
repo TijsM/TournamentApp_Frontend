@@ -8,7 +8,7 @@ export class Tournament {
     private _endDate: Date,
     private _startDate: Date,
     private _gender: string,
-    private _participants: User[],
+    private _users: User[],
     private _matches: Match[]
   ) {}
 
@@ -24,30 +24,29 @@ export class Tournament {
   get gender(): string {
     return this._gender;
   }
-  get participants(): User[] {
-    return this._participants;
+  get users(): User[] {
+    return this._users;
   }
   get matches(): Match[] {
     return this._matches;
   }
 
-  
-  set name(value:string){
-      this._name = value;
+  set name(value: string) {
+    this._name = value;
   }
-  set endDate(value: Date){
-      this._endDate = value;
+  set endDate(value: Date) {
+    this._endDate = value;
   }
-  set startDate(value: Date){
-      this._startDate = value;
+  set startDate(value: Date) {
+    this._startDate = value;
   }
-  set gender(value:string){
-      this._gender = value;
+  set gender(value: string) {
+    this._gender = value;
   }
-  set participants(value: User[]){
-      this._participants = value;
+  set users(value: User[]) {
+    this._users = value;
   }
-  set matches(value: Match[]){
-      this._matches = value;
+  set matches(value: Match[]) {
+    this._matches = value;
   }
 }
