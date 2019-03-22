@@ -7,6 +7,8 @@ import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import {
   MatInputModule,
   MatFormFieldModule,
@@ -25,9 +27,15 @@ import { RankingComponent } from './ranking/ranking.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, RankingComponent, UserDetailsComponent],
+  declarations: [
+    AppComponent,
+    RegisterComponent,
+    RankingComponent,
+    UserDetailsComponent
+  ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FlexLayoutModule,

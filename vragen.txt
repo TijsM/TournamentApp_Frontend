@@ -1,0 +1,3 @@
+1. hoe routing doen als een element niet mag verwijderd worden
+
+2. moeten api calls specifiek zijn? of algemeen --> als je alle mannen wil, moet je dan alle mannen vragen en dan filteren, of enkel de mannen van api vragen

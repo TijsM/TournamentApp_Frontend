@@ -17,5 +17,9 @@ export class TournamentDataService {
       .pipe(map((list: any[]): User[] => list.map(User.fromJSON)));
   }
 
- 
+  getUserById$(id: number): Observable<User> {
+    return this.http
+      .get(`${environment.apiUrl}/users/id/${id}`)
+      .pipe(map(User.fromJSON));
+  }
 }

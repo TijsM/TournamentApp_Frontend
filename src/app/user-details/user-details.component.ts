@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from '../user.model';
+import { TournamentDataService } from '../tournament.data.services';
 
 @Component({
   selector: 'app-user-details',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
+  private _fetchUser$: Observable<User> = this._tournamenDataService.getUserById$(1);
 
-  constructor() { }
+  constructor(private _tournamenDataService: TournamentDataService) { }
 
   ngOnInit() {
+  }
+
+  get userCurrentUser(){
+    return this._fetchUser$;
   }
 
 }

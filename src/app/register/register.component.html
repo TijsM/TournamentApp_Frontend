@@ -10,9 +10,12 @@
           <mat-form-field>
             <input matInput placeholder="Wachtwoord" type="password" #userPassword />
           </mat-form-field>
-          <button (click)="login(userName,userPassword)" mat-flat-button color="primary">
+          <button routerLink="/ranking" mat-flat-button color="primary">
             Bevestig
           </button>
+          <!-- <button routerLink="/ranking"(click)="login(userName,userPassword)" mat-flat-button color="primary">
+            Bevestig
+          </button> -->
         </div>
       </mat-card>
     </mat-tab>
@@ -23,7 +26,7 @@
         <div fxLayout="column">
           <mat-card-subtitle>Algemeen</mat-card-subtitle>
           <mat-form-field>
-            <input matInput placeholder="Voornaam" #firstName >
+            <input matInput placeholder="Voornaam" #firstName>
           </mat-form-field>
 
           <mat-form-field>
@@ -45,11 +48,11 @@
           <br>
 
           <mat-form-field>
-            <input matInput placeholder="Wachtwoord" type="password" #password/>
+            <input matInput placeholder="Wachtwoord" type="password" #password />
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="Bevestig Wachtwoord" type="password" #passwordConfirmation/>
+            <input matInput placeholder="Bevestig Wachtwoord" type="password" #passwordConfirmation />
           </mat-form-field>
 
           <br>
@@ -57,14 +60,14 @@
           <br>
 
           <mat-form-field>
-            <input matInput placeholder="GSM-nummer" type="text" #phoneNumber/>
+            <input matInput placeholder="GSM-nummer" type="text" #phoneNumber />
           </mat-form-field>
 
           <mat-form-field>
             <input matInput placeholder="Email adres" type="email" #email />
           </mat-form-field>
 
-          <mat-radio-group name = "geslacht">
+          <mat-radio-group name="geslacht">
             <mat-radio-button value="man">Man</mat-radio-button>
             <mat-radio-button value="vrouw">Vrouw</mat-radio-button>
           </mat-radio-group>

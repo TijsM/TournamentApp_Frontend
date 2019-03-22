@@ -3,7 +3,13 @@
   overflow: auto;
   width: 75%;
   margin: auto;
+  margin-top: 50px;
+}
+
+.rankingContainer {
+  width: 75%;
   margin-top: 100px;
+  margin-left: 12.5%;
 }
 
 table {
