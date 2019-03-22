@@ -13,7 +13,7 @@ export class TournamentDataService {
 
   get users$(): Observable<User[]> {
     return this.http
-      .get(`${environment.apiUrl}/users/`)
+      .get(`${environment.apiUrl}/Users/`)
       .pipe(map((list: any[]): User[] => list.map(User.fromJSON)));
   }
 

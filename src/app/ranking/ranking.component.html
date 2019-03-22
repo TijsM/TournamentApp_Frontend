@@ -1,3 +1,27 @@
-<div ngFor="let p of (participants$ | async)" fxFlex="0 0 calc(25% - 0.5%)" fxFlex.xs="100%">
-  <p> test ranking.component.html</p>
+
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="ranking">
+      <th mat-header-cell *matHeaderCellDef> Rank </th>
+      <td mat-cell *matCellDef="let element"> {{element.rankInTournament}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Naam </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} {{element.familyName}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="daaguit">
+      <th mat-header-cell *matHeaderCellDef> Daag uit </th>
+      <td mat-cell *matCellDef="let element"> daag uit </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>

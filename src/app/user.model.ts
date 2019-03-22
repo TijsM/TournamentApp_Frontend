@@ -9,7 +9,8 @@ export class User {
     private _password: string,
     private _phoneNumber: string,
     private _email: string,
-    private _gender: string
+    private _gender: string,
+    private _rankInTournament: number
   ) {}
 
   get firstName(): string {
@@ -36,6 +37,9 @@ export class User {
   get gender(): string {
     return this._gender;
   }
+  get rankInTournament(): number {
+    return this._rankInTournament;
+  }
 
   set firstName(value: string) {
     this._firstName = value;
@@ -61,6 +65,9 @@ export class User {
   set gender(value: string) {
     this._gender = value;
   }
+  set rankInTournament(value: number) {
+    this._rankInTournament = value;
+  }
 
   static fromJSON(json: any): User {
     return new User(
@@ -71,7 +78,8 @@ export class User {
       json.password,
       json.phoneNumber,
       json.email,
-      json.gender
+      json.gender,
+      json.rankInTournament
     );
   }
 }

@@ -17,13 +17,15 @@ import {
   MatCardModule,
   MatButtonModule,
   MatMenuModule,
-  MatTabsModule
+  MatTabsModule,
+  MatTableModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { RankingComponent } from './ranking/ranking.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, RankingComponent],
+  declarations: [AppComponent, RegisterComponent, RankingComponent, UserDetailsComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -38,7 +40,8 @@ import { RankingComponent } from './ranking/ranking.component';
     MatCardModule,
     MatButtonModule,
     MatMenuModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
