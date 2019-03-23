@@ -10,14 +10,11 @@ import { TournamentDataService } from '../tournament.data.services';
 })
 export class UserDetailsComponent implements OnInit {
   private _fetchUser$: Observable<User> = this._tournamenDataService.getUserById$(1);
+  constructor(private _tournamenDataService: TournamentDataService) {}
 
-  constructor(private _tournamenDataService: TournamentDataService) { }
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  get userCurrentUser(){
+  get user$(): Observable<User> {
     return this._fetchUser$;
   }
-
 }

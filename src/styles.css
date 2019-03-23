@@ -1,1 +1,6 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+html {
+  background-image: url(./assets/courtLigh.jpg);
+  background-size: cover;
+}

@@ -1,7 +1,8 @@
 export class User {
-  private _userId: number;
+  // private _userId: number;
 
   constructor(
+    private _userId: number,
     private _firstName: string,
     private _familyName: string,
     private _tennisVlaanderenRanking: number,
@@ -13,6 +14,9 @@ export class User {
     private _rankInTournament: number
   ) {}
 
+  get userId(): number {
+    return this._userId;
+  }
   get firstName(): string {
     return this._firstName;
   }
@@ -71,6 +75,7 @@ export class User {
 
   static fromJSON(json: any): User {
     return new User(
+      json.userId,
       json.firstName,
       json.familyName,
       json.tennisVlaanderenRanking,

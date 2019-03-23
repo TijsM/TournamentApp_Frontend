@@ -19,7 +19,7 @@ export class TournamentDataService {
 
   getUserById$(id: number): Observable<User> {
     return this.http
-      .get(`${environment.apiUrl}/users/id/${id}`)
+      .get(`${environment.apiUrl}/Users/${id}`)
       .pipe(map(User.fromJSON));
   }
 }

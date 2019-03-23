@@ -10,7 +10,7 @@ import { User } from '../user.model';
 })
 export class RankingComponent implements OnInit {
   private _fetchUsers$: Observable<User[]> = this._tournamenDataService.users$;
-  dataSource = this._fetchUsers$;
+  dataSource =this._fetchUsers$;
   displayedColumns = ['ranking', 'name', 'daaguit'];
 
   constructor(private _tournamenDataService: TournamentDataService) {}
@@ -20,11 +20,4 @@ export class RankingComponent implements OnInit {
   get users$(): Observable<User[]> {
     return this._fetchUsers$;
   }
-}
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
 }
