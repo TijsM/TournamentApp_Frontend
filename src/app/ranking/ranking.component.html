@@ -3,7 +3,7 @@
     Ranking
   </mat-card-title>
   <div class="example-container mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="users$">
 
       <!-- Position Column -->
       <ng-container matColumnDef="ranking">
@@ -32,6 +32,3 @@
     </table>
   </div>
 </mat-card>
-
-
-

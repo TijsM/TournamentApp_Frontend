@@ -1,3 +1,16 @@
-<p>
-  de geselecteerde user is {{user$.firstName}}
-</p>
+<mat-card class="statsContainer">
+  <mat-card-title>
+    Details van {{(user$ | async)?.firstName}} {{(user$ | async)?.familyName}}
+  </mat-card-title>
+  <mat-card-content>
+    <p>
+      klassement-waarde: {{(user$ | async)?.tennisVlaanderenRanking}} <br>
+      geboortedatum: {{(user$ | async)?.dateOfBirth}}<br>
+      gsm-nummer: {{(user$ | async)?.phoneNumber}}<br>
+      email: {{(user$ | async)?.email}}<br>
+      geslacht: {{(user$ | async)?.gender}}<br>
+      plaats in ladder: {{(user$ | async)?.rankInTournament}}
+      matches {{(user$ | async)?.matches}}
+    </p>
+  </mat-card-content>
+</mat-card>

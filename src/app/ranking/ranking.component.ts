@@ -10,7 +10,6 @@ import { User } from '../user.model';
 })
 export class RankingComponent implements OnInit {
   private _fetchUsers$: Observable<User[]> = this._tournamenDataService.users$;
-  dataSource =this._fetchUsers$;
   displayedColumns = ['ranking', 'name', 'daaguit'];
 
   constructor(private _tournamenDataService: TournamentDataService) {}

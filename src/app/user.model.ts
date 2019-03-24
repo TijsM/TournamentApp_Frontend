@@ -1,3 +1,5 @@
+import { Match } from './match.model';
+
 export class User {
   // private _userId: number;
 
@@ -11,7 +13,8 @@ export class User {
     private _phoneNumber: string,
     private _email: string,
     private _gender: string,
-    private _rankInTournament: number
+    private _rankInTournament: number,
+    private _matches: Match[]
   ) {}
 
   get userId(): number {
@@ -44,6 +47,9 @@ export class User {
   get rankInTournament(): number {
     return this._rankInTournament;
   }
+  get matches(): Match[] {
+    return this._matches;
+  }
 
   set firstName(value: string) {
     this._firstName = value;
@@ -72,6 +78,9 @@ export class User {
   set rankInTournament(value: number) {
     this._rankInTournament = value;
   }
+  set matches(value: Match[]) {
+    this._matches = value;
+  }
 
   static fromJSON(json: any): User {
     return new User(
@@ -84,7 +93,8 @@ export class User {
       json.phoneNumber,
       json.email,
       json.gender,
-      json.rankInTournament
+      json.rankInTournament,
+      json.matches
     );
   }
 }

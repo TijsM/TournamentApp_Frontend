@@ -9,7 +9,9 @@ import { TournamentDataService } from '../tournament.data.services';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
-  private _fetchUser$: Observable<User> = this._tournamenDataService.getUserById$(1);
+  private _fetchUser$: Observable<
+    User
+  > = this._tournamenDataService.getUserById$(2);
   constructor(private _tournamenDataService: TournamentDataService) {}
 
   ngOnInit() {}
