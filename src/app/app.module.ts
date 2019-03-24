@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
+import { ChartsModule } from 'ng2-charts';
 
 import {
   MatInputModule,
@@ -20,7 +21,8 @@ import {
   MatButtonModule,
   MatMenuModule,
   MatTabsModule,
-  MatTableModule
+  MatTableModule,
+  MatExpansionModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { RankingComponent } from './ranking/ranking.component';
@@ -49,7 +51,9 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     MatButtonModule,
     MatMenuModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    MatExpansionModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,14 +3,41 @@
     Details van {{(user$ | async)?.firstName}} {{(user$ | async)?.familyName}}
   </mat-card-title>
   <mat-card-content>
-    <p>
-      klassement-waarde: {{(user$ | async)?.tennisVlaanderenRanking}} <br>
-      geboortedatum: {{(user$ | async)?.dateOfBirth}}<br>
-      gsm-nummer: {{(user$ | async)?.phoneNumber}}<br>
-      email: {{(user$ | async)?.email}}<br>
-      geslacht: {{(user$ | async)?.gender}}<br>
-      plaats in ladder: {{(user$ | async)?.rankInTournament}}
-      matches {{(user$ | async)?.matches}}
-    </p>
+    <mat-accordion class="stats">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Gegevens
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          klassement-waarde: {{(user$ | async)?.tennisVlaanderenRanking}} <br>
+          geboortedatum: {{(user$ | async)?.dateOfBirth}}<br>
+          gsm-nummer: {{(user$ | async)?.phoneNumber}}<br>
+          email: {{(user$ | async)?.email}}<br>
+          geslacht: {{(user$ | async)?.gender}}<br>
+          plaats in ladder: {{(user$ | async)?.rankInTournament}}
+          matches {{(user$ | async)?.matches}}
+        </p>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            voorbeeld grafiek
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+            [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+          </canvas>
+        </div>
+      </mat-expansion-panel>
+
+      <button mat-flat-button color="primary">
+        Daag Uit
+      </button>
+    </mat-accordion>
+
+
   </mat-card-content>
 </mat-card>

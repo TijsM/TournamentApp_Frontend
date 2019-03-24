@@ -2,19 +2,16 @@ import { User } from './user.model';
 
 export class Match {
   private _matchId: number;
+  private _gamesWonPlayer1Set1: number;
+  private _gamesWonPlayer1Set2: number;
+  private _gamesWonPlayer1Set3: number;
+  private _gamesWonPlayer2Set1: number;
+  private _gamesWonPlayer2Set2: number;
+  private _gamesWonPlayer2Set3: number;
+  private _player1Won: boolean;
+  private _player2Won: boolean;
 
-  constructor(
-    private _player1: User,
-    private _player2: User,
-    private _gamesWonPlayer1Set1: number,
-    private _gamesWonPlayer1Set2: number,
-    private _gamesWonPlayer1Set3: number,
-    private _gamesWonPlayer2Set1: number,
-    private _gamesWonPlayer2Set2: number,
-    private _gamesWonPlayer2Set3: number,
-    private _player1Won: boolean,
-    private _player2Won: boolean
-  ) {}
+  constructor(private _player1: User, private _player2: User) {}
 
   get player1(): User {
     return this._player1;
@@ -76,5 +73,12 @@ export class Match {
   }
   set player2Won(value: boolean) {
     this._player2Won = value;
+  }
+
+  static fromJSON(json: any): Match {
+    return new Match(
+      json.player1,
+      json.player2
+    );
   }
 }

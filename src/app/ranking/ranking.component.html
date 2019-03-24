@@ -21,9 +21,13 @@
       <ng-container matColumnDef="daaguit">
         <th mat-header-cell *matHeaderCellDef> Daag uit </th>
         <td mat-cell *matCellDef="let element">
-          <button routerLink="/userDetails/1" mat-flat-button color="primary">
+          <!-- <button routerLink="/userDetails/1" mat-flat-button color="primary">
+            Bekijk details statisch
+          </button> -->
+          <button (click)="onClick(element.userId)" [routerLink]="['userDetails', element.userId]" mat-flat-button color="primary">
             Bekijk details
-          </button> </td>
+          </button>
+        </td>
       </ng-container>
 
 
