@@ -1,4 +1,4 @@
-<mat-card class="statsContainer">
+<mat-card class="statsContainer dropShadow">
   <mat-card-title>
     Details van {{(user$ | async)?.firstName}} {{(user$ | async)?.familyName}}
   </mat-card-title>
@@ -7,7 +7,7 @@
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Gegevens
+            Algemene gegevens
           </mat-panel-title>
         </mat-expansion-panel-header>
         <p>
@@ -16,23 +16,24 @@
           gsm-nummer: {{(user$ | async)?.phoneNumber}}<br>
           email: {{(user$ | async)?.email}}<br>
           geslacht: {{(user$ | async)?.gender}}<br>
-          plaats in ladder: {{(user$ | async)?.rankInTournament}}
-          matches {{(user$ | async)?.matches}}
+          plaats in ladder: {{(user$ | async)?.rankInTournament}} <br>
+          matchen: {{(user$ | async)?.matches}}
         </p>
       </mat-expansion-panel>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            voorbeeld grafiek
+            score tennisvlaanderen
           </mat-panel-title>
         </mat-expansion-panel-header>
         <div>
-          <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
-            [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+          <canvas height="100" class="diagram" baseChart
+            [data]="[(user$ | async)?.tennisVlaanderenRanking ,(tennisVlaanderenAverage$ | async)]"
+            [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions" [legend]="pieChartLegend">
           </canvas>
         </div>
       </mat-expansion-panel>
-
+      <br><br>
       <button mat-flat-button color="primary">
         Daag Uit
       </button>

@@ -1,4 +1,4 @@
-<mat-card class="rankingContainer">
+<mat-card class="rankingContainer blueWhiteBackground">
   <mat-card-title>
     Ranking
   </mat-card-title>
@@ -24,15 +24,15 @@
           <!-- <button routerLink="/userDetails/1" mat-flat-button color="primary">
             Bekijk details statisch
           </button> -->
-          <button (click)="onClick(element.userId)" [routerLink]="['userDetails', element.userId]" mat-flat-button color="primary">
+          <button (click)="onClick(element.userId)" [routerLink]="['userDetails', element.userId]" mat-flat-button
+            color="primary">
             Bekijk details
           </button>
         </td>
       </ng-container>
-
-
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
 </mat-card>
+

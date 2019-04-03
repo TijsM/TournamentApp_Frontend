@@ -1,7 +1,9 @@
 .statsContainer {
-
   width: 80%;
   margin-left: 10%;
   margin-top: 200px;
+}
 
+.diagram {
+  height: 50%;
 }

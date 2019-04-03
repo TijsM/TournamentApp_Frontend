@@ -11,7 +11,10 @@ export class Match {
   private _player1Won: boolean;
   private _player2Won: boolean;
 
-  constructor(private _player1: User, private _player2: User) {}
+  constructor(private _player1: User, private _player2: User) {
+    this._player1Won = false;
+    this._player2Won = false;
+  }
 
   get player1(): User {
     return this._player1;
@@ -76,9 +79,6 @@ export class Match {
   }
 
   static fromJSON(json: any): Match {
-    return new Match(
-      json.player1,
-      json.player2
-    );
+    return new Match(json.player1, json.player2);
   }
 }

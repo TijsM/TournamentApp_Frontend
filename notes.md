@@ -1,4 +1,4 @@
-#Vragen
+# Vragen
 
 1. hoe routing doen als een element niet mag verwijderd worden
 
@@ -8,11 +8,14 @@
 
 4. tournament heeft een user, user heeft een tournament => gevolg = json can't parse bij tournament, hoe oplossen
 
-#notities
+5. hoe kan ik weten welke user er heeft gewonnen
+
+# notities
 
 grafieken voor
 
 - wins/losses
+- head to head (vorige match(en))
 - avg games per set
 - avg games per lost set
 - last matches => vorm

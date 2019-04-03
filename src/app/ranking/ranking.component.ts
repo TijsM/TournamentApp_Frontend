@@ -13,8 +13,10 @@ export class RankingComponent implements OnInit {
   private _fetchUsers$: Observable<User[]> = this._tournamenDataService.users$;
   displayedColumns = ['ranking', 'name', 'daaguit'];
 
-  constructor(private _tournamenDataService: TournamentDataService,
-    private _router: Router) {}
+  constructor(
+    private _tournamenDataService: TournamentDataService,
+    private _router: Router
+  ) {}
 
   ngOnInit() {}
 
@@ -23,6 +25,6 @@ export class RankingComponent implements OnInit {
   }
 
   onClick(userId: number) {
-   this._router.navigate(['/userDetails', userId])
+     this._router.navigate(['/userDetails', userId])
   }
 }

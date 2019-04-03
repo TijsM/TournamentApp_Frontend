@@ -6,6 +6,8 @@ import { Label, SingleDataSet } from 'ng2-charts';
 import { ChartType } from 'chart.js';
 import { Match } from '../match.model';
 import { ActivatedRoute } from '@angular/router';
+import { async } from 'q';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-details',
@@ -13,18 +15,19 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
-  private _fetchUser$: Observable<User>; // = this._tournamenDataService.getUserById$(1);
+  private _fetchUser$: Observable<User>;
   private _fetchMatchesFromUser$: Observable<
     Match[]
   > = this._tournamenDataService.getMatchesFromUser$(2);
+  private _fetchTennisVlaanderenAverage: Observable<
+    number
+  > = this._tournamenDataService.getAvarageTennisVlaanderenScore$();
 
- 
-
-  public pieChartLabels: Label[] = ['Gewonnne', 'Verloren'];
-  public pieChartData: SingleDataSet = [300, 500];
+  //data voor grafiek "tennisvlaanderenscore"
+  public pieChartLabels: Label[] = ['score van speler', 'gemiddelde'];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
-  public pieChartPlugins = [];
+
   constructor(
     private _route: ActivatedRoute,
     private _tournamenDataService: TournamentDataService
@@ -41,6 +44,10 @@ export class UserDetailsComponent implements OnInit {
 
   get matchesFromUser$(): Observable<Match[]> {
     return this._fetchMatchesFromUser$;
+  }
+
+  get tennisVlaanderenAverage$(): Observable<number> {
+    return this._fetchTennisVlaanderenAverage;
   }
 
   set user$(value: Observable<User>) {
