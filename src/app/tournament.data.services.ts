@@ -35,4 +35,10 @@ export class TournamentDataService {
       .get(`${environment.apiUrl}/Users/GetAverageTennisVlaanderenScore`)
       .pipe(map(Number));
   }
+
+  getWonMatchesFromPlayer(id: number): Observable<Match[]> {
+    return this.http
+      .get(`${environment.apiUrl}/Match/GetWonMatchesFromPlayer/${id}`)
+      .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
+  }
 }

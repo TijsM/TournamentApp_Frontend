@@ -16,13 +16,9 @@ import { map } from 'rxjs/operators';
 })
 export class UserDetailsComponent implements OnInit {
   private _fetchUser$: Observable<User>;
-  private _fetchMatchesFromUser$: Observable<
-    Match[]
-  > = this._tournamenDataService.getMatchesFromUser$(2);
-  private _fetchTennisVlaanderenAverage: Observable<
-    number
-  > = this._tournamenDataService.getAvarageTennisVlaanderenScore$();
-
+  private _fetchMatchesFromUser$: Observable<Match[]>;
+  private _fetchTennisVlaanderenAverage$: Observable<number> = this._tournamenDataService.getAvarageTennisVlaanderenScore$();
+  private _fetchWonMatches$: Observable<Match[]>;
   //data voor grafiek "tennisvlaanderenscore"
   public pieChartLabels: Label[] = ['score van speler', 'gemiddelde'];
   public pieChartType: ChartType = 'pie';
@@ -36,6 +32,8 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit() {
     const id = +this._route.snapshot.params['id'];
     this._fetchUser$ = this._tournamenDataService.getUserById$(id);
+    this._fetchMatchesFromUser$ = this._tournamenDataService.getMatchesFromUser$(2);
+    this._fetchWonMatches$ = this._tournamenDataService.getWonMatchesFromPlayer(id);
   }
 
   get user$(): Observable<User> {
@@ -47,7 +45,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   get tennisVlaanderenAverage$(): Observable<number> {
-    return this._fetchTennisVlaanderenAverage;
+    return this._fetchTennisVlaanderenAverage$;
   }
 
   set user$(value: Observable<User>) {
