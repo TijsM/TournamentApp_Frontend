@@ -1,44 +1,85 @@
-<mat-card class="form blueWhiteBackground">
+<mat-card class="form">
   <mat-tab-group>
     <mat-tab label="Login">
       <mat-card>
         <mat-card-title>Login</mat-card-title>
-        <div fxLayout="column">
-          <mat-form-field>
-            <input matInput placeholder="Email adres" type="email" #userName />
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Wachtwoord" type="password" #userPassword />
-          </mat-form-field>
-          <button routerLink="/ranking" mat-flat-button color="primary">
-            Bevestig
-          </button>
-          <!-- <button routerLink="/ranking"(click)="login(userName,userPassword)" mat-flat-button color="primary">
-            Bevestig
-          </button> -->
-        </div>
+        <form [formGroup]="userLogin" (ngSubmit)='login()'>
+          <div fxLayout="column">
+            <div fxLayout="row">
+              <div class="ico">
+                <mat-icon aria-hidden="false" aria-label="naam">person</mat-icon>
+              </div>
+              <div class="input">
+                <mat-form-field>
+                  <input matInput placeholder="email" type="email" aria-label="email" formControlName="email"
+                    required />
+                  <mat-error *ngIf="userLogin.get('email')['errors']  && userLogin.get('email').touched">
+                    {{getErrorMessage(userLogin.get('email')['errors']) }}</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div class="ico">
+                <mat-icon aria-hidden="false" aria-label="wachtwoord">vpn_key</mat-icon>
+              </div>
+              <div class="input">
+                <mat-form-field>
+                  <input matInput placeholder="wachtwoord" type="password" aria-label="wachtwoord"
+                    formcontrolName="wachtwoord" required />
+                  <mat-error *ngIf="userLogin.get('wachtwoord')['errors']  && userLogin.get('wachtwoord').touched">
+                    {{getErrorMessage(userLogin.get('wachtwoord')['errors']) }}</mat-error>
+
+                </mat-form-field>
+              </div>
+            </div>
+            <button routerLink="/ranking" mat-flat-button color="primary">
+              Bevestig
+            </button>
+          </div>
+        </form>
       </mat-card>
     </mat-tab>
 
     <mat-tab label="Registreer">
       <mat-card>
         <mat-card-title>Registreer</mat-card-title>
-        <div fxLayout="column">
+        <div class="Registreer">
           <mat-card-subtitle>Algemeen</mat-card-subtitle>
-          <mat-form-field>
-            <input matInput placeholder="Voornaam" #firstName>
-          </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Familienaaam" #familyName>
-          </mat-form-field>
+          <div class="RegistreerFormRij">
+            <div class="item">
+              <div class="ico">
+                <mat-icon aria-hidden="false" aria-label="naam">person</mat-icon>
+              </div>
+              <div class="input">
+                <mat-form-field>
+                  <input matInput placeholder="Voornaam" #firstName>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="item">
+              <div class="ico">
+                <mat-icon aria-hidden="false" aria-label="naam">person</mat-icon>
+              </div>
+              <div class="input">
+                <mat-form-field>
+                  <input matInput placeholder="Familienaaam" #familyName>
+                </mat-form-field>
+              </div>
+
+            </div>
+
+          </div>
+
+
+
 
           <mat-form-field>
             <input matInput placeholder="Waarde klassement" type="number" #tennisVlaanderenRanking />
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date" #dateOfBirth>
+            <input matInput [matDatepicker]="picker" placeholder="Geboortedatum" #dateOfBirth>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>

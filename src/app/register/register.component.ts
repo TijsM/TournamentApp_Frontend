@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user.model';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormControl
+} from '@angular/forms';
+import { TournamentDataService } from '../tournament.data.services';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
@@ -7,42 +15,43 @@ import { User } from '../user.model';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  name: string;
-  constructor() {
-    this.name = 'testje';
+  public userLogin: FormGroup;
+
+  constructor(
+    private ulfb: FormBuilder,
+    private _tournamentDataService: TournamentDataService
+  ) {}
+
+  ngOnInit() {
+    this.userLogin = this.ulfb.group({
+      email: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ]),
+      wachtwoord: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8)
+      ])
+    });
   }
 
-  ngOnInit() {}
-
-
-  login(userName: HTMLInputElement, password: HTMLInputElement){
-    console.log(userName.value);
-    console.log(password.value);
+  login() {
+    this._tournamentDataService
+      .login(this.userLogin.value.email, this.userLogin.value.wachtwoord)
+      .pipe(first())
+      .subscribe(data => {
+        location.reload();
+      });
   }
 
-   register(
-    firstName: HTMLInputElement
-    //,
-  //   familyname: HTMLInputElement,
-  //   tennisVlaanderenRanking:HTMLInputElement,
-  //   dateOfBirth:HTMLInputElement,
-  //    password:HTMLInputElement,
-  //   passwordConfirmation:HTMLInputElement, 
-  //   phoneNumber:HTMLInputElement, 
-  //   email:HTMLInputElement, 
-  //   geslacht:HTMLInputElement
-   )
-  {
-      // const user = new User(firstName.value,familyname.value,tennisVlaanderenRanking.valueAsNumber,dateOfBirth.valueAsDate,password.value,phoneNumber.value,email.value,geslacht.value);
-
-      // console.log("nieuwe user aangemaakt");
-      // console.log(user.firstName);
-      // console.log(user.familyName);
-      // console.log(user.tennisVlaanderenRanking);
-      // console.log(user.dateOfBirth)
-      // console.log(geslacht);
-
-      console.log("not yet implemented");
+  getErrorMessage(errors: any) {
+    if (errors.required) {
+      return 'Dit veld is verplicht';
+    } else if (errors.minlength) {
+      return `Dit veld moet minstens ${errors.minlength.requiredLength} 
+        karakters bevatten (nu ${errors.minlength.actualLength})`;
+    } else if (errors.pattern) {
+      return `Dit veld bevat geen geldig e-mailadres`;
     }
-  
+  }
 }

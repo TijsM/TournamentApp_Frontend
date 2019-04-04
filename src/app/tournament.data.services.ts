@@ -41,4 +41,17 @@ export class TournamentDataService {
       .get(`${environment.apiUrl}/Match/GetWonMatchesFromPlayer/${id}`)
       .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
   }
+
+  login(email: string, wachtwoord: string) {
+    return this.http
+      .post<any>(`${environment.apiUrl}/Account`, { email, wachtwoord })
+      .pipe(
+        map(user => {
+          if (user && user.token) {
+            localStorage.setItem('currentUser', JSON.stringify(user));
+          }
+          return user;
+        })
+      );
+  }
 }

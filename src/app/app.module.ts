@@ -9,7 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ChartsModule } from 'ng2-charts';
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {
   MatInputModule,
   MatFormFieldModule,
@@ -22,11 +22,13 @@ import {
   MatMenuModule,
   MatTabsModule,
   MatTableModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatIconModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { RankingComponent } from './ranking/ranking.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,10 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     MatTabsModule,
     MatTableModule,
     MatExpansionModule,
-    ChartsModule
+    ChartsModule,
+    AngularFontAwesomeModule,
+    MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

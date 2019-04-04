@@ -2,8 +2,38 @@
   width: 80%;
   margin-left: 10%;
   margin-top: 200px;
-  
+
 }
+
+
+
+mat-form-field {
+  width: 100%;
+}
+
+.RegistreerFormRij {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.item{
+  width: 100%;
+  float: left;
+}
+
+.ico {
+  padding-top: 20px;
+  width: 7%;
+  box-sizing: border-box;
+}
+
+.input {
+  width: 90%;
+  box-sizing: border-box
+}
+
+
 
 /* 
 blauw: #3f51b5

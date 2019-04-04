@@ -4,11 +4,11 @@
 
 2. moeten api calls specifiek zijn? of algemeen --> als je alle mannen wil, moet je dan alle mannen vragen en dan filteren, of enkel de mannen van api vragen
 
-3. moet de tussentabel tussen match en speler 2 spelers bevatten?
-
 4. tournament heeft een user, user heeft een tournament => gevolg = json can't parse bij tournament, hoe oplossen
 
 5. hoe kan ik weten welke user er heeft gewonnen
+
+6. login error
 
 # notities
 
