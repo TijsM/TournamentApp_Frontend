@@ -29,13 +29,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { RankingComponent } from './ranking/ranking.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ChallengeComponent } from './challenge/challenge.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     RankingComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    ChallengeComponent
   ],
   imports: [
     BrowserModule,
