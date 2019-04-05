@@ -1,27 +1,35 @@
 <mat-card class="statsContainer dropShadow">
   <mat-card-title>
-    Details van {{ (user$ | async)?.firstName }}
-    {{ (user$ | async)?.familyName }}
+    {{ selectedUser.firstName }}
+    {{ selectedUser.familyName }}
   </mat-card-title>
   <mat-card-content>
     <mat-accordion class="stats">
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Algemene gegevens 
+            Algemene gegevens
           </mat-panel-title>
         </mat-expansion-panel-header>
         <p>
-          klassement-waarde: {{ (user$ | async)?.tennisVlaanderenRanking }}
-          <br />
-          geboortedatum: {{ (user$ | async)?.dateOfBirth }}<br />
-          gsm-nummer: {{ (user$ | async)?.phoneNumber }}<br />
-          email: {{ (user$ | async)?.email }}<br />
-          geslacht: {{ (user$ | async)?.gender }}<br />
-          plaats in ladder: {{ (user$ | async)?.rankInTournament }} <br />
-          matchen: {{ (user$ | async)?.matches }}
+          klassement-waarde: {{ selectedUser.tennisVlaanderenRanking }}<br />
+          geboortedatum: {{selectedUser.dateOfBirth }}<br />
+          gsm-nummer: {{ selectedUser.phoneNumber }}<br />
+          email: {{ selectedUser.email }}<br />
+          geslacht: {{ selectedUser.gender }}<br />
+          plaats in ladder: {{ selectedUser.rankInTournament }} <br />
+          matchen gespeeld: {{ selectedUser.matches.length }}
         </p>
       </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            match-geschiedenis
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+      
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -29,7 +37,7 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <div>
-          <canvas height="100" class="diagram" baseChart [data]="[(user$ | async)?.tennisVlaanderenRanking,
+          <canvas height="100" class="diagram" baseChart [data]="[selectedUser.tennisVlaanderenRanking,
               tennisVlaanderenAverage$ | async
             ]" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
             [legend]="pieChartLegend">

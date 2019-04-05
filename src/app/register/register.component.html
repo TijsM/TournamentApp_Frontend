@@ -36,7 +36,7 @@
                 </div>
               </div>
             </div>
-            
+
             <button routerLink="/ranking" mat-flat-button color="primary">
               Bevestig
             </button>
@@ -52,7 +52,7 @@
           <mat-card-subtitle>Algemeen</mat-card-subtitle>
 
           <div class="RegistreerFormRij">
-            <div class="item">
+            <div class="item itemTwoOneRow">
               <div class="ico">
                 <mat-icon aria-hidden="false" aria-label="naam">person</mat-icon>
               </div>
@@ -62,7 +62,7 @@
                 </mat-form-field>
               </div>
             </div>
-            <div class="item">
+            <div class="item itemTwoOneRow">
               <div class="ico">
                 <mat-icon aria-hidden="false" aria-label="naam">people</mat-icon>
               </div>
@@ -107,7 +107,7 @@
           <br>
 
           <div class="RegistreerFormRij">
-            <div class="item">
+            <div class="item itemTwoOneRow">
               <div class="ico">
                 <mat-icon aria-hidden="false" aria-label="naam">vpn_key</mat-icon>
               </div>
@@ -118,62 +118,62 @@
               </div>
             </div>
 
-            <div class="item">
-              <div class="ico">
-                <mat-icon aria-hidden="false" aria-label="naam">vpn_key</mat-icon>
-              </div>
-              <div class="input">
-                <mat-form-field>
-                  <input matInput placeholder="Bevestig Wachtwoord" type="password" #passwordConfirmation />
-                </mat-form-field>
-              </div>
+            <div class="item itemTwoOneRow">
+              <div class=" ico">
+              <mat-icon aria-hidden="false" aria-label="naam">vpn_key</mat-icon>
+            </div>
+            <div class="input">
+              <mat-form-field>
+                <input matInput placeholder="Bevestig Wachtwoord" type="password" #passwordConfirmation />
+              </mat-form-field>
             </div>
           </div>
+        </div>
 
 
-          <br>
-          <mat-card-subtitle>Contactgegevens</mat-card-subtitle>
-          <br>
+        <br>
+        <mat-card-subtitle>Contactgegevens</mat-card-subtitle>
+        <br>
 
-          <div class="RegistreerFormRij">
-            <div class="item">
-              <div class="ico">
-                <mat-icon aria-hidden="false" aria-label="naam">phone</mat-icon>
-              </div>
-              <div class="input">
-                <mat-form-field>
-                  <input matInput placeholder="GSM-nummer" type="text" #phoneNumber />
-                </mat-form-field>
-              </div>
+        <div class="RegistreerFormRij">
+          <div class="item">
+            <div class="ico">
+              <mat-icon aria-hidden="false" aria-label="naam">phone</mat-icon>
+            </div>
+            <div class="input">
+              <mat-form-field>
+                <input matInput placeholder="GSM-nummer" type="text" #phoneNumber />
+              </mat-form-field>
             </div>
           </div>
+        </div>
 
-          <div class="RegistreerFormRij">
-            <div class="item">
-              <div class="ico">
-                <mat-icon aria-hidden="false" aria-label="naam">email</mat-icon>
-              </div>
-              <div class="input">
-                <mat-form-field>
-                  <input matInput placeholder="Email adres" type="email" #email />
-                </mat-form-field>
-              </div>
+        <div class="RegistreerFormRij">
+          <div class="item">
+            <div class="ico">
+              <mat-icon aria-hidden="false" aria-label="naam">email</mat-icon>
+            </div>
+            <div class="input">
+              <mat-form-field>
+                <input matInput placeholder="Email adres" type="email" #email />
+              </mat-form-field>
             </div>
           </div>
+        </div>
 
-          <div class="RegistreerFormRij">
-            <div class="item">
-              <div class="ico">
-                <mat-icon aria-hidden="false" aria-label="naam">face</mat-icon>
-              </div>
-              <div class="input">
-                <mat-radio-group name="geslacht">
-                  <mat-radio-button value="man">Man</mat-radio-button>
-                  <mat-radio-button value="vrouw">Vrouw</mat-radio-button>
-                </mat-radio-group>
-              </div>
+        <div class="RegistreerFormRij">
+          <div class="item">
+            <div class="ico">
+              <mat-icon aria-hidden="false" aria-label="naam">face</mat-icon>
+            </div>
+            <div class="input">
+              <mat-radio-group name="geslacht">
+                <mat-radio-button value="man">Man</mat-radio-button>
+                <mat-radio-button value="vrouw">Vrouw</mat-radio-button>
+              </mat-radio-group>
             </div>
           </div>
+        </div>
 
 
 
@@ -184,7 +184,7 @@
 
 
 
-          <button (click)="register()" mat-flat-button color="primary">Bevestig</button>
+        <button (click)="register()" mat-flat-button color="primary">Bevestig</button>
         </div>
       </mat-card>
     </mat-tab>
