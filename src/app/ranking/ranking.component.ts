@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-ranking',
   templateUrl: './ranking.component.html',
-  styleUrls: ['./ranking.component.css']
+  styleUrls: ['./ranking.component.scss']
 })
 export class RankingComponent implements OnInit {
   private _fetchUsers$: Observable<User[]> = this._tournamenDataService.users$;
@@ -25,6 +25,6 @@ export class RankingComponent implements OnInit {
   }
 
   onClick(userId: number) {
-     this._router.navigate(['/userDetails', userId])
+    this._router.navigate(['/userDetails', userId]);
   }
 }

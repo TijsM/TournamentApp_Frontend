@@ -1,6 +1,8 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 html {
+  font-family: 'Roboto Mono', monospace;
+
   /* background-image: url(./assets/courtLigh.jpg); */
   background: linear-gradient(45deg, #5870cb 5%, rgba(0, 0, 0, 0) 1%), linear-gradient(45deg, white 85%, #5870cb 2%);
   /* background-image: linear-gradient(to top, #092969 0%, #acbcdb 100%, #6f95e0 100%, #a2b6df 100%); */
@@ -8,5 +10,7 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
 
+
+
+}

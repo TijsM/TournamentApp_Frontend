@@ -5,33 +5,38 @@
         <mat-card-title>Login</mat-card-title>
         <form [formGroup]="userLogin" (ngSubmit)='login()'>
           <div fxLayout="column">
-            <div fxLayout="row">
-              <div class="ico">
-                <mat-icon aria-hidden="false" aria-label="naam">person</mat-icon>
-              </div>
-              <div class="input">
-                <mat-form-field>
-                  <input matInput placeholder="email" type="email" aria-label="email" formControlName="email"
-                    required />
-                  <mat-error *ngIf="userLogin.get('email')['errors']  && userLogin.get('email').touched">
-                    {{getErrorMessage(userLogin.get('email')['errors']) }}</mat-error>
-                </mat-form-field>
+            <div class="RegistreerFormRij">
+              <div class="item">
+                <div class="ico">
+                  <mat-icon aria-hidden="false" aria-label="naam">person</mat-icon>
+                </div>
+                <div class="input">
+                  <mat-form-field>
+                    <input matInput placeholder="email" type="email" aria-label="email" formControlName="email"
+                      required />
+                    <mat-error *ngIf="userLogin.get('email')['errors']  && userLogin.get('email').touched">
+                      {{getErrorMessage(userLogin.get('email')['errors']) }}</mat-error>
+                  </mat-form-field>
+                </div>
               </div>
             </div>
-            <div fxLayout="row">
-              <div class="ico">
-                <mat-icon aria-hidden="false" aria-label="wachtwoord">vpn_key</mat-icon>
-              </div>
-              <div class="input">
-                <mat-form-field>
-                  <input matInput placeholder="wachtwoord" type="password" aria-label="wachtwoord"
-                    formcontrolName="wachtwoord" required />
-                  <mat-error *ngIf="userLogin.get('wachtwoord')['errors']  && userLogin.get('wachtwoord').touched">
-                    {{getErrorMessage(userLogin.get('wachtwoord')['errors']) }}</mat-error>
 
-                </mat-form-field>
+            <div class="RegistreerFormRij">
+              <div class="item">
+                <div class="ico">
+                  <mat-icon aria-hidden="false" aria-label="wachtwoord">vpn_key</mat-icon>
+                </div>
+                <div class="input">
+                  <mat-form-field>
+                    <input matInput placeholder="wachtwoord" type="password" aria-label="wachtwoord"
+                      formcontrolName="wachtwoord" required />
+                    <mat-error *ngIf="userLogin.get('wachtwoord')['errors']  && userLogin.get('wachtwoord').touched">
+                      {{getErrorMessage(userLogin.get('wachtwoord')['errors']) }}</mat-error>
+                  </mat-form-field>
+                </div>
               </div>
             </div>
+            
             <button routerLink="/ranking" mat-flat-button color="primary">
               Bevestig
             </button>
@@ -124,14 +129,6 @@
               </div>
             </div>
           </div>
-
-
-
-
-
-
-
-
 
 
           <br>
