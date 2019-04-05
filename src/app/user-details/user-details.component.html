@@ -1,7 +1,6 @@
-<mat-card class="statsContainer dropShadow">
+<mat-card class="statsContainer">
   <mat-card-title>
-    {{ selectedUser.firstName }}
-    {{ selectedUser.familyName }}
+    {{ selectedUser.firstName }} {{ selectedUser.familyName }}
   </mat-card-title>
   <mat-card-content>
     <mat-accordion class="stats">
@@ -28,8 +27,14 @@
             match-geschiedenis
           </mat-panel-title>
         </mat-expansion-panel-header>
+        <div *ngFor="let match of selectedUser.matches">
+          <p>
+            gewonnen: {{match.winnerFullName}}
+            verloren: {{match.loserFullName}}
+          </p>
+        </div>
       </mat-expansion-panel>
-      
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -38,8 +43,8 @@
         </mat-expansion-panel-header>
         <div>
           <canvas height="100" class="diagram" baseChart [data]="[selectedUser.tennisVlaanderenRanking,
-              tennisVlaanderenAverage$ | async
-            ]" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
+                    tennisVlaanderenAverage$ | async
+                  ]" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
             [legend]="pieChartLegend">
           </canvas>
         </div>
