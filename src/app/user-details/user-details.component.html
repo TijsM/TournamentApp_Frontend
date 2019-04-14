@@ -24,15 +24,72 @@
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            match-geschiedenis
+            gespeelde matchen
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <div *ngFor="let match of selectedUser.matches">
-          <p>
-            gewonnen: {{match.winnerFullName}}
-            verloren: {{match.loserFullName}}
-          </p>
-        </div>
+
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              Vorm
+            </mat-card-title>
+            <mat-card-subtitle>
+              Vorm van de recente matchen
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="form">
+              <div *ngFor="let match of selectedUser.lastMatches">
+                <div *ngIf="selectedUser.userId == match.winnerId" class="formWon">
+
+                  G
+
+                </div>
+                <div *ngIf="selectedUser.userId == match.loserId" class="formLoss">
+
+                  V
+
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              Resultaten
+            </mat-card-title>
+            <mat-card-subtitle>
+              Resultaten van het volledige toernooi
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="results">
+              <div class="circle">
+                <circle-progress [percent]="amountWon/amountPlayed * 100" [radius]="100" [outerStrokeWidth]="16"
+                  [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
+                  [animation]="true" [animationDuration]="500" [showSubtitle]=false></circle-progress>
+              </div>
+              <div class="stats">
+                aantal matchen gespeeld: {{amountPlayed}}
+                <br>
+                aantal matchen verloren: {{amountLost}}
+                <br>
+                aantal matchen gewonnen: {{amountWon}}
+              </div>
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+
+
+
+
+
+
+
+
       </mat-expansion-panel>
 
       <mat-expansion-panel>

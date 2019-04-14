@@ -31,6 +31,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChallengeComponent } from './challenge/challenge.component';
 
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +62,10 @@ import { ChallengeComponent } from './challenge/challenge.component';
     ChartsModule,
     AngularFontAwesomeModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgCircleProgressModule.forRoot({
+      radius: 100
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

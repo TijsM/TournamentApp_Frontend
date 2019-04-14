@@ -30,17 +30,29 @@ export class TournamentDataService {
       .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
   }
 
+  getWonMatchesFromUser$(id: number): Observable<Match[]>{
+    return this.http
+    .get(`${environment.apiUrl}/Match/GetWonMatchesFromPlayer/${id}`)
+    .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
+  }
+
+  getLostMatchesFromUser$(id: number): Observable<Match[]>{
+    return this.http
+    .get(`${environment.apiUrl}/Match/GetLostMatchesFromPlayer/${id}`)
+    .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
+  }
+
   getAvarageTennisVlaanderenScore$(): Observable<number> {
     return this.http
       .get(`${environment.apiUrl}/Users/GetAverageTennisVlaanderenScore`)
       .pipe(map(Number));
   }
 
-  getWonMatchesFromPlayer(id: number): Observable<Match[]> {
-    return this.http
-      .get(`${environment.apiUrl}/Match/GetWonMatchesFromPlayer/${id}`)
-      .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
-  }
+  // getWonMatchesFromPlayer(id: number): Observable<Match[]> {
+  //   return this.http
+  //     .get(`${environment.apiUrl}/Match/GetWonMatchesFromPlayer/${id}`)
+  //     .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
+  // }
 
   login(email: string, wachtwoord: string) {
     return this.http
@@ -53,5 +65,9 @@ export class TournamentDataService {
           return user;
         })
       );
+  }
+
+  register(user: User) {
+    this.http.post;
   }
 }

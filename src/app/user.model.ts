@@ -51,6 +51,14 @@ export class User {
     return this._matches;
   }
 
+  get lastMatches(): Match[] {
+    length = this.matches.length;
+
+    if (length > 4) {
+      return this.matches.slice(length - 4, length - 1);
+    } else return this.matches;
+  }
+
   set firstName(value: string) {
     this._firstName = value;
   }

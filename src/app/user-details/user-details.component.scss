@@ -7,3 +7,55 @@
 .diagram {
   height: 50%;
 }
+
+.form {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  min-width: 250px;
+  margin: auto;
+  justify-content: space-around;
+  margin: auto;
+
+  .formWon {
+    width: 50px;
+    height: 50px;
+    background-color: #78C000;
+    border-radius: 100%;
+    text-align: center;
+    color: white;
+    padding-top: 12.5px;
+    box-sizing: border-box;
+  }
+
+  .formLoss {
+
+    width: 50px;
+    height: 50px;
+    background-color: rgb(255, 87, 34);
+    border-radius: 100%;
+    text-align: center;
+    color: white;
+    padding-top: 12.5px;
+    box-sizing: border-box;
+
+  }
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  min-width: 250px;
+  margin: auto;
+  justify-content: space-around;
+
+  margin: 100px;
+  // .circle{
+
+  // }
+
+  .stats {
+    padding-top: 50px;
+  }
+}

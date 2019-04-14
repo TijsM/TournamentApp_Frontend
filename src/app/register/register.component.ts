@@ -16,6 +16,11 @@ import { first } from 'rxjs/operators';
 })
 export class RegisterComponent implements OnInit {
   public userLogin: FormGroup;
+  public userRegister: FormGroup;
+
+  public submitted = false;
+  public notLoading = true;
+  public loading = false;
 
   constructor(
     private ulfb: FormBuilder,
@@ -26,13 +31,33 @@ export class RegisterComponent implements OnInit {
     this.userLogin = this.ulfb.group({
       email: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        Validators.email
+        // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ]),
       wachtwoord: new FormControl('', [
         Validators.required,
         Validators.minLength(8)
       ])
     });
+
+    this.userRegister = this.ulfb.group({
+      name: ['', Validators.required],
+      familyName: ['', Validators.required],
+      dateOfBird: ['', Validators.required],
+      rankValue: ['', Validators.required],
+      password: ['', Validators.required],
+      passwordConfirmation: ['', Validators.required],
+      phone: ['', Validators.required],
+      email: ['', Validators.required, Validators.required],
+      gender: ['', Validators.required]
+    }, {validator: this.checkPasswords});
+  }
+
+  checkPasswords(group: FormGroup) {
+    let password = group.controls.password.value;
+    let passwordConfirmation = group.controls.passwordConfirmation.value;
+
+    return password === passwordConfirmation ? null : { notSame: true };
   }
 
   login() {
@@ -54,4 +79,22 @@ export class RegisterComponent implements OnInit {
       return `Dit veld bevat geen geldig e-mailadres`;
     }
   }
+
+  // onSubmit(){
+  //   this.submitted = true;
+
+  //   if (this.userRegister.invalid){
+  //     return;
+  //   }
+
+  //   this.notLoading = false;
+  //   this.loading = true;
+
+  //   this._tournamentDataService
+  //     .register(this.userRegister.value)
+  //    .pipe(first())
+  //    .subscribe(
+      
+  //    )
+  // };
 }
