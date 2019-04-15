@@ -8,28 +8,40 @@
   height: 50%;
 }
 
-.form {
-  display: flex;
-  flex-direction: row;
-  width: 50%;
-  min-width: 250px;
-  margin: auto;
-  justify-content: space-around;
-  margin: auto;
+.statsContainer {
+  .mat-card {
+    margin-top: 25px;
+    margin-bottom: 100px;
+    transition: all 0.3s linear;
+    width: 90%;
+    margin-left: 5%;
+    box-sizing: border-box;
+
+  }
+
+  .stat {
+    margin-top: 5px !important;
+    margin-top: 5px !important;
+  }
+
+  .stat:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 32px 0px rgba(27, 35, 80, 0.712);
+  }
 
   .formWon {
     width: 50px;
     height: 50px;
-    background-color: #78C000;
+    background-color: #78c000;
     border-radius: 100%;
     text-align: center;
     color: white;
     padding-top: 12.5px;
     box-sizing: border-box;
+
   }
 
   .formLoss {
-
     width: 50px;
     height: 50px;
     background-color: rgb(255, 87, 34);
@@ -40,22 +52,75 @@
     box-sizing: border-box;
 
   }
-}
 
-.results {
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-  min-width: 250px;
-  margin: auto;
-  justify-content: space-around;
+  .form {
+    display: flex;
 
-  margin: 100px;
-  // .circle{
+    flex-direction: row;
+    width: 50%;
+    min-width: 250px;
+    margin: auto;
+    justify-content: space-around;
+    margin: auto;
 
-  // }
 
-  .stats {
-    padding-top: 50px;
   }
+
+  .results {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    min-width: 250px;
+    margin: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .circle {
+      width: 300px;
+    }
+
+    .stats {
+      padding-top: 50px;
+      width: 300px;
+    }
+  }
+
+  .playedMatch {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    .matchContainer {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+
+      .result{
+        width: 20%;
+      }
+      .oponent{
+        width: 20%;
+      }
+
+
+      table {
+        width: 20%;
+        tr {
+
+          td {
+            padding: 4px;
+            // border: black 2px solid;
+            // border-collapse: collapse;
+          }
+        }
+      }
+    }
+
+   
+  }
+
+
 }

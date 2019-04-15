@@ -55,7 +55,7 @@ export class User {
     length = this.matches.length;
 
     if (length > 4) {
-      return this.matches.slice(length - 4, length - 1);
+      return this.matches.slice(length - 5, length - 1);
     } else return this.matches;
   }
 

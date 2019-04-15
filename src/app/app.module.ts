@@ -23,7 +23,8 @@ import {
   MatTabsModule,
   MatTableModule,
   MatExpansionModule,
-  MatIconModule
+  MatIconModule,
+  MatDividerModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { RankingComponent } from './ranking/ranking.component';
@@ -62,6 +63,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     ChartsModule,
     AngularFontAwesomeModule,
     MatIconModule,
+    MatDividerModule,
     ReactiveFormsModule,
     NgCircleProgressModule.forRoot({
       radius: 100

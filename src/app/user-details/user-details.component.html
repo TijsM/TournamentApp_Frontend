@@ -7,55 +7,58 @@
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Algemene gegevens
+            <h4 class="mat-subheading">Algemene gegevens</h4>
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <p>
-          klassement-waarde: {{ selectedUser.tennisVlaanderenRanking }}<br />
-          geboortedatum: {{selectedUser.dateOfBirth }}<br />
-          gsm-nummer: {{ selectedUser.phoneNumber }}<br />
-          email: {{ selectedUser.email }}<br />
-          geslacht: {{ selectedUser.gender }}<br />
-          plaats in ladder: {{ selectedUser.rankInTournament }} <br />
-          matchen gespeeld: {{ selectedUser.matches.length }}
-        </p>
+        <mat-card class="stat">
+          <mat-card-header>
+            <mat-card-title>
+              Algemene gegevens
+            </mat-card-title>
+            <mat-card-subtitle>
+              Gegevens van de geselecteerde speler
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            klassement-waarde: {{ selectedUser.tennisVlaanderenRanking }}<br />
+            geboortedatum: {{selectedUser.dateOfBirth }}<br />
+            gsm-nummer: {{ selectedUser.phoneNumber }}<br />
+            email: {{ selectedUser.email }}<br />
+            geslacht: {{ selectedUser.gender }}<br />
+            plaats in ladder: {{ selectedUser.rankInTournament }} <br />
+            matchen gespeeld: {{ selectedUser.matches.length }}
+          </mat-card-content>
+        </mat-card>
       </mat-expansion-panel>
-
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            gespeelde matchen
+            <h4 class="mat-subheading">Gespeelde Matchen</h4>
           </mat-panel-title>
         </mat-expansion-panel-header>
-
-        <mat-card>
+        <mat-card class="stat">
           <mat-card-header>
             <mat-card-title>
               Vorm
             </mat-card-title>
             <mat-card-subtitle>
-              Vorm van de recente matchen
+              Vorm de laatste 4 matchen
             </mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
             <div class="form">
               <div *ngFor="let match of selectedUser.lastMatches">
                 <div *ngIf="selectedUser.userId == match.winnerId" class="formWon">
-
                   G
-
                 </div>
                 <div *ngIf="selectedUser.userId == match.loserId" class="formLoss">
-
                   V
-
                 </div>
               </div>
             </div>
           </mat-card-content>
         </mat-card>
-
-        <mat-card>
+        <mat-card class="stat">
           <mat-card-header>
             <mat-card-title>
               Resultaten
@@ -79,32 +82,89 @@
                 aantal matchen gewonnen: {{amountWon}}
               </div>
             </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="stat">
+          <mat-card-header>
+            <mat-card-title>
+              Matchgeschiedenis
+            </mat-card-title>
+            <mat-card-subtitle>
+              Details van alle afgelopen matchen
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div *ngFor="let match of matches" class="playedMatch">
+              <mat-card class="playedMatch">
+                
+                <mat-card-content class="matchContainer">
+                  <div class="result">
+                    <div *ngIf="selectedUser.userId == match.winnerId" class="formWon">
+                      G
+                    </div>
+                    <div *ngIf="selectedUser.userId == match.loserId" class="formLoss">
+                      V
+                    </div>
+                  </div>
 
+                  <div class="oponent">
+                    <div *ngIf="selectedUser.userId == match.winnerId">
+                      {{match.loserFullName}}
+                    </div>
+                    <div *ngIf="selectedUser.userId == match.loserId">
+                      {{match.winnerFullName}}
+                    </div>
+                  </div>
+
+                  <table>
+                    <tr>
+                      <td>{{match.winnerFullName}}</td>
+                      <td>{{match.winnerSet1}}</td>
+                      <td>{{match.winnerSet2}}</td>
+                      <td>{{match.winnerSet3}}</td>
+                    </tr>
+                    <tr>
+                      <td>{{match.loserFullName}}</td>
+                      <td>{{match.loserSet1}}</td>
+                      <td>{{match.loserSet2}}</td>
+                      <td>{{match.loserSet3}}</td>
+                    </tr>
+                  </table>
+
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h4 class="mat-subheading">Score Tennisvlaanderen</h4>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-card class="stat">
+          <mat-card-header>
+            <mat-card-title>
+              Tennisvlaanderen score
+            </mat-card-title>
+            <mat-card-subtitle>
+              De score van de user vergeleken met het gemiddelde van het toernooi
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div>
+              <canvas height="100" class="diagram" baseChart [data]="[selectedUser.tennisVlaanderenRanking,
+                        tennisVlaanderenAverage$ | async
+                      ]" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
+                [legend]="pieChartLegend">
+              </canvas>
+            </div>
           </mat-card-content>
         </mat-card>
 
 
 
-
-
-
-
-
-      </mat-expansion-panel>
-
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            score tennisvlaanderen
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div>
-          <canvas height="100" class="diagram" baseChart [data]="[selectedUser.tennisVlaanderenRanking,
-                    tennisVlaanderenAverage$ | async
-                  ]" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
-            [legend]="pieChartLegend">
-          </canvas>
-        </div>
       </mat-expansion-panel>
       <br /><br />
       <button mat-flat-button color="primary">
