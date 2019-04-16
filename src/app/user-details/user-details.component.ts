@@ -10,6 +10,7 @@ import { async } from 'q';
 import { map } from 'rxjs/operators';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
+
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
@@ -33,7 +34,8 @@ export class UserDetailsComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _tournamenDataService: TournamentDataService
+    private _tournamenDataService: TournamentDataService,
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -42,7 +44,7 @@ export class UserDetailsComponent implements OnInit {
     this._fetchMatchesFromUser$ = this._tournamenDataService.getMatchesFromUser$(
       id
     );
-    
+
     this._tournamenDataService
       .getUserById$(id)
       .subscribe(res => (this.selectedUser = res));
@@ -78,4 +80,13 @@ export class UserDetailsComponent implements OnInit {
   private pieChartLabels: Label[] = ['score van speler', 'gemiddelde'];
   private pieChartType: ChartType = 'pie';
   private pieChartLegend = true;
+
+  back() {
+    console.log("back to ranking button clicked")
+    this._router.navigate(['/ranking']);
+  }
+
+  challenge(){
+    console.log("challenge button clicked");
+  }
 }

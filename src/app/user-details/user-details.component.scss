@@ -9,123 +9,163 @@
 }
 
 .statsContainer {
-  .mat-card {
-    margin-top: 25px;
-    margin-bottom: 100px;
-    transition: all 0.3s linear;
-    width: 90%;
-    margin-left: 5%;
-    box-sizing: border-box;
-
-  }
-
-  .stat {
-    margin-top: 5px !important;
-    margin-top: 5px !important;
-  }
-
-  .stat:hover {
-    transform: scale(1.04);
-    box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
-  }
-
-  .formWon {
-    width: 50px;
-    height: 50px;
-    background-color: #78c000;
-    border-radius: 100%;
-    text-align: center;
-    color: white;
-    padding-top: 12.5px;
-    box-sizing: border-box;
-
-  }
-
-  .formLoss {
-    width: 50px;
-    height: 50px;
-    background-color: rgb(255, 87, 34);
-    border-radius: 100%;
-    text-align: center;
-    color: white;
-    padding-top: 12.5px;
-    box-sizing: border-box;
-
-  }
-
-  .form {
-    display: flex;
-
-    flex-direction: row;
-    width: 50%;
-    min-width: 250px;
-    margin: auto;
-    justify-content: space-around;
-    margin: auto;
 
 
-  }
+  .stats {
+    .mat-card {
+      margin-top: 25px;
+      margin-bottom: 100px;
+      transition: all 0.3s linear;
+      width: 90%;
+      margin-left: 5%;
+      box-sizing: border-box;
 
-  .results {
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    min-width: 250px;
-    margin: auto;
-    justify-content: space-around;
-    flex-wrap: wrap;
-
-    .circle {
-      width: 300px;
     }
 
-    .stats {
-      padding-top: 50px;
-      width: 300px;
+    .stat {
+      margin-top: 5px !important;
+      margin-top: 5px !important;
     }
-  }
 
-  .playedMatch {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    .stat:hover {
+      transform: scale(1.04);
+      box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
+    }
 
-    .matchContainer {
-      margin-top: 5px;
-      margin-bottom: 5px;
+    .formWon {
+      width: 50px;
+      height: 50px;
+      background-color: #78c000;
+      border-radius: 100%;
+      text-align: center;
+      color: white;
+      padding-top: 12.5px;
+      box-sizing: border-box;
+
+    }
+
+    .formLoss {
+      width: 50px;
+      height: 50px;
+      background-color: rgb(255, 87, 34);
+      border-radius: 100%;
+      text-align: center;
+      color: white;
+      padding-top: 12.5px;
+      box-sizing: border-box;
+
+    }
+
+    .form {
+      display: flex;
+
+      flex-direction: row;
+      width: 50%;
+      min-width: 250px;
+      margin: auto;
+      justify-content: space-around;
+      margin: auto;
+
+
+    }
+
+    .results {
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
+      width: 80%;
+      min-width: 250px;
+      margin: auto;
       justify-content: space-around;
-      align-items: center;
+      flex-wrap: wrap;
 
-      .result {
-        width: 20%;
+      .circle {
+        width: 300px;
+        box-sizing: border-box;
       }
 
-      .oponent {
-        min-width: 65px;
-        width: 20%;
+      .playerStats {
+        text-align: center;
+        padding-top: 50px;
+        width: 300px;
+
       }
+    }
+
+    .playedMatch {
+      margin-top: 15px;
+      margin-bottom: 15px;
+
+      .matchContainer {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+
+        .result {
+          width: 20%;
+        }
+
+        .oponent {
+          min-width: 65px;
+          width: 20%;
+        }
 
 
-      table {
-        margin-top: 20px;
-        width: 20%;
-        min-width: 150px;
+        table {
+          margin-top: 20px;
+          width: 20%;
+          min-width: 150px;
 
-        tr {
+          tr {
 
-          td {
-            padding: 4px;
-            // border: black 2px solid;
-            // border-collapse: collapse;
+            td {
+              padding: 4px;
+              // border: black 2px solid;
+              // border-collapse: collapse;
+            }
           }
         }
       }
     }
-
-
   }
+}
+
+.back{
+  width: 75%;
+  margin-left: 12.5%;
+  margin-bottom: 60px;
+  margin-top: 60px;
+  height: 45px;
+  color: white;
+  font-weight: bolder;
+  background-color: #3f51b5;
+  transition: 0.3s all linear;
+}
+.back:hover{
+  transform: scale(1.1);
+  box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
+  background-color: rgb(255, 87, 34);
+}
+
+.submit {
+  width: 75%;
+  margin-left: 12.5%;
+  margin-bottom: 60px;
+  margin-top: 60px;
+  height: 45px;
+  color: white;
+  font-weight: bolder;
+  background-color: #3f51b5;
+  transition: 0.3s all linear;  
+}
+
+.submit:hover {
+  transform: scale(1.1);
+  box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
+  background-color: #78c000;
 }
 
 @media screen and (max-width: 700px) {
