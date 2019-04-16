@@ -17,7 +17,6 @@ export class RankingComponent implements OnInit {
   constructor(
     private _tournamenDataService: TournamentDataService,
     private _router: Router
-
   ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
@@ -30,5 +29,6 @@ export class RankingComponent implements OnInit {
 
   onClick(userId: number) {
     this._router.navigate(['/userDetails', userId]);
+    
   }
 }

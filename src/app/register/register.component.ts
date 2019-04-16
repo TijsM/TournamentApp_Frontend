@@ -74,7 +74,7 @@ export class RegisterComponent implements OnInit {
       )
       .pipe(first())
       .subscribe(data => {
-        this._router.navigate(['/userDetails', 5]);
+        this._router.navigate(['/ranking']);
       });
 
       

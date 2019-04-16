@@ -33,6 +33,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ChallengeComponent } from './challenge/challenge.component';
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { MenubarComponent } from './menubar/menubar.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     RegisterComponent,
     RankingComponent,
     UserDetailsComponent,
-    ChallengeComponent
+    ChallengeComponent,
+    MenubarComponent
   ],
   imports: [
     BrowserModule,
