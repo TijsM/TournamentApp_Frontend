@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { TournamentDataService } from '../tournament.data.services';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private ulfb: FormBuilder,
-    private _tournamentDataService: TournamentDataService
+    private _tournamentDataService: TournamentDataService,
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -40,17 +42,20 @@ export class RegisterComponent implements OnInit {
       ])
     });
 
-    this.userRegister = this.ulfb.group({
-      name: ['', Validators.required],
-      familyName: ['', Validators.required],
-      dateOfBird: ['', Validators.required],
-      rankValue: ['', Validators.required],
-      password: ['', Validators.required],
-      passwordConfirmation: ['', Validators.required],
-      phone: ['', Validators.required],
-      email: ['', Validators.required, Validators.required],
-      gender: ['', Validators.required]
-    }, {validator: this.checkPasswords});
+    this.userRegister = this.ulfb.group(
+      {
+        name: ['', Validators.required],
+        familyName: ['', Validators.required],
+        dateOfBird: ['', Validators.required],
+        rankValue: ['', Validators.required],
+        password: ['', Validators.required],
+        passwordConfirmation: ['', Validators.required],
+        phone: ['', Validators.required],
+        email: ['', Validators.required, Validators.required],
+        gender: ['', Validators.required]
+      },
+      { validator: this.checkPasswords }
+    );
   }
 
   checkPasswords(group: FormGroup) {
@@ -61,12 +66,18 @@ export class RegisterComponent implements OnInit {
   }
 
   login() {
+    console.log('test');
     this._tournamentDataService
-      .login(this.userLogin.value.email, this.userLogin.value.wachtwoord)
+      .login(
+        this.userLogin.controls.email.value,
+        this.userLogin.controls.wachtwoord.value
+      )
       .pipe(first())
       .subscribe(data => {
-        location.reload();
+        this._router.navigate(['/userDetails', 5]);
       });
+
+      
   }
 
   getErrorMessage(errors: any) {
@@ -94,7 +105,7 @@ export class RegisterComponent implements OnInit {
   //     .register(this.userRegister.value)
   //    .pipe(first())
   //    .subscribe(
-      
+
   //    )
   // };
 }

@@ -30,10 +30,11 @@
           </mat-card-content>
         </mat-card>
       </mat-expansion-panel>
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <h4 class="mat-subheading">Gespeelde Matchen</h4>
+            <h4 class="mat-subheading">Vorm</h4>
           </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-card class="stat">
@@ -42,7 +43,7 @@
               Vorm
             </mat-card-title>
             <mat-card-subtitle>
-              Vorm de laatste 4 matchen
+              Resultaat van de afgelopen 4 matchen
             </mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
@@ -58,6 +59,17 @@
             </div>
           </mat-card-content>
         </mat-card>
+      </mat-expansion-panel>
+
+
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h4 class="mat-subheading">Gespeelde Matchen</h4>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
         <mat-card class="stat">
           <mat-card-header>
             <mat-card-title>
@@ -96,7 +108,7 @@
           <mat-card-content>
             <div *ngFor="let match of matches" class="playedMatch">
               <mat-card class="playedMatch">
-                
+
                 <mat-card-content class="matchContainer">
                   <div class="result">
                     <div *ngIf="selectedUser.userId == match.winnerId" class="formWon">

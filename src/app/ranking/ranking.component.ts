@@ -12,11 +12,15 @@ import { Router } from '@angular/router';
 export class RankingComponent implements OnInit {
   private _fetchUsers$: Observable<User[]> = this._tournamenDataService.users$;
   displayedColumns = ['ranking', 'name', 'daaguit'];
+  currentUser: User;
 
   constructor(
     private _tournamenDataService: TournamentDataService,
     private _router: Router
-  ) {}
+
+  ) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
 
   ngOnInit() {}
 

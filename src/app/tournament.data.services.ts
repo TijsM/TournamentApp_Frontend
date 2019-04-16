@@ -30,16 +30,16 @@ export class TournamentDataService {
       .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
   }
 
-  getWonMatchesFromUser$(id: number): Observable<Match[]>{
+  getWonMatchesFromUser$(id: number): Observable<Match[]> {
     return this.http
-    .get(`${environment.apiUrl}/Match/GetWonMatchesFromPlayer/${id}`)
-    .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
+      .get(`${environment.apiUrl}/Match/GetWonMatchesFromPlayer/${id}`)
+      .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
   }
 
-  getLostMatchesFromUser$(id: number): Observable<Match[]>{
+  getLostMatchesFromUser$(id: number): Observable<Match[]> {
     return this.http
-    .get(`${environment.apiUrl}/Match/GetLostMatchesFromPlayer/${id}`)
-    .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
+      .get(`${environment.apiUrl}/Match/GetLostMatchesFromPlayer/${id}`)
+      .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
   }
 
   getAvarageTennisVlaanderenScore$(): Observable<number> {
@@ -48,20 +48,18 @@ export class TournamentDataService {
       .pipe(map(Number));
   }
 
-  // getWonMatchesFromPlayer(id: number): Observable<Match[]> {
-  //   return this.http
-  //     .get(`${environment.apiUrl}/Match/GetWonMatchesFromPlayer/${id}`)
-  //     .pipe(map((list: any[]): Match[] => list.map(Match.fromJSON)));
-  // }
+ 
 
-  login(email: string, wachtwoord: string) {
+  login(email: string, password: string) {
     return this.http
-      .post<any>(`${environment.apiUrl}/Account`, { email, wachtwoord })
+      .post<any>(`${environment.apiUrl}/Account`, { email, password })
       .pipe(
         map(user => {
           if (user && user.token) {
+            // user en jwt-token in localstorage steken
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
+
           return user;
         })
       );

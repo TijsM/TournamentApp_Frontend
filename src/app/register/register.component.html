@@ -29,7 +29,7 @@
                 <div class="input">
                   <mat-form-field>
                     <input matInput placeholder="wachtwoord" type="password" aria-label="wachtwoord"
-                      formcontrolName="wachtwoord" required />
+                      formControlName="wachtwoord" required />
                     <mat-error *ngIf="userLogin.get('wachtwoord')['errors']  && userLogin.get('wachtwoord').touched">
                       {{getErrorMessage(userLogin.get('wachtwoord')['errors']) }}</mat-error>
                   </mat-form-field>

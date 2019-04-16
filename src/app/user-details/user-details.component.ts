@@ -38,11 +38,11 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit() {
     const id = +this._route.snapshot.params['id']; // id uit de route halen
+
     this._fetchMatchesFromUser$ = this._tournamenDataService.getMatchesFromUser$(
       id
     );
-    // this.wonMatches = this._tournamenDataService.getWonMatchesFromUser$(id);
-    // this._fetchLostMatches$ = this._tournamenDataService.getLostMatchesFromUser$(id);
+    
     this._tournamenDataService
       .getUserById$(id)
       .subscribe(res => (this.selectedUser = res));

@@ -25,8 +25,8 @@
   }
 
   .stat:hover {
-    transform: scale(1.05);
-    box-shadow: 10px 10px 32px 0px rgba(27, 35, 80, 0.712);
+    transform: scale(1.04);
+    box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
   }
 
   .formWon {
@@ -98,16 +98,21 @@
       justify-content: space-around;
       align-items: center;
 
-      .result{
+      .result {
         width: 20%;
       }
-      .oponent{
+
+      .oponent {
+        min-width: 65px;
         width: 20%;
       }
 
 
       table {
+        margin-top: 20px;
         width: 20%;
+        min-width: 150px;
+
         tr {
 
           td {
@@ -119,8 +124,32 @@
       }
     }
 
-   
-  }
 
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .mat-card {
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    box-sizing: border-box;
+
+    .stat {
+      width: 98%;
+      margin-left: 1%;
+      margin-right: 1%;
+      box-sizing: border-box;
+
+      .matchContainer {
+        width: 98%;
+        margin-left: 1%;
+        margin-right: 1%;
+        box-sizing: border-box;
+
+      }
+    }
+
+  }
 
 }
