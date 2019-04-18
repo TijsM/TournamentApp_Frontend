@@ -24,7 +24,8 @@ import {
   MatTableModule,
   MatExpansionModule,
   MatIconModule,
-  MatDividerModule
+  MatDividerModule,
+  MAT_DATE_LOCALE
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { RankingComponent } from './ranking/ranking.component';

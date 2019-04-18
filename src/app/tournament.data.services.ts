@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, pipe } from 'rxjs';
+import { Observable, pipe, BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { User } from './user.model';
@@ -10,6 +10,8 @@ import { Match } from './match.model';
   providedIn: 'root'
 })
 export class TournamentDataService {
+  private readonly _tokenKey = 'currentUser';
+  private _user$: BehaviorSubject<string>;
   constructor(private http: HttpClient) {}
 
   get users$(): Observable<User[]> {
@@ -48,8 +50,6 @@ export class TournamentDataService {
       .pipe(map(Number));
   }
 
- 
-
   login(email: string, password: string) {
     return this.http
       .post<any>(`${environment.apiUrl}/Account`, { email, password })
@@ -65,7 +65,45 @@ export class TournamentDataService {
       );
   }
 
-  register(user: User) {
-    this.http.post;
+  register(
+    firstName: string,
+    familyName: string,
+    dateOfBirth: Date,
+    tennisVlaanderenScore: number,
+    password: string,
+    passwordConfirmation: string,
+    phone: string,
+    email: string,
+    gender: number
+  ) {
+    console.log('entered tournament.data.services.ts');
+    console.log(email);
+    return this.http
+      .post(
+        `${environment.apiUrl}/Account/Register`,
+        {
+          email,
+          password,
+          firstName,
+          familyName,
+          dateOfBirth,
+          passwordConfirmation,
+          phone,
+          gender,
+          tennisVlaanderenScore
+        },
+        { responseType: 'text' }
+      )
+      .pipe(
+        map((token: any) => {
+          if (token) {
+            localStorage.setItem(this._tokenKey, token);
+            this._user$.next(email);
+            return true;
+          } else {
+            return false;
+          }
+        })
+      );
   }
 }
