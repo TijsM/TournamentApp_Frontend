@@ -10,7 +10,6 @@ import { async } from 'q';
 import { map } from 'rxjs/operators';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
-
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
@@ -82,11 +81,11 @@ export class UserDetailsComponent implements OnInit {
   private pieChartLegend = true;
 
   back() {
-    console.log("back to ranking button clicked")
+    console.log('back to ranking button clicked');
     this._router.navigate(['/ranking']);
   }
 
-  challenge(){
-    console.log("challenge button clicked");
+  challenge() {
+    console.log('challenge button clicked');
   }
 }

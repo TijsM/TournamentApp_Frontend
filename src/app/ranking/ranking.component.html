@@ -4,6 +4,12 @@
   </mat-card-title> -->
 
 
+<div>
+  currentuser:  {{currentUser.firstName}} {{currentUser.familyName}}
+  (top of ranking)
+</div>
+
+
 <div class="ranking mat-elevation-z8">
   <table mat-table [dataSource]="users$">
     <!-- Position Column -->

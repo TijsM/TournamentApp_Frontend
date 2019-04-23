@@ -35,7 +35,6 @@ export class RegisterComponent implements OnInit {
       email: new FormControl('', [
         Validators.required,
         Validators.email
-        // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ]),
       wachtwoord: new FormControl('', [
         Validators.required,
@@ -77,13 +76,12 @@ export class RegisterComponent implements OnInit {
       .pipe(first())
       .subscribe(data => {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        
+
         if (this.currentUser !== null) {
           console.log(this.currentUser);
           this._router.navigate(['/ranking']);
-        }
-        else{
-          console.log("currentuser is null")
+        } else {
+          console.log('currentuser is null');
         }
       });
   }

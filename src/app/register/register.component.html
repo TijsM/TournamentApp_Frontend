@@ -1,3 +1,10 @@
+<!-- 
+<div>
+  currentuser: {{currentUser.firstName}} {{currentUser.familyName}}
+  (top of register)
+</div> -->
+
+
 <mat-card class="form">
   <mat-tab-group>
     <mat-tab label="Login">
@@ -28,8 +35,8 @@
                 </div>
                 <div class="input">
                   <mat-form-field>
-                    <input matInput placeholder="wachtwoord" type="password" aria-label="wachtwoord"
-                      formontrolName="wachtwoord" required />
+                    <input matInput placeholder="wachtwoord" type="password" aria-label="wachtwoord" formControlName="wachtwoord"
+                    required />
                     <mat-error *ngIf="userLogin.get('wachtwoord')['errors']  && userLogin.get('wachtwoord').touched">
                       {{getErrorMessage(userLogin.get('wachtwoord')['errors']) }}</mat-error>
                   </mat-form-field>
@@ -37,7 +44,7 @@
               </div>
             </div>
             <!-- routerLink="/ranking" -->
-            <button routerLink="/ranking" mat-flat-button color="primary">
+            <button type="button"  (click)='login()' mat-flat-button color="primary">
               Bevestig
             </button>
           </div>
