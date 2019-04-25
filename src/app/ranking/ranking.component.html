@@ -5,7 +5,7 @@
 
 
 <div>
-  currentuser:  {{currentUser.firstName}} {{currentUser.familyName}}
+  currentuser: {{currentUser.firstName}} {{currentUser.familyName}}
   (top of ranking)
 </div>
 
@@ -28,11 +28,7 @@
     <ng-container matColumnDef="daaguit">
       <th mat-header-cell *matHeaderCellDef> Daag uit </th>
       <td mat-cell *matCellDef="let element">
-        <!-- <button routerLink="/userDetails/1" mat-flat-button color="primary">
-            Bekijk details statisch
-          </button> -->
 
-        <!-- [routerLink]="['userDetails', element.userId]" -->
         <button (click)="onClick(element.userId)" mat-flat-button color="primary">
           Bekijk details
         </button>

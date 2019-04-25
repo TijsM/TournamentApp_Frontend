@@ -106,4 +106,26 @@ export class TournamentDataService {
         })
       );
   }
+
+  createMatch(tournamentId: number, player1Id: number, player2Id: number
+    ) {
+    console.log('in creatematch in dataservice');
+    console.log(tournamentId);
+    console.log(player1Id);
+    console.log(player2Id);
+
+
+    return this.http.post(
+    
+      `${environment.apiUrl}/Tournament/AddMatchToTournament`,
+      {
+        tournamentId,
+        player1Id,
+        player2Id
+      }
+    );
+
+        // return this.http.post(`${environment.apiUrl}/Tournament/AddMatchToTournament/${tournamentId}, ${player1Id}, ${player2Id}`);
+
+  }
 }

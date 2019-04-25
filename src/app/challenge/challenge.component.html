@@ -1,3 +1,22 @@
-<p>
-  challenge works!
-</p>
+<mat-card class="info">
+  <mat-card-title>
+    Uitdaging verstuurd!
+  </mat-card-title>
+  <mat-card-subtitle>{{challengedUser.firstName}} {{challengedUser.familyName}} wacht op een uitnodiging
+  </mat-card-subtitle>
+  <p>
+    Je kan contact opnemen met {{challengedUser.firstName}} {{challengedUser.familyName}} via
+    <br><br>
+    <span> {{challengedUser.email}}</span>
+    <br>
+    of
+    <br>
+    <span>{{challengedUser.phoneNumber}}</span>
+  </p>
+</mat-card>
+
+
+
+<button (click)="goToRanking()" class="back" mat-flat-button>
+  Terug naar ranking
+</button>

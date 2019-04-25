@@ -7,7 +7,7 @@
 
 <div class="statsContainer">
 
-  <button (click)="back()"class="back" mat-flat-button>
+  <button (click)="back()" class="back" mat-flat-button>
     Terug naar scorebord
   </button>
 
@@ -182,18 +182,20 @@
           </div>
         </mat-card-content>
       </mat-card>
-
-
-
     </mat-expansion-panel>
-
-
-
   </mat-accordion>
   <!-- </mat-card-content>
 </mat-card> -->
 
-  <button (click)="challenge()"class="submit" mat-flat-button>
+<!-- 
+  selected user id:{{selectedUser.userId}}
+  <br>
+  current user id: {{currentUser.userId}}
+  <br>
+  selected user id {{selectedUser.tournamentId}}
+  <br>
+  current user is {{currentUser.tournamentId}} -->
+  <button (click)="challenge()" class="submit" mat-flat-button>
     Daag Uit
   </button>
 </div>

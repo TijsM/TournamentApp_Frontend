@@ -1,0 +1,39 @@
+.info {
+  width: 50%;
+  margin: auto;
+  margin-top: 15%;
+  transition: all 0.3s linear;
+
+
+}
+
+.info:hover {
+  
+  transform: scale(1.04);
+  box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
+}
+
+
+span{
+    font-weight: bolder;
+}
+
+.back {
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 60px;
+    margin-top: 60px;
+    height: 45px;
+    color: white;
+    font-weight: bolder;
+    background-color: #3f51b5;
+    transition: 0.3s all linear;
+  }
+  .back:hover {
+    transform: scale(1.1);
+    box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
+    background-color: rgb(255, 87, 34);
+    // border-top-left-radius: 350px 100%;
+    // border-bottom-left-radius: 350px 100%;
+    transform: translateX(-50px);
+  }

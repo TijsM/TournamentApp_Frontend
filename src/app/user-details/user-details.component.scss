@@ -25,8 +25,8 @@
     }
 
     .stat:hover {
-      transform: scale(1.04);
-      box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
+        transform: scale(1.04);
+        box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
     }
 
     .formWon {
@@ -138,8 +138,8 @@
   transform: scale(1.1);
   box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
   background-color: rgb(255, 87, 34);
-  border-top-left-radius: 350px 100%;
-  border-bottom-left-radius: 350px 100%;
+  // border-top-left-radius: 350px 100%;
+  // border-bottom-left-radius: 350px 100%;
   transform: translateX(-50px);
 }
 
@@ -159,8 +159,8 @@
   transform: scale(1.1);
   box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
   background-color: #78c000;
-  border-top-right-radius: 350px 100%;
-  border-bottom-right-radius: 350px 100%;
+  // border-top-right-radius: 350px 100%;
+  // border-bottom-right-radius: 350px 100%;
   transform: translateX(50px);
 }
 

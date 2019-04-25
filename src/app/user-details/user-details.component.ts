@@ -25,6 +25,7 @@ export class UserDetailsComponent implements OnInit {
   private matches: Match[];
   private wonMatches: Match[];
   private lostMatches: Match[];
+  currentUser: User;
 
   //data voor circle
   private amountWon;
@@ -35,7 +36,9 @@ export class UserDetailsComponent implements OnInit {
     private _route: ActivatedRoute,
     private _tournamenDataService: TournamentDataService,
     private _router: Router
-  ) {}
+  ) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
 
   ngOnInit() {
     const id = +this._route.snapshot.params['id']; // id uit de route halen
@@ -86,6 +89,14 @@ export class UserDetailsComponent implements OnInit {
   }
 
   challenge() {
-    console.log('challenge button clicked');
+    this._tournamenDataService
+      .createMatch(
+        this.selectedUser.tournamentId,
+        this.currentUser.userId,
+        this.selectedUser.userId
+      )
+      .subscribe();
+
+    this._router.navigate(['/challenge', this.selectedUser.userId]);
   }
 }
