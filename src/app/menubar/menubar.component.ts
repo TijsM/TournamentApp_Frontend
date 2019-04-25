@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menubar',
   templateUrl: './menubar.component.html',
-  styleUrls: ['./menubar.component.css']
+  styleUrls: ['./menubar.component.scss']
 })
 export class MenubarComponent implements OnInit {
+  constructor(private _router: Router) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  logout() {
+    localStorage.clear();
+
+    this._router.navigate(['']);
   }
-
 }

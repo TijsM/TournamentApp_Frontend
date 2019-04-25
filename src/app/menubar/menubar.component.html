@@ -1,6 +1,12 @@
 <mat-card class="menuBar" color="primary">
-  <div fxLayout="row" fxLayoutAlign=space-between >
-    <mat-card-title>Ladder toernooi</mat-card-title>
-
+  <div class="navContainer">
+    <div class="title">
+      <mat-card-title>Ladder toernooi</mat-card-title>
+    </div>
+    <div class="navActions">
+      <button (click)="logout()" mat-flat-button color="primary">Ranking</button>
+      <button (click)="history()" mat-flat-button color="primary"> Geschiedenis</button>
+      <button (click)="logout()" mat-flat-button color="primary">logout</button>
+    </div>
   </div>
 </mat-card>

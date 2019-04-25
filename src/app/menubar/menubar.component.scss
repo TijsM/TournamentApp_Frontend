@@ -1,0 +1,31 @@
+.menuBar {
+  position: fixed;
+  top: 15px;
+  width: 95%;
+  margin: 2.5%;
+  box-sizing: border-box;
+  z-index: 1000;
+  background-color: rgb(63, 81, 181);
+  color: white;
+}
+
+
+.navContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navActions{
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+@media screen and (max-width: 700px) {
+  .title {
+    display: none;
+  }
+}

@@ -32,10 +32,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.userLogin = this.ulfb.group({
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email
-      ]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       wachtwoord: new FormControl('', [
         Validators.required,
         Validators.minLength(8)
