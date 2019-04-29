@@ -13,11 +13,11 @@
 .navContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .navActions{
-  width: 400px;
+  padding-left: 200px;
   display: flex;
   justify-content: space-around;
 }

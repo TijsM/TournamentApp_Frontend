@@ -19,9 +19,12 @@ export class RankingComponent implements OnInit {
     private _router: Router
   ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   get users$(): Observable<User[]> {
     return this._fetchUsers$;
@@ -29,6 +32,5 @@ export class RankingComponent implements OnInit {
 
   onClick(userId: number) {
     this._router.navigate(['/userDetails', userId]);
-    
   }
 }

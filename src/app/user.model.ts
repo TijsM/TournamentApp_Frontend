@@ -15,7 +15,9 @@ export class User {
     private _gender: string,
     private _rankInTournament: number,
     private _matches: Match[],
-    private _tournamentId: number
+    private _tournamentId: number,
+    private _hasChallenge: boolean,
+    private _pendingMatch: Match
   ) {}
 
   get userId(): number {
@@ -51,8 +53,16 @@ export class User {
   get matches(): Match[] {
     return this._matches;
   }
+  get hasChallenge(): boolean {
+    return this._hasChallenge;
+  }
+  get pendingMatch(): Match{
+    return this._pendingMatch;
+  }
 
-  get tournamentId():number{
+
+
+  get tournamentId(): number {
     return this._tournamentId;
   }
 
@@ -63,8 +73,6 @@ export class User {
       return this.matches.slice(length - 5, length - 1);
     } else return this.matches;
   }
-
-
 
   set firstName(value: string) {
     this._firstName = value;
@@ -96,9 +104,14 @@ export class User {
   set matches(value: Match[]) {
     this._matches = value;
   }
-
-  set tournamentId(value: number){
+  set tournamentId(value: number) {
     this._tournamentId = value;
+  }
+  set hasChallenge(value: boolean) {
+    this._hasChallenge = value;
+  }
+  set pendingMatch(value: Match){
+    this._pendingMatch = value;
   }
 
   static fromJSON(json: any): User {
@@ -113,8 +126,10 @@ export class User {
       json.email,
       json.gender,
       json.rankInTournament,
-      json.matches, 
-      json.tournamentId
+      json.matches,
+      json.tournamentId,
+      json.hasChallenge,
+      Match.fromJSON(json.pendingMatch)
     );
   }
 }

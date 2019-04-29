@@ -18,16 +18,6 @@
 6. probleem userdetails knop naar challenge
    ==> OPGELOST
 
+7. Moet eerst uitloggen om te kunnen zien als pendingmatch is opgevuld, hoe kan ik sessio updaten
 
-# notities
-
-grafieken voor
-
-- wins/losses
-- head to head (vorige match(en))
-- avg games per set
-- avg games per lost set
-- last matches => vorm
-- games played compared to max and avg
-- overzicht van laatste wedstrijden (tegensatnder, score, klassement)
-- max rank
+8. 

@@ -2,12 +2,19 @@
   <mat-card-title>
     Ranking voor {{currentUser.firstName}}
   </mat-card-title> -->
+<!-- <div *ngIf="currentUser.hasChallenge">
+  <mat-card class="info">
+    <mat-card-title>
+      U heeft al een uitdaging
+    </mat-card-title>
+    <p>
+      neem contact op met {{currentUser.pendingMatch.winnerFullName}} waarmee je nog een uitdaging hebt. Zolang deze niet is afgerond, kan je geen nieuwe
+      uitdaging aangaan.
+    </p>
+  </mat-card>
+</div> -->
 
 
-<div>
-  currentuser: {{currentUser.firstName}} {{currentUser.familyName}}
-  (top of ranking)
-</div>
 
 
 <div class="ranking mat-elevation-z8">

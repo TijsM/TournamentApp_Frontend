@@ -14,7 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ChallengeComponent } from './challenge/challenge.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MenubarComponent } from './menubar/menubar.component';
-import { UserModule } from './user/user.module';
+// import { UserModule } from './user/user.module';
 import { MaterialModule } from './material.module'
 
 @NgModule({
@@ -39,7 +39,7 @@ import { MaterialModule } from './material.module'
     NgCircleProgressModule.forRoot({
       radius: 100
     }),
-    UserModule
+    // UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

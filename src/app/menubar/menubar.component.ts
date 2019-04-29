@@ -14,7 +14,14 @@ export class MenubarComponent implements OnInit {
 
   logout() {
     localStorage.clear();
-
     this._router.navigate(['']);
+  }
+
+  ranking() {
+    this._router.navigate(['ranking']);
+  }
+
+  history() {
+    console.log('not yet implemented');
   }
 }

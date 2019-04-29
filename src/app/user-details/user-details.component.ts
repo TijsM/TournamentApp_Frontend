@@ -17,7 +17,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 })
 export class UserDetailsComponent implements OnInit {
   private selectedUser: User;
-
+  private idFromRoute: number;
   private _fetchMatchesFromUser$: Observable<Match[]>;
   private _fetchTennisVlaanderenAverage$: Observable<
     number
@@ -41,30 +41,30 @@ export class UserDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = +this._route.snapshot.params['id']; // id uit de route halen
+    this.idFromRoute = +this._route.snapshot.params['id']; // id uit de route halen
 
     this._fetchMatchesFromUser$ = this._tournamenDataService.getMatchesFromUser$(
-      id
+      this.idFromRoute
     );
 
     this._tournamenDataService
-      .getUserById$(id)
+      .getUserById$(this.idFromRoute)
       .subscribe(res => (this.selectedUser = res));
 
     this._tournamenDataService
-      .getMatchesFromUser$(id)
+      .getMatchesFromUser$(this.idFromRoute)
       .subscribe(
         res => ((this.matches = res), (this.amountPlayed = res.length))
       );
 
     this._tournamenDataService
-      .getWonMatchesFromUser$(id)
+      .getWonMatchesFromUser$(this.idFromRoute)
       .subscribe(
         res => ((this.wonMatches = res), (this.amountWon = res.length))
       );
 
     this._tournamenDataService
-      .getLostMatchesFromUser$(id)
+      .getLostMatchesFromUser$(this.idFromRoute)
       .subscribe(
         res => ((this.lostMatches = res), (this.amountLost = res.length))
       );
@@ -96,6 +96,8 @@ export class UserDetailsComponent implements OnInit {
         this.selectedUser.userId
       )
       .subscribe();
+
+   
 
     this._router.navigate(['/challenge', this.selectedUser.userId]);
   }

@@ -10,12 +10,15 @@ import { TournamentDataService } from '../tournament.data.services';
 })
 export class ChallengeComponent implements OnInit {
   private challengedUser: User;
+  currentUser: User;
 
   constructor(
     private _router: Router,
     private _route: ActivatedRoute,
     private _tournamentDataService: TournamentDataService
-  ) {}
+  ) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
 
   ngOnInit() {
     const id = +this._route.snapshot.params['id']; // id uit de route halen
@@ -28,6 +31,18 @@ export class ChallengeComponent implements OnInit {
   }
 
   goToRanking() {
+    this._tournamentDataService
+      .getUserById$(this.currentUser.userId)
+      .subscribe(res => (this.currentUser = res));
+    
+    console.log(this.currentUser);
+
+    localStorage.clear();
+
+
+    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+
+    console.log(this.currentUser);
     this._router.navigate(['/ranking']);
   }
 }
