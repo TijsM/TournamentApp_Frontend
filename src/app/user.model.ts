@@ -56,11 +56,9 @@ export class User {
   get hasChallenge(): boolean {
     return this._hasChallenge;
   }
-  get pendingMatch(): Match{
+  get pendingMatch(): Match {
     return this._pendingMatch;
   }
-
-
 
   get tournamentId(): number {
     return this._tournamentId;
@@ -110,7 +108,7 @@ export class User {
   set hasChallenge(value: boolean) {
     this._hasChallenge = value;
   }
-  set pendingMatch(value: Match){
+  set pendingMatch(value: Match) {
     this._pendingMatch = value;
   }
 
@@ -129,7 +127,7 @@ export class User {
       json.matches,
       json.tournamentId,
       json.hasChallenge,
-      Match.fromJSON(json.pendingMatch)
+      json.pendingMatch
     );
   }
 }
