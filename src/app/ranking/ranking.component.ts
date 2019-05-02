@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { TournamentDataService } from '../tournament.data.services';
 import { User } from '../user.model';
 import { Router } from '@angular/router';
+import { Match } from '../match.model';
 
 @Component({
   selector: 'app-ranking',
@@ -11,19 +12,22 @@ import { Router } from '@angular/router';
 })
 export class RankingComponent implements OnInit {
   private _fetchUsers$: Observable<User[]> = this._tournamenDataService.users$;
-  displayedColumns = ['ranking', 'name', 'daaguit'];
+  
   currentUser: User;
+
+
+  displayedColumns = ['ranking', 'name', 'daaguit'];
 
   constructor(
     private _tournamenDataService: TournamentDataService,
     private _router: Router
   ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    
   }
 
   ngOnInit() {
-    
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+   
   }
 
   get users$(): Observable<User[]> {
@@ -33,4 +37,6 @@ export class RankingComponent implements OnInit {
   onClick(userId: number) {
     this._router.navigate(['/userDetails', userId]);
   }
+
+
 }

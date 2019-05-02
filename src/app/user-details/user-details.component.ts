@@ -38,6 +38,7 @@ export class UserDetailsComponent implements OnInit {
     private _router: Router
   ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(this.currentUser);
   }
 
   ngOnInit() {
@@ -97,8 +98,7 @@ export class UserDetailsComponent implements OnInit {
       )
       .subscribe();
 
-   
-
+    localStorage.setItem('sellectedUser', JSON.stringify(this.currentUser));
     this._router.navigate(['/challenge', this.selectedUser.userId]);
   }
 }

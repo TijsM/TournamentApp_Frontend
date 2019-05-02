@@ -34,9 +34,9 @@
           email: {{ selectedUser.email }}<br />
           geslacht: {{ selectedUser.gender }}<br />
           plaats in ladder: {{ selectedUser.rankInTournament }} <br />
-          matchen gespeeld: {{ selectedUser.matches.length }}
-          <br>
-          heeft een match: {{ selectedUser.hasChallenge }}
+          matchen gespeeld: {{ selectedUser.matches.length }} <br>
+          heeft een match (boolean): {{ selectedUser.hasChallenge }} <br>
+          heeft een match (id): {{selectedUser.pendingMatchId}}
         </mat-card-content>
       </mat-card>
     </mat-expansion-panel>

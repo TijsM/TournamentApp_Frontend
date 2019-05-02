@@ -1,8 +1,6 @@
 import { Match } from './match.model';
 
 export class User {
-  // private _userId: number;
-
   constructor(
     private _userId: number,
     private _firstName: string,
@@ -59,16 +57,15 @@ export class User {
   get pendingMatch(): Match {
     return this._pendingMatch;
   }
-
   get tournamentId(): number {
     return this._tournamentId;
   }
 
   get lastMatches(): Match[] {
-    length = this.matches.length;
+    length = this._matches.length;
 
     if (length > 4) {
-      return this.matches.slice(length - 5, length - 1);
+      return this._matches.slice(length - 5, length - 1);
     } else return this.matches;
   }
 
@@ -127,7 +124,7 @@ export class User {
       json.matches,
       json.tournamentId,
       json.hasChallenge,
-      json.pendingMatch
+      Match.fromJSON(json.pendingMatch)
     );
   }
 }

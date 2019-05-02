@@ -34,14 +34,12 @@ export class ChallengeComponent implements OnInit {
     this._tournamentDataService
       .getUserById$(this.currentUser.userId)
       .subscribe(res => (this.currentUser = res));
-    
-    console.log(this.currentUser);
 
+    console.log('voor reset:');
     localStorage.clear();
-
-
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
 
+    console.log('na reset:');
     console.log(this.currentUser);
     this._router.navigate(['/ranking']);
   }

@@ -78,7 +78,6 @@ export class Match {
   
 
   static fromJSON(json: any): Match {
-    console.log(json);
     return new Match(
       json.loserFullName,
       json.loserId,

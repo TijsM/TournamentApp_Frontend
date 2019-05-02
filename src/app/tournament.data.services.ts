@@ -23,7 +23,13 @@ export class TournamentDataService {
   getUserById$(id: number): Observable<User> {
     return this.http
       .get(`${environment.apiUrl}/Users/${id}`)
-      .pipe(map(User.fromJSON));
+      .pipe(map((usr: any): User => User.fromJSON(usr)));
+  }
+
+  getMatchById$(id: number): Observable<Match> {
+    return this.http
+      .get(`${environment.apiUrl}/Match/${id}`)
+      .pipe(map((mat: any): Match => Match.fromJSON(mat)));      
   }
 
   getMatchesFromUser$(id: number): Observable<Match[]> {
@@ -60,6 +66,8 @@ export class TournamentDataService {
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
 
+          console.log('vanuit dataservice');
+          console.log(user);
           return user;
         })
       );
@@ -107,16 +115,13 @@ export class TournamentDataService {
       );
   }
 
-  createMatch(tournamentId: number, player1Id: number, player2Id: number
-    ) {
+  createMatch(tournamentId: number, player1Id: number, player2Id: number) {
     console.log('in creatematch in dataservice');
     console.log(tournamentId);
     console.log(player1Id);
     console.log(player2Id);
 
-
     return this.http.post(
-    
       `${environment.apiUrl}/Tournament/AddMatchToTournament`,
       {
         tournamentId,
@@ -125,7 +130,6 @@ export class TournamentDataService {
       }
     );
 
-        // return this.http.post(`${environment.apiUrl}/Tournament/AddMatchToTournament/${tournamentId}, ${player1Id}, ${player2Id}`);
-
+    // return this.http.post(`${environment.apiUrl}/Tournament/AddMatchToTournament/${tournamentId}, ${player1Id}, ${player2Id}`);
   }
 }
