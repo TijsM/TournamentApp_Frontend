@@ -24,6 +24,10 @@ export class User {
   get firstName(): string {
     return this._firstName;
   }
+
+  get userFullName(): string{
+    return this._firstName + " " + this._familyName;
+  }
   get familyName(): string {
     return this._familyName;
   }

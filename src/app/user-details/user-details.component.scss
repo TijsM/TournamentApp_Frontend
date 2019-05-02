@@ -1,3 +1,15 @@
+.name{
+  width: 100%;
+  text-align: center;
+
+  p{
+    font-size: 2em;
+  }
+}
+
+
+
+
 .statsContainer {
   width: 80%;
   margin-left: 10%;
@@ -140,7 +152,7 @@
   background-color: rgb(255, 87, 34);
   // border-top-left-radius: 350px 100%;
   // border-bottom-left-radius: 350px 100%;
-  transform: translateX(-50px);
+  // transform: translateX(-50px);
 }
 
 .submit {
@@ -161,7 +173,7 @@
   background-color: #78c000;
   // border-top-right-radius: 350px 100%;
   // border-bottom-right-radius: 350px 100%;
-  transform: translateX(50px);
+  // transform: translateX(50px);
 }
 
 @media screen and (max-width: 700px) {
