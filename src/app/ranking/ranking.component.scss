@@ -21,7 +21,6 @@
   }
 
   .info:hover {
-
     transform: scale(1.04);
     box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
     // background-colo:r: rgb(252, 137, 102);
@@ -72,31 +71,18 @@
     box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
     background-color: rgba(238, 96, 96, 0.555);
   }
-
-
-
-
 }
 
-
-
-
-
-
-
 .ranking {
-
   overflow: auto;
   width: 75%;
   margin: auto;
   margin-top: 200px;
 }
 
-
 table {
   width: 100%;
 }
-
 
 @media screen and (max-width: 700px) {
   .mat-card {
@@ -104,6 +90,39 @@ table {
     margin-left: 1%;
     margin-right: 1%;
     box-sizing: border-box;
+  }
+
+  .hasChallenge {
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    box-sizing: border-box;
+    padding: 0px;
+    .info {
+      width: 98%;
+      margin-left: 0px;
+      margin-right: 0px;
+      box-sizing: border-box;
+    }
+
+    .userActions {
+      width: 98%;
+      margin-left: 1%;
+      margin-right: 1%;
+      box-sizing: border-box;
+      .insertScore {
+        width: 98%;
+        margin-left: 1%;
+        margin-right: 1%;
+        box-sizing: border-box;
+      }
+      .forfait {
+        width: 98% !important;
+        margin-left: 0px;
+        margin-right: 0px;
+        box-sizing: border-box;
+      }
+    }
   }
 
   .ranking {

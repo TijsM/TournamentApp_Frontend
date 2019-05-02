@@ -51,7 +51,7 @@
     </div>
   </mat-card>
 
-  <div *ngIf="userWantsToCommitScore">
+  <div *ngIf="userWantsToCommitScore" class="userActions">
     <mat-card class="insertScore">
       <form [formGroup]="insertScore" (ngSumbit)='commitScore()'>
         <table class="score">
