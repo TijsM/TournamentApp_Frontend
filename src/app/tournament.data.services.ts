@@ -20,6 +20,12 @@ export class TournamentDataService {
       .pipe(map((list: any[]): User[] => list.map(User.fromJSON)));
   }
 
+  giveRanking$(tournamentId: number): Observable<User[]> {
+    return this.http
+      .get(`${environment.apiUrl}/Tournament/GiveRanking/${tournamentId}`)
+      .pipe(map((list: any[]): User[] => list.map(User.fromJSON)));
+  }
+
   getUserById$(id: number): Observable<User> {
     return this.http
       .get(`${environment.apiUrl}/Users/${id}`)
@@ -29,7 +35,7 @@ export class TournamentDataService {
   getMatchById$(id: number): Observable<Match> {
     return this.http
       .get(`${environment.apiUrl}/Match/${id}`)
-      .pipe(map((mat: any): Match => Match.fromJSON(mat)));      
+      .pipe(map((mat: any): Match => Match.fromJSON(mat)));
   }
 
   getMatchesFromUser$(id: number): Observable<Match[]> {
@@ -129,7 +135,33 @@ export class TournamentDataService {
         player2Id
       }
     );
+  }
 
-    // return this.http.post(`${environment.apiUrl}/Tournament/AddMatchToTournament/${tournamentId}, ${player1Id}, ${player2Id}`);
+  commitScore(
+    matchId: number,
+    WinnerSet1: number,
+    LoserSet1: number,
+    WinnerSet2: number,
+    LoserSet2: number,
+    WinnerSet3: number,
+    LoserSet3: number
+  ) {
+    console.log('p1s1 en p2s2 vanuit tournament service');
+    console.log(WinnerSet1);
+    console.log(LoserSet2);
+
+    console.log('matchId:');
+    console.log(matchId);
+    return this.http
+      .put(`${environment.apiUrl}/Match/commitScore`, {
+        matchId,
+        WinnerSet1,
+        LoserSet1,
+        WinnerSet2,
+        LoserSet2,
+        WinnerSet3,
+        LoserSet3
+      })
+      .subscribe();
   }
 }

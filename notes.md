@@ -20,4 +20,4 @@
 
 7. Moet eerst uitloggen om te kunnen zien als pendingmatch is opgevuld, hoe kan ik sessio updaten
 
-8. 
+8. RESOLVER voor errors in console

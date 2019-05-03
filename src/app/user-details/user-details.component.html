@@ -13,7 +13,7 @@
 
 
   <div class="name">
-   <p> {{ selectedUser.userFullName }}</p>
+    <p> {{ selectedUser.userFullName }}</p>
   </div>
 
 
@@ -196,7 +196,15 @@
 </mat-card> -->
 
 
+  <!-- <div *ngIf="currentUser.hasChallenge == false"> -->
   <button (click)="challenge()" class="submit" mat-flat-button>
     Daag Uit
   </button>
+  <!-- </dsiv> -->
+  <div *ngIf="currentUser.hasChallenge == true  ">
+    <button mat-flat-button matTooltip="Werk eerst je vorige uitdaging af voor je aan een nieuwe kan beginnen"
+      class="cantChallenge">
+      Daag Uit
+    </button>
+  </div>
 </div>

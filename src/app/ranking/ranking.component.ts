@@ -20,6 +20,7 @@ export class RankingComponent implements OnInit {
   displayedColumns = ['ranking', 'name', 'daaguit'];
   userWantsToCommitScore = false;
   userWantsForfait = false;
+  pendingmatchId: number;
 
   constructor(
     private _tournamenDataService: TournamentDataService,
@@ -51,7 +52,7 @@ export class RankingComponent implements OnInit {
       set3User2: ['']
     });
   }
-
+ 
   get users$(): Observable<User[]> {
     return this._fetchUsers$;
   }
@@ -70,6 +71,9 @@ export class RankingComponent implements OnInit {
     this.userWantsToCommitScore = false;
   }
   commitScore() {
+    console.log('id van match');
+    console.log(this.pendingMatch.matchId);
+
     console.log(this.insertScore.controls.set1User1.value);
     console.log(this.insertScore.controls.set2User1.value);
     console.log(this.insertScore.controls.set3User1.value);
@@ -77,6 +81,18 @@ export class RankingComponent implements OnInit {
     console.log(this.insertScore.controls.set1User2.value);
     console.log(this.insertScore.controls.set2User2.value);
     console.log(this.insertScore.controls.set3User2.value);
+
+    window.location.reload();
+
+    this._tournamenDataService.commitScore(
+      this.pendingMatch.matchId,
+      this.insertScore.controls.set1User1.value,
+      this.insertScore.controls.set1User2.value,
+      this.insertScore.controls.set2User1.value,
+      this.insertScore.controls.set2User2.value,
+      this.insertScore.controls.set3User1.value,
+      this.insertScore.controls.set3User2.value
+    );
   }
 
   commitForfait() {

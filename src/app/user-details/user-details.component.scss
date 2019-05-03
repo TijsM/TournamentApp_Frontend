@@ -1,8 +1,8 @@
-.name{
+.name {
   width: 100%;
   text-align: center;
 
-  p{
+  p {
     font-size: 2em;
   }
 }
@@ -37,8 +37,8 @@
     }
 
     .stat:hover {
-        transform: scale(1.04);
-        box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
+      transform: scale(1.04);
+      box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
     }
 
     .formWon {
@@ -146,6 +146,7 @@
   background-color: #3f51b5;
   transition: 0.3s all linear;
 }
+
 .back:hover {
   transform: scale(1.1);
   box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
@@ -171,9 +172,25 @@
   transform: scale(1.1);
   box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
   background-color: #78c000;
-  // border-top-right-radius: 350px 100%;
-  // border-bottom-right-radius: 350px 100%;
-  // transform: translateX(50px);
+
+}
+
+.cantChallenge {
+  width: 75%;
+  margin-left: 12.5%;
+  margin-bottom: 60px;
+  margin-top: 60px;
+  height: 45px;
+  color: white;
+  font-weight: bolder;
+  background-color: #5c5c5c;
+  transition: 0.3s all linear;
+}
+
+.cantChallenge:hover {
+  transform: scale(0.95);
+  box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
+
 }
 
 @media screen and (max-width: 700px) {
