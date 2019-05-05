@@ -73,11 +73,22 @@
   }
 }
 
+.name {
+  margin-top: 200px;
+  width: 100%;
+  text-align: center;
+
+  p {
+    font-size: 2em;
+  }
+}
+
+
 .ranking {
   overflow: auto;
   width: 75%;
   margin: auto;
-  margin-top: 200px;
+  margin-bottom: 100px;
 }
 
 table {
@@ -98,6 +109,7 @@ table {
     margin-right: 1%;
     box-sizing: border-box;
     padding: 0px;
+
     .info {
       width: 98%;
       margin-left: 0px;
@@ -110,12 +122,14 @@ table {
       margin-left: 1%;
       margin-right: 1%;
       box-sizing: border-box;
+
       .insertScore {
         width: 98%;
         margin-left: 1%;
         margin-right: 1%;
         box-sizing: border-box;
       }
+
       .forfait {
         width: 98% !important;
         margin-left: 0px;

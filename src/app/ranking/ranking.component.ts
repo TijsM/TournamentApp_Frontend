@@ -12,7 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./ranking.component.scss']
 })
 export class RankingComponent implements OnInit {
-  private _fetchUsers$: Observable<User[]> = this._tournamenDataService.users$;
+  private _fetchUsers$: User[];
   private currentUser: User;
   private pendingMatch: Match;
   private insertScore: FormGroup;
@@ -31,7 +31,7 @@ export class RankingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._tournamenDataService /*  */
+    this._tournamenDataService
       .getUserById$(this.currentUserFromLogin.userId)
       .subscribe(res => {
         this.currentUser = User.fromJSON(res);
@@ -41,6 +41,10 @@ export class RankingComponent implements OnInit {
             .getMatchById$(this.currentUser.pendingMatch.matchId)
             .subscribe(res => (this.pendingMatch = res));
         }
+
+        this._tournamenDataService
+          .giveRanking$(this.currentUser.tournamentId)
+          .subscribe(res => (this._fetchUsers$ = res));
       });
 
     this.insertScore = this._ulfb.group({
@@ -52,8 +56,8 @@ export class RankingComponent implements OnInit {
       set3User2: ['']
     });
   }
- 
-  get users$(): Observable<User[]> {
+
+  get users$(): User[] {
     return this._fetchUsers$;
   }
 
@@ -86,12 +90,12 @@ export class RankingComponent implements OnInit {
 
     this._tournamenDataService.commitScore(
       this.pendingMatch.matchId,
-      this.insertScore.controls.set1User1.value,
       this.insertScore.controls.set1User2.value,
-      this.insertScore.controls.set2User1.value,
+      this.insertScore.controls.set1User1.value,
       this.insertScore.controls.set2User2.value,
-      this.insertScore.controls.set3User1.value,
-      this.insertScore.controls.set3User2.value
+      this.insertScore.controls.set2User1.value,
+      this.insertScore.controls.set3User2.value,
+      this.insertScore.controls.set3User1.value
     );
   }
 
