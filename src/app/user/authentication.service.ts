@@ -20,6 +20,8 @@ export class AuthenticationService {
   private readonly _tokenKey = 'currenUser';
   private _user$: BehaviorSubject<string>;
 
+  public redirectUrl: string;
+
   constructor(private http: HttpClient) {
     let parsedToken = parseJwt(localStorage.getItem(this._tokenKey));
 
@@ -75,9 +77,11 @@ export class AuthenticationService {
     gender: number,
     tennisVlaanderenScore: number
   ): Observable<boolean> {
+    console.log('entered auth service');
+    console.log(password);
     return this.http
       .post(
-        `${environment.apiUrl}/account/register`,
+        `${environment.apiUrl}/Account/register`,
         {
           email,
           password,
