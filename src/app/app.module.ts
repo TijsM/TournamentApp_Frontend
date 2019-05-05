@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
+// import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,12 +15,14 @@ import { ChallengeComponent } from './challenge/challenge.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MenubarComponent } from './menubar/menubar.component';
 // import { UserModule } from './user/user.module';
-import { MaterialModule } from './material.module'
+import { MaterialModule } from './material.module';
+import { UserModule } from './user/user.module'
+import { MAT_DATE_LOCALE } from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
+    // RegisterComponent,
     RankingComponent,
     UserDetailsComponent,
     ChallengeComponent,
@@ -39,9 +41,9 @@ import { MaterialModule } from './material.module'
     NgCircleProgressModule.forRoot({
       radius: 100
     }),
-    // UserModule
+    UserModule,
   ],
-  providers: [],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'nl-NL'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

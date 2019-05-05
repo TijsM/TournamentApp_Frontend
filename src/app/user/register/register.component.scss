@@ -1,7 +1,18 @@
-.form {
+form {
+  margin-top: 150px;
   width: 80%;
   margin-left: 10%;
-  margin-top: 200px;
+
+}
+
+mat-card-subtitle {
+  border-bottom: gray 0.5px dotted;
+  font-size: 1.2em;
+  padding-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+  padding-bottom: 10px;
 }
 
 mat-form-field {
@@ -15,6 +26,7 @@ mat-form-field {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: stretch;
+
 
   .item {
     width: 100%;
