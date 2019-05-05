@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 import { AuthenticationService } from '../authentication.service';
 
 import { map } from 'rxjs/operators';
-import { DateAdapter } from '@angular/material';
 import { Router } from '@angular/router';
 
 function comparePasswords(control: AbstractControl): { [key: string]: any } {
@@ -49,13 +48,10 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthenticationService,
-    private adapter: DateAdapter<any>,
     private router: Router
   ) {}
 
   ngOnInit() {
-    // this.adapter.setLocale('en');
-
     this.user = this.fb.group({
       firstName: ['', Validators.required],
       familyName: ['', Validators.required],
@@ -104,20 +100,17 @@ export class RegisterComponent implements OnInit {
         this.gendernumber,
         this.user.value.tennisVlaanderenScore
       )
-      .subscribe
-      // val => {
-      //   if (val) {
-      //     if (this.authService.redirectUrl) {
-      //       this.router.navigateByUrl(this.authService.redirectUrl);
-      //       this.authService.redirectUrl = undefined;
-      //     } else {
-      //       this.router.navigate(['/recipe/list']);
-      //     }
-      //   } else {
-      //     this.errorMsg = `Could not login`;
-      //   }
-      // }
-      // }
-      ();
+      .subscribe(val => {
+        if (val) {
+          if (this.authService.redirectUrl) {
+            this.router.navigateByUrl(this.authService.redirectUrl);
+            this.authService.redirectUrl = undefined;
+          } else {
+            this.router.navigate(['/ranking']);
+          }
+        } else {
+          this.errorMsg = `Could not login`;
+        }
+      });
   }
 }

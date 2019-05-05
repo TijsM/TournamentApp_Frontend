@@ -1,3 +1,41 @@
-<p>
-  login works!
-</p>
+  <form [formGroup]="user" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-title>Login</mat-card-title>
+      <div>
+        <div class="RegistreerFormRij">
+          <div class="item">
+            <div class="ico">
+              <mat-icon aria-hidden="false" aria-label="naam">person</mat-icon>
+            </div>
+            <div class="input">
+              <mat-form-field>
+                <input matInput placeholder="email" type="email" aria-label="email" formControlName="email" required />
+                <!-- <mat-error *ngIf="userLogin.get('email')['errors']  && userLogin.get('email').touched">
+                {{getErrorMessage(userLogin.get('email')['errors']) }}</mat-error> -->
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="RegistreerFormRij">
+          <div class="item">
+            <div class="ico">
+              <mat-icon aria-hidden="false" aria-label="wachtwoord">vpn_key</mat-icon>
+            </div>
+            <div class="input">
+              <mat-form-field>
+                <input matInput placeholder="wachtwoord" type="password" aria-label="wachtwoord"
+                  formControlName="password" required />
+                <!-- <mat-error *ngIf="userLogin.get('wachtwoord')['errors']  && userLogin.get('wachtwoord').touched">
+                {{getErrorMessage(userLogin.get('wachtwoord')['errors']) }}</mat-error> -->
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <!-- routerLink="/ranking" -->
+        <button mat-flat-button color="primary">
+          Bevestig
+        </button>
+      </div>
+    </mat-card>
+  </form>

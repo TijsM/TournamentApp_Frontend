@@ -1,0 +1,68 @@
+form {
+  margin-top: 150px;
+  width: 80%;
+  margin-left: 10%;
+
+}
+
+mat-card{
+  width: 100%;
+}
+
+
+mat-card-subtitle {
+  border-bottom: gray 0.5px dotted;
+  font-size: 1.2em;
+  padding-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.RegistreerFormRij {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+
+
+  .item {
+    width: 100%;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 100px;
+    padding-left: 30px;
+
+    .ico {
+      padding-top: 20px;
+      width: 5%;
+      min-width: 50px;
+    }
+
+    .input {
+      width: 90%;
+      box-sizing: border-box;
+      min-width: 200px;
+
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 700px) {
+  .mat-card {
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    box-sizing: border-box;
+  }
+}

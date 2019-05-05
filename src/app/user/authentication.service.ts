@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { map } from 'rxjs/operators';
 
+
 function parseJwt(token) {
   if (!token) {
     return null;
@@ -17,13 +18,13 @@ function parseJwt(token) {
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private readonly _tokenKey = 'currenUser';
+  private readonly _tokenKey = 'currentUser';
   private _user$: BehaviorSubject<string>;
 
   public redirectUrl: string;
 
   constructor(private http: HttpClient) {
-    let parsedToken = parseJwt(localStorage.getItem(this._tokenKey));
+    let parsedToken =  parseJwt(localStorage.getItem(this._tokenKey));
 
     if (parsedToken) {
       const expires =
@@ -48,6 +49,7 @@ export class AuthenticationService {
   }
 
   login(email: string, password: string): Observable<boolean> {
+    console.log("entered auth service")
     return this.http
       .post(
         `${environment.apiUrl}/account`,

@@ -16,6 +16,9 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     FormsModule,
     ReactiveFormsModule
   ],
+  exports: [
+    LoginComponent, RegisterComponent
+  ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'nl-NL'}],
 })
 export class UserModule { }

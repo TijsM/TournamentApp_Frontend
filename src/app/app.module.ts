@@ -18,6 +18,10 @@ import { MenubarComponent } from './menubar/menubar.component';
 import { MaterialModule } from './material.module';
 import { UserModule } from './user/user.module'
 import { MAT_DATE_LOCALE } from '@angular/material';
+import { httpInterceptorProviders } from './interceptors';
+import { AccesPointComponent } from './acces-point/acces-point.component';
+import { RegisterComponent } from './user/register/register.component';
+import { LoginComponent } from './user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     RankingComponent,
     UserDetailsComponent,
     ChallengeComponent,
-    MenubarComponent
+    MenubarComponent,
+    AccesPointComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,7 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     }),
     UserModule,
   ],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'nl-NL'}],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'nl-NL'},httpInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
