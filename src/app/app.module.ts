@@ -16,12 +16,13 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MenubarComponent } from './menubar/menubar.component';
 // import { UserModule } from './user/user.module';
 import { MaterialModule } from './material.module';
-import { UserModule } from './user/user.module'
+import { UserModule } from './user/user.module';
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { httpInterceptorProviders } from './interceptors';
 import { AccesPointComponent } from './acces-point/acces-point.component';
 import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
+import { HulpModule } from './hulp/hulp.module';
 
 @NgModule({
   declarations: [
@@ -31,8 +32,7 @@ import { LoginComponent } from './user/login/login.component';
     UserDetailsComponent,
     ChallengeComponent,
     MenubarComponent,
-    AccesPointComponent,
-
+    AccesPointComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +48,12 @@ import { LoginComponent } from './user/login/login.component';
       radius: 100
     }),
     UserModule,
+    HulpModule
   ],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'nl-NL'},httpInterceptorProviders ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'nl-NL' },
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

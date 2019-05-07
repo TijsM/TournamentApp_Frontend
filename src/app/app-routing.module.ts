@@ -6,11 +6,18 @@ import { ChallengeComponent } from './challenge/challenge.component';
 import { RegisterComponent } from './user/register/register.component';
 import { AuthGuard } from './user/auth.guard';
 import { AccesPointComponent } from './acces-point/acces-point.component';
-
+import { ConfirmationCommittedScoreComponent } from './hulp/confirmation-committed-score/confirmation-committed-score.component';
+import { Error404Component } from './hulp/error404/error404.component';
 
 const routes: Routes = [
   { path: '', component: AccesPointComponent },
-  { path: 'ranking', component: RankingComponent, },
+  {
+    path: 'scoreConfirmed',
+    canActivate: [AuthGuard],
+    component: ConfirmationCommittedScoreComponent
+  },
+  { path: 'ranking', component: RankingComponent },
+
   {
     path: 'userDetails/:id',
     canActivate: [AuthGuard],
@@ -20,7 +27,8 @@ const routes: Routes = [
     path: 'challenge/:id',
     canActivate: [AuthGuard],
     component: ChallengeComponent
-  }
+  },
+  { path: '**', component: Error404Component}
 ];
 
 @NgModule({
