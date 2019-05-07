@@ -7,9 +7,10 @@ import { RegisterComponent } from './user/register/register.component';
 import { AuthGuard } from './user/auth.guard';
 import { AccesPointComponent } from './acces-point/acces-point.component';
 
+
 const routes: Routes = [
   { path: '', component: AccesPointComponent },
-  { path: 'ranking', component: RankingComponent },
+  { path: 'ranking', component: RankingComponent, },
   {
     path: 'userDetails/:id',
     canActivate: [AuthGuard],

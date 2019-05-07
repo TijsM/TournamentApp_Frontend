@@ -152,16 +152,14 @@ export class TournamentDataService {
 
     console.log('matchId:');
     console.log(matchId);
-    return this.http
-      .put(`${environment.apiUrl}/Match/commitScore`, {
-        matchId,
-        WinnerSet1,
-        LoserSet1,
-        WinnerSet2,
-        LoserSet2,
-        WinnerSet3,
-        LoserSet3
-      })
-      .subscribe();
+    return this.http.put(`${environment.apiUrl}/Match/commitScore`, {
+      matchId,
+      WinnerSet1,
+      LoserSet1,
+      WinnerSet2,
+      LoserSet2,
+      WinnerSet3,
+      LoserSet3
+    });
   }
 }

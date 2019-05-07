@@ -13,7 +13,7 @@
 
 
   <div class="name">
-    <p> {{ selectedUser.userFullName }}</p>
+    <p>  {{ selectedUser.rankInTournament }}/{{ selectedUser.userFullName }}</p>
   </div>
 
 
@@ -35,14 +35,12 @@
         </mat-card-header>
         <mat-card-content>
           klassement-waarde: {{ selectedUser.tennisVlaanderenRanking }}<br />
-          geboortedatum: {{selectedUser.dateOfBirth }}<br />
+          geboortedatum: {{selectedUser.dateOfBirth | date: 'dd/MM/yyyy' }}<br />
           gsm-nummer: {{ selectedUser.phoneNumber }}<br />
           email: {{ selectedUser.email }}<br />
-          geslacht: {{ selectedUser.gender }}<br />
-          plaats in ladder: {{ selectedUser.rankInTournament }} <br />
+          plaats in ladder: <br />
           matchen gespeeld: {{ selectedUser.matches.length }} <br>
           heeft een match (boolean): {{ selectedUser.hasChallenge }} <br>
-          heeft een match (id): {{selectedUser.pendingMatchId}}
         </mat-card-content>
       </mat-card>
     </mat-expansion-panel>
@@ -196,11 +194,11 @@
 </mat-card> -->
 
 
-  <!-- <div *ngIf="currentUser.hasChallenge == false"> -->
+  <div *ngIf="currentUser.hasChallenge == false">
   <button (click)="challenge()" class="submit" mat-flat-button>
     Daag Uit
   </button>
-  <!-- </dsiv> -->
+  </div>
   <div *ngIf="currentUser.hasChallenge == true  ">
     <button mat-flat-button matTooltip="Werk eerst je vorige uitdaging af voor je aan een nieuwe kan beginnen"
       class="cantChallenge">

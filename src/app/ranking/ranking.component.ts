@@ -75,28 +75,21 @@ export class RankingComponent implements OnInit {
     this.userWantsToCommitScore = false;
   }
   commitScore() {
-    console.log('id van match');
-    console.log(this.pendingMatch.matchId);
+    this._router.navigate(['/userDetails/2']);
 
-    console.log(this.insertScore.controls.set1User1.value);
-    console.log(this.insertScore.controls.set2User1.value);
-    console.log(this.insertScore.controls.set3User1.value);
+    this._tournamenDataService
+      .commitScore(
+        this.pendingMatch.matchId,
+        this.insertScore.controls.set1User2.value,
+        this.insertScore.controls.set1User1.value,
+        this.insertScore.controls.set2User2.value,
+        this.insertScore.controls.set2User1.value,
+        this.insertScore.controls.set3User2.value,
+        this.insertScore.controls.set3User1.value
+      )
+      .subscribe();
 
-    console.log(this.insertScore.controls.set1User2.value);
-    console.log(this.insertScore.controls.set2User2.value);
-    console.log(this.insertScore.controls.set3User2.value);
-
-    window.location.reload();
-
-    this._tournamenDataService.commitScore(
-      this.pendingMatch.matchId,
-      this.insertScore.controls.set1User2.value,
-      this.insertScore.controls.set1User1.value,
-      this.insertScore.controls.set2User2.value,
-      this.insertScore.controls.set2User1.value,
-      this.insertScore.controls.set3User2.value,
-      this.insertScore.controls.set3User1.value
-    );
+    // window.location.reload();
   }
 
   commitForfait() {
