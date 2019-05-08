@@ -22,6 +22,6 @@ export class MenubarComponent implements OnInit {
   }
 
   history() {
-    console.log('not yet implemented');
+    this._router.navigate(['history']);
   }
 }

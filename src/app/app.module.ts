@@ -23,6 +23,7 @@ import { AccesPointComponent } from './acces-point/acces-point.component';
 import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
 import { HulpModule } from './hulp/hulp.module';
+import { HistoryModule } from './history/history.module';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { HulpModule } from './hulp/hulp.module';
     //   radius: 100
     // }),
     UserModule,
-    HulpModule
+    HulpModule,
+    HistoryModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'nl-NL' },

@@ -1,0 +1,71 @@
+.title {
+  width: 100%;
+  text-align: center;
+
+  p {
+    font-size: 2em;
+  }
+}
+
+
+.playedMatch {
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  .matchContainer {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+
+
+    .result {
+      width: 20%;
+
+      .formWon {
+        width: 50px;
+        height: 50px;
+        background-color: #78c000;
+        border-radius: 100%;
+        text-align: center;
+        color: white;
+        padding-top: 12.5px;
+        box-sizing: border-box;
+      }
+
+      .formLoss {
+        width: 50px;
+        height: 50px;
+        background-color: rgb(255, 87, 34);
+        border-radius: 100%;
+        text-align: center;
+        color: white;
+        padding-top: 12.5px;
+        box-sizing: border-box;
+      }
+    }
+
+    .oponent {
+      min-width: 65px;
+      width: 20%;
+    }
+
+    table {
+      margin-top: 20px;
+      width: 20%;
+      min-width: 150px;
+
+      tr {
+        td {
+          padding: 4px;
+          // border: black 2px solid;
+          // border-collapse: collapse;
+        }
+      }
+    }
+  }
+}

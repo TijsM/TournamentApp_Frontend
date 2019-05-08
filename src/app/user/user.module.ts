@@ -8,7 +8,7 @@ import { MAT_DATE_LOCALE } from '@angular/material';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ChartsModule } from 'ng2-charts';
-
+  
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, UserDetailsComponent],
   imports: [
