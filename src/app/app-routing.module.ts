@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RankingComponent } from './ranking/ranking.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
-import { ChallengeComponent } from './challenge/challenge.component';
+import { ChallengeComponent } from './hulp/challenge/challenge.component';
 import { RegisterComponent } from './user/register/register.component';
 import { AuthGuard } from './user/auth.guard';
 import { AccesPointComponent } from './acces-point/acces-point.component';

@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RankingComponent } from './ranking/ranking.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ChallengeComponent } from './challenge/challenge.component';
+import { ChallengeComponent } from './hulp/challenge/challenge.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MenubarComponent } from './menubar/menubar.component';
 // import { UserModule } from './user/user.module';
@@ -30,7 +30,7 @@ import { HulpModule } from './hulp/hulp.module';
     // RegisterComponent,
     RankingComponent,
     UserDetailsComponent,
-    ChallengeComponent,
+    // ChallengeComponent,
     MenubarComponent,
     AccesPointComponent
   ],

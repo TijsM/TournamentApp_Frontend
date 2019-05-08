@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { User } from '../user.model';
-import { TournamentDataService } from '../tournament.data.services';
+import { User } from '../../user.model';
+import { TournamentDataService } from '../../tournament.data.services';
 
 @Component({
   selector: 'app-challenge',
@@ -34,7 +34,6 @@ export class ChallengeComponent implements OnInit {
     this._tournamentDataService
       .getUserByIdNoIncludes$(this.currentUser.userId)
       .subscribe(res => (this.currentUser = res));
-
 
     localStorage.clear();
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
