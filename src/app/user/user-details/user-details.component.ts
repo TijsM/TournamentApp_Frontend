@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../user.model';
-import { TournamentDataService } from '../tournament.data.services';
+import { User } from '../../user.model';
+import { TournamentDataService } from '../../tournament.data.services';
 import { Label, SingleDataSet } from 'ng2-charts';
 import { ChartType } from 'chart.js';
-import { Match } from '../match.model';
+import { Match } from '../../match.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { async } from 'q';
 import { map } from 'rxjs/operators';

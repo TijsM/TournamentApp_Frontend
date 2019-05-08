@@ -9,7 +9,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HttpClientModule } from '@angular/common/http';
 import { RankingComponent } from './ranking/ranking.component';
-import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserDetailsComponent } from './user/user-details/user-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChallengeComponent } from './hulp/challenge/challenge.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
@@ -29,7 +29,7 @@ import { HulpModule } from './hulp/hulp.module';
     AppComponent,
     // RegisterComponent,
     RankingComponent,
-    UserDetailsComponent,
+    // UserDetailsComponent,
     // ChallengeComponent,
     MenubarComponent,
     AccesPointComponent
@@ -44,9 +44,9 @@ import { HulpModule } from './hulp/hulp.module';
     AngularFontAwesomeModule,
     ReactiveFormsModule,
     MaterialModule,
-    NgCircleProgressModule.forRoot({
-      radius: 100
-    }),
+    // NgCircleProgressModule.forRoot({
+    //   radius: 100
+    // }),
     UserModule,
     HulpModule
   ],
