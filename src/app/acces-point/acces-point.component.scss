@@ -1,9 +1,9 @@
 mat-tab-group {
- width: fit-content;
+
   text-align: center;
   margin: auto;
   margin-top: 250px;
-  width: 750px;
+  width: 800px;
 }
 
 mat-tab-labels{
@@ -14,4 +14,21 @@ mat-tab-label{
   margin: 150px;
 }
 
+
+
+@media screen and (max-width: 850px) {
+
+  mat-tab-group {
+
+    width: 98%;
+    box-sizing: border-box;
+    margin-left: 1px;
+  }
+  mat-card {
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    box-sizing: border-box;
+  }
+}
 
