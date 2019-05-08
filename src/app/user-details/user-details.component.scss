@@ -34,6 +34,7 @@
     .stat {
       margin-top: 5px !important;
       margin-top: 5px !important;
+      min-width: 250px;
     }
 
     .stat:hover {
@@ -41,44 +42,44 @@
       box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
     }
 
-    .formWon {
-      width: 50px;
-      height: 50px;
-      background-color: #78c000;
-      border-radius: 100%;
-      text-align: center;
-      color: white;
-      padding-top: 12.5px;
-      box-sizing: border-box;
-    }
 
-    .formLoss {
-      width: 50px;
-      height: 50px;
-      background-color: rgb(255, 87, 34);
-      border-radius: 100%;
-      text-align: center;
-      color: white;
-      padding-top: 12.5px;
-      box-sizing: border-box;
-    }
 
     .form {
       display: flex;
-
       flex-direction: row;
       width: 50%;
       min-width: 250px;
       margin: auto;
       justify-content: space-around;
       margin: auto;
+
+      .formWon {
+        width: 50px;
+        height: 50px;
+        background-color: #78c000;
+        border-radius: 100%;
+        text-align: center;
+        color: white;
+        padding-top: 12.5px;
+        box-sizing: border-box;
+      }
+
+      .formLoss {
+        width: 50px;
+        height: 50px;
+        background-color: rgb(255, 87, 34);
+        border-radius: 100%;
+        text-align: center;
+        color: white;
+        padding-top: 12.5px;
+        box-sizing: border-box;
+      }
     }
 
     .results {
       display: flex;
       flex-direction: row;
       width: 80%;
-      min-width: 250px;
       margin: auto;
       justify-content: space-around;
       flex-wrap: wrap;
@@ -194,24 +195,63 @@
 }
 
 @media screen and (max-width: 700px) {
-  .mat-card {
+  .statsContainer{
     width: 98%;
     margin-left: 1%;
-    margin-right: 1%;
     box-sizing: border-box;
-
-    .stat {
+  
+  }
+  .stats {
+    .mat-card {
       width: 98%;
       margin-left: 1%;
       margin-right: 1%;
       box-sizing: border-box;
+      padding: 10px;
 
-      .matchContainer {
+      .stat {
+        min-width: 300px;
         width: 98%;
         margin-left: 1%;
         margin-right: 1%;
         box-sizing: border-box;
+
+        .matchContainer {
+          width: 98%;
+          margin-left: 1%;
+          margin-right: 1%;
+          box-sizing: border-box;
+        }
       }
+    }
+
+    .statsContainer {
+      width: 98%;
+      box-sizing: border-box;
+      margin-left: 1%;
+
+      .stats {
+        .form {
+          flex-direction: column;
+          align-items: center;
+
+          .formWon {
+            margin: 20px;
+          }
+
+          .formLoss {
+            margin: 20px;
+          }
+        }
+      }
+    }
+
+    .results {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+
+
     }
   }
 }
