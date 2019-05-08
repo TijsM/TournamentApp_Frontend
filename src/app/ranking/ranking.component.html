@@ -53,7 +53,7 @@
 
   <div *ngIf="userWantsToCommitScore" class="userActions">
     <mat-card class="insertScore">
-      <form [formGroup]="insertScore"  (ngSumbit)='commitScore()'>
+      <form [formGroup]="insertScore" (ngSubmit)="commitScore()">
         <table class="score">
           <tr>
             <td></td>
@@ -104,10 +104,10 @@
             <!--set 3 user2-->
           </tr>
         </table>
+        <button mat-flat-button color="primary">
+          Bevestig
+        </button>
       </form>
-      <button mat-flat-button (click)='commitScore()' color="primary">
-        Bevestig
-      </button>
     </mat-card>
   </div>
 

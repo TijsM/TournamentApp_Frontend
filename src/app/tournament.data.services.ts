@@ -146,12 +146,7 @@ export class TournamentDataService {
     WinnerSet3: number,
     LoserSet3: number
   ) {
-    console.log('p1s1 en p2s2 vanuit tournament service');
-    console.log(WinnerSet1);
-    console.log(LoserSet2);
 
-    console.log('matchId:');
-    console.log(matchId);
     return this.http.put(`${environment.apiUrl}/Match/commitScore`, {
       matchId,
       WinnerSet1,

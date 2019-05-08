@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
 export class ConfirmationCommittedScoreComponent implements OnInit {
   constructor(private _router: Router) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  back() {
     console.log('back to ranking button clicked');
-    this._router.navigate(['/ranking']);
-  }
+    this._router.navigate(['/ranking']);  }
 }

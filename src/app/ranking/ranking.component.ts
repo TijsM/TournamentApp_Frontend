@@ -75,7 +75,7 @@ export class RankingComponent implements OnInit {
     this.userWantsToCommitScore = false;
   }
   commitScore() {
-    this._router.navigate(['/scoreConfirmed']);
+    
 
     this._tournamenDataService
       .commitScore(
@@ -87,7 +87,11 @@ export class RankingComponent implements OnInit {
         this.insertScore.controls.set3User2.value,
         this.insertScore.controls.set3User1.value
       )
-      .subscribe();
+      .subscribe(
+        value => this._router.navigate(['scoreConfirmed'])
+      );
+
+    this._router.navigate(['/scoreConfirmed']);
 
     // window.location.reload();
   }
