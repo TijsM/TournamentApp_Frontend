@@ -32,6 +32,12 @@ export class TournamentDataService {
       .pipe(map((usr: any): User => User.fromJSON(usr)));
   }
 
+  getUserByIdNoIncludes$(id: number): Observable<User> {
+    return this.http
+      .get(`${environment.apiUrl}/Users/getUserNoIncludes/${id}`)
+      .pipe(map((usr: any): User => User.fromJSON(usr)));
+  }
+
   getMatchById$(id: number): Observable<Match> {
     return this.http
       .get(`${environment.apiUrl}/Match/${id}`)
@@ -146,7 +152,6 @@ export class TournamentDataService {
     WinnerSet3: number,
     LoserSet3: number
   ) {
-
     return this.http.put(`${environment.apiUrl}/Match/commitScore`, {
       matchId,
       WinnerSet1,

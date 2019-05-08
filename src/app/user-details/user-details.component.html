@@ -13,7 +13,7 @@
 
 
   <div class="name">
-    <p>  {{ selectedUser.rankInTournament }}/{{ selectedUser.userFullName }}</p>
+    <p> {{ selectedUser.rankInTournament }}/{{ selectedUser.userFullName }}</p>
   </div>
 
 
@@ -194,15 +194,25 @@
 </mat-card> -->
 
 
-  <div *ngIf="currentUser.hasChallenge == false">
-  <button (click)="challenge()" class="submit" mat-flat-button>
-    Daag Uit
-  </button>
-  </div>
-  <div *ngIf="currentUser.hasChallenge == true  ">
-    <button mat-flat-button matTooltip="Werk eerst je vorige uitdaging af voor je aan een nieuwe kan beginnen"
-      class="cantChallenge">
+  <div *ngIf="currentUser.hasChallenge == false && selectedUser.hasChallenge == false">
+    <button (click)="challenge()" class="submit" mat-flat-button>
       Daag Uit
     </button>
+  </div>
+  <div *ngIf="currentUser.hasChallenge == true  || selectedUser.hasChallenge == true">
+    <div *ngIf="currentUser.hasChallenge == true; else sellectedUserHas">
+      <button mat-flat-button
+        matTooltip="U heeft al een uitdaging, deze moet eerst afgewerkt worden voor u een nieuwe uitdaging kan aangaan"
+        class="cantChallenge">
+        Daag Uit
+      </button>
+    </div>
+    <ng-template #sellectedUserHas>
+      <button mat-flat-button
+        matTooltip="De tegenstander heeft al een uitdaging, deze moet eerst afgewerkt worden voor u deze persoon kan uitdageng"
+        class="cantChallenge">
+        Daag Uit
+      </button>
+    </ng-template>
   </div>
 </div>
