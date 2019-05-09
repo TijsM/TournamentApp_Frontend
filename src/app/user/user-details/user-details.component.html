@@ -201,7 +201,7 @@
 </ng-template>
 
 <ng-template #nokChallenge>
-  <button mat-flat-button matTooltip="Kan niet uitdagen" class="cantChallenge">
+  <button (click)="open()" mat-flat-button matTooltip="Kan niet uitdagen" class="cantChallenge">
     Daag Uit
   </button>
 </ng-template>

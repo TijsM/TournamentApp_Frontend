@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { async } from 'q';
 import { map } from 'rxjs/operators';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-user-details',
@@ -38,7 +39,8 @@ export class UserDetailsComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _tournamenDataService: TournamentDataService,
-    private _router: Router
+    private _router: Router,
+    private _snackBar: MatSnackBar
   ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
@@ -157,5 +159,17 @@ export class UserDetailsComponent implements OnInit {
 
     console.log(this.cantChallengeErrors);
     return this._canChal;
+  }
+
+  open(){
+    this.cantChallengeErrors.forEach(msg =>{
+      this._snackBar.open(msg, "x",{
+        duration: 2000
+      })
+    })
+
+    // this._snackBar.open("Test", "x",{
+    //   duration: 2000
+    // })
   }
 }
