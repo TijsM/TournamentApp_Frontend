@@ -190,29 +190,18 @@
       </mat-card>
     </mat-expansion-panel>
   </mat-accordion>
-  <!-- </mat-card-content>
-</mat-card> -->
-
-
-  <div *ngIf="currentUser.hasChallenge == false && selectedUser.hasChallenge == false">
-    <button (click)="challenge()" class="submit" mat-flat-button>
-      Daag Uit
-    </button>
-  </div>
-  <div *ngIf="currentUser.hasChallenge == true  || selectedUser.hasChallenge == true">
-    <div *ngIf="currentUser.hasChallenge == true; else sellectedUserHas">
-      <button mat-flat-button
-        matTooltip="U heeft al een uitdaging, deze moet eerst afgewerkt worden voor u een nieuwe uitdaging kan aangaan"
-        class="cantChallenge">
-        Daag Uit
-      </button>
-    </div>
-    <ng-template #sellectedUserHas>
-      <button mat-flat-button
-        matTooltip="De tegenstander heeft al een uitdaging, deze moet eerst afgewerkt worden voor u deze persoon kan uitdageng"
-        class="cantChallenge">
-        Daag Uit
-      </button>
-    </ng-template>
-  </div>
 </div>
+
+<ng-container *ngIf="okToChallenge; then okChallenge; else nokChallenge"></ng-container>
+
+<ng-template #okChallenge>
+  <button (click)="challenge()" class="submit" mat-flat-button>
+    Daag Uit
+  </button>
+</ng-template>
+
+<ng-template #nokChallenge>
+  <button mat-flat-button matTooltip="Kan niet uitdagen" class="cantChallenge">
+    Daag Uit
+  </button>
+</ng-template>

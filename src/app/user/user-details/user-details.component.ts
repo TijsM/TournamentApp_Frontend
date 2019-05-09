@@ -25,7 +25,11 @@ export class UserDetailsComponent implements OnInit {
   private matches: Match[];
   private wonMatches: Match[];
   private lostMatches: Match[];
+  private cantChallengeErrors: string[];
+  private _canChal: boolean;
+  public okToChallenge: boolean;
   currentUser: User;
+  
 
   //data voor circle
   private amountWon;
@@ -39,6 +43,8 @@ export class UserDetailsComponent implements OnInit {
   ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
+
+    
   }
 
   ngOnInit() {
@@ -69,6 +75,8 @@ export class UserDetailsComponent implements OnInit {
       .subscribe(
         res => ((this.lostMatches = res), (this.amountLost = res.length))
       );
+
+      this.okToChallenge = this.canChallenge();
   }
 
   get matchesFromUser$(): Observable<Match[]> {
@@ -101,5 +109,53 @@ export class UserDetailsComponent implements OnInit {
     // localStorage.setItem('sellectedUser', JSON.stringify(this.currentUser));
     this._router.navigate(['/challenge', this.selectedUser.userId]);
   }
+
+  canChallenge(): boolean {
+    console.log('test');
+    console.log('-----');
+    this.cantChallengeErrors = [];
+    this._canChal = true;
+
+    if (this.currentUser.hasChallenge === true) {
+      console.log('in conditie 1');
+      this.cantChallengeErrors.push('U heeft al een uitdaging');
+      this._canChal = false;
+    }
+    if (this.selectedUser.hasChallenge === true) {
+      console.log('in conditie 2');
+      this.cantChallengeErrors.push(
+        'De geselecteerde speler heeft al een uitdaging'
+      );
+      this._canChal = false;
+    }
+    if (
+      this.selectedUser.rankInTournament > this.currentUser.rankInTournament
+    ) {
+      console.log('in conditie 3');
+      this.cantChallengeErrors.push(
+        'U kan geen speler uitdagen die achter jou in de ranking staat'
+      );
+      this._canChal = false;
+    }
+    if (
+      this.currentUser.rankInTournament - this.selectedUser.rankInTournament >
+      2
+    ) {
+      console.log('in conditie 4');
+      this.cantChallengeErrors.push(
+        'De speler die u probeert uit te dagen staat te hoog, kies iemand anders'
+      );
+      this._canChal = false;
+    }
+    if (this.selectedUser.userId === this.currentUser.userId) {
+      console.log('in conditie 5');
+      this.cantChallengeErrors.push(
+        'Jezelf uitdagen is niet zo heel nuttig ;-)'
+      );
+      this._canChal = false;
+    }
+
+    console.log(this.cantChallengeErrors);
+    return this._canChal;
+  }
 }
- 
