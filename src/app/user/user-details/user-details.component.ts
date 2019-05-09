@@ -29,7 +29,6 @@ export class UserDetailsComponent implements OnInit {
   private _canChal: boolean;
   public okToChallenge: boolean;
   currentUser: User;
-  
 
   //data voor circle
   private amountWon;
@@ -43,8 +42,6 @@ export class UserDetailsComponent implements OnInit {
   ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
-
-    
   }
 
   ngOnInit() {
@@ -54,9 +51,12 @@ export class UserDetailsComponent implements OnInit {
       this.idFromRoute
     );
 
-    this._tournamenDataService
-      .getUserById$(this.idFromRoute)
-      .subscribe(res => (this.selectedUser = res));
+    this._route.data.subscribe(
+      item => (this.selectedUser = item['sellectedUser'])
+    );
+    // this._tournamenDataService
+    //   .getUserById$(this.idFromRoute)
+    //   .subscribe(res => (this.selectedUser = res));
 
     this._tournamenDataService
       .getMatchesFromUser$(this.idFromRoute)
@@ -76,7 +76,7 @@ export class UserDetailsComponent implements OnInit {
         res => ((this.lostMatches = res), (this.amountLost = res.length))
       );
 
-      this.okToChallenge = this.canChallenge();
+    this.okToChallenge = this.canChallenge();
   }
 
   get matchesFromUser$(): Observable<Match[]> {
