@@ -8,33 +8,29 @@
 <div *ngFor="let match of matches">
   <mat-card class="playedMatch">
     <mat-card-content class="matchContainer">
-      <div class="result">
-        <div *ngIf="currentUser.userId == match.winnerId" class="formWon">
-          G
-        </div>
-        <div *ngIf="currentUser.userId == match.loserId" class="formLoss">
-          V
-        </div>
-      </div>
-
-      <div class="oponent">
+      <!-- <div class="oponent">
         <div *ngIf="currentUser.userId == match.winnerId">
           {{match.loserFullName}}
         </div>
         <div *ngIf="currentUser.userId == match.loserId">
           {{match.winnerFullName}}
         </div>
+      </div> -->
+      <div class="players">
+        {{match.winnerFullName}}
+        <br>
+        {{match.loserFullName}}
+        <br>
+
       </div>
 
       <table>
         <tr>
-          <td>{{match.winnerFullName}}</td>
           <td>{{match.winnerSet1}}</td>
           <td>{{match.winnerSet2}}</td>
           <td>{{match.winnerSet3}}</td>
         </tr>
         <tr>
-          <td>{{match.loserFullName}}</td>
           <td>{{match.loserSet1}}</td>
           <td>{{match.loserSet2}}</td>
           <td>{{match.loserSet3}}</td>

@@ -20,44 +20,18 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    padding-left: 20%;
+    padding-right: 20%;
 
-
-
-    .result {
-      width: 20%;
-
-      .formWon {
-        width: 50px;
-        height: 50px;
-        background-color: #78c000;
-        border-radius: 100%;
-        text-align: center;
-        color: white;
-        padding-top: 12.5px;
-        box-sizing: border-box;
-      }
-
-      .formLoss {
-        width: 50px;
-        height: 50px;
-        background-color: rgb(255, 87, 34);
-        border-radius: 100%;
-        text-align: center;
-        color: white;
-        padding-top: 12.5px;
-        box-sizing: border-box;
-      }
+    .players {
+      width: 30%;
+      box-sizing: border-box;
     }
 
-    .oponent {
-      min-width: 65px;
-      width: 20%;
-    }
 
     table {
-      margin-top: 20px;
-      width: 20%;
-      min-width: 150px;
+      width: 30%;
+      box-sizing: border-box;
 
       tr {
         td {
@@ -66,6 +40,17 @@
           // border-collapse: collapse;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+
+
+  .playedMatch {
+    .matchContainer {
+      padding-left: 15px;
+      padding-right: 15px;
     }
   }
 }
