@@ -43,13 +43,16 @@ export class UserDetailsComponent implements OnInit {
     private _router: Router,
     private _snackBar: MatSnackBar,
     private _bottomSheet: MatBottomSheet
-  ) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log(this.currentUser);
-  }
+  ) {}
 
   ngOnInit() {
+    this.amountLost = 0;
+    this.amountPlayed = 0;
+    this.amountWon = 0;
     this.idFromRoute = +this._route.snapshot.params['id']; // id uit de route halen
+
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(this.currentUser);
 
     this._fetchMatchesFromUser$ = this._tournamenDataService.getMatchesFromUser$(
       this.idFromRoute
@@ -58,28 +61,23 @@ export class UserDetailsComponent implements OnInit {
     this._route.data.subscribe(
       item => (this.selectedUser = item['sellectedUser'])
     );
-    // this._tournamenDataService
-    //   .getUserById$(this.idFromRoute)
-    //   .subscribe(res => (this.selectedUser = res));
 
     this._tournamenDataService
       .getMatchesFromUser$(this.idFromRoute)
-      .subscribe(
-        res => ((this.matches = res), (this.amountPlayed = res.length))
-      );
+      .subscribe(res => {
+        this.matches = res;
+        this.amountPlayed = res.length;
 
-    this._tournamenDataService
-      .getWonMatchesFromUser$(this.idFromRoute)
-      .subscribe(
-        res => ((this.wonMatches = res), (this.amountWon = res.length))
-      );
-
-    this._tournamenDataService
-      .getLostMatchesFromUser$(this.idFromRoute)
-      .subscribe(
-        res => ((this.lostMatches = res), (this.amountLost = res.length))
-      );
-
+        console.log(this.matches);
+        this.matches.forEach(mat => {
+          if (mat.loserId == this.selectedUser.userId) {
+            this.amountLost++;
+          }
+          if (mat.winnerId == this.selectedUser.userId) {
+            this.amountWon++;
+          }
+        });
+      });
     this.okToChallenge = this.canChallenge();
   }
 
