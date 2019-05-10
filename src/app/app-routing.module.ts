@@ -28,12 +28,13 @@ const routes: Routes = [
     path: 'userDetails/:id',
     canActivate: [AuthGuard],
     component: UserDetailsComponent,
-    resolve: {sellectedUser: UserResolver}
+    resolve: { sellectedUser: UserResolver }
   },
   {
     path: 'challenge/:id',
     canActivate: [AuthGuard],
-    component: ChallengeComponent
+    component: ChallengeComponent,
+    resolve: { sellectedUser: UserResolver }
   },
   {
     path: 'history',

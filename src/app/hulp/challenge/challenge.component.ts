@@ -21,11 +21,15 @@ export class ChallengeComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = +this._route.snapshot.params['id']; // id uit de route halen
+    // const id = +this._route.snapshot.params['id']; // id uit de route halen
 
-    this._tournamentDataService
-      .getUserById$(id)
-      .subscribe(res => (this.challengedUser = res));
+    // this._tournamentDataService
+    //   .getUserById$(id)
+    //   .subscribe(res => (this.challengedUser = res));
+
+    this._route.data.subscribe(item => {
+      this.challengedUser = item['sellectedUser'];
+    });
 
     console.log(this.challengedUser.firstName);
   }

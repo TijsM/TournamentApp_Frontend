@@ -108,7 +108,7 @@ export class UserDetailsComponent implements OnInit {
       )
       .subscribe();
 
-    // localStorage.setItem('sellectedUser', JSON.stringify(this.currentUser));
+    // localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
     this._router.navigate(['/challenge', this.selectedUser.userId]);
   }
 
@@ -152,7 +152,7 @@ export class UserDetailsComponent implements OnInit {
     if (this.selectedUser.userId === this.currentUser.userId) {
       console.log('in conditie 5');
       this.cantChallengeErrors.push(
-        'Jezelf uitdagen is niet zo heel nuttig ;-)'
+        'Jezelf uitdagen is geen echte uitdaging he ;-)'
       );
       this._canChal = false;
     }

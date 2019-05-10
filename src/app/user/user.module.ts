@@ -8,6 +8,7 @@ import { MAT_DATE_LOCALE } from '@angular/material';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ChartsModule } from 'ng2-charts';
+import { HulpModule } from '../hulp/hulp.module';
   
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, UserDetailsComponent],
@@ -17,6 +18,7 @@ import { ChartsModule } from 'ng2-charts';
     FormsModule,
     ReactiveFormsModule,
     ChartsModule,
+    HulpModule,
     NgCircleProgressModule.forRoot({
       radius: 100
     })

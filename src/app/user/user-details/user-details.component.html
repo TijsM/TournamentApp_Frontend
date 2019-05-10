@@ -38,7 +38,7 @@
           geboortedatum: {{selectedUser.dateOfBirth | date: 'dd/MM/yyyy' }}<br />
           gsm-nummer: {{ selectedUser.phoneNumber }}<br />
           email: {{ selectedUser.email }}<br />
-          plaats in ladder: <br />
+          plaats in ladder: {{selectedUser.rankInTournament}} <br />
           matchen gespeeld: {{ selectedUser.matches.length }} <br>
           heeft een match (boolean): {{ selectedUser.hasChallenge }} <br>
         </mat-card-content>
@@ -84,84 +84,89 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
 
-      <mat-card class="stat">
-        <mat-card-header>
-          <mat-card-title>
-            Resultaten
-          </mat-card-title>
-          <mat-card-subtitle>
-            Resultaten van het volledige toernooi
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="results">
-            <div class="circle">
-              <circle-progress [percent]="amountWon/amountPlayed * 100" [radius]="100" [outerStrokeWidth]="16"
-                [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
-                [animationDuration]="500" [showSubtitle]=false></circle-progress>
+      <div *ngIf="matches; else loading">
+        <mat-card class="stat">
+          <mat-card-header>
+            <mat-card-title>
+              Resultaten
+            </mat-card-title>
+            <mat-card-subtitle>
+              Resultaten van het volledige toernooi
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="results">
+              <div class="circle">
+                <circle-progress [percent]="amountWon/amountPlayed * 100" [radius]="100" [outerStrokeWidth]="16"
+                  [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
+                  [animation]="true" [animationDuration]="500" [showSubtitle]=false></circle-progress>
+              </div>
+              <div class="playerStats">
+                aantal matchen gespeeld: {{amountPlayed}}
+                <br>
+                aantal matchen verloren: {{amountLost}}
+                <br>
+                aantal matchen gewonnen: {{amountWon}}
+              </div>
             </div>
-            <div class="playerStats">
-              aantal matchen gespeeld: {{amountPlayed}}
-              <br>
-              aantal matchen verloren: {{amountLost}}
-              <br>
-              aantal matchen gewonnen: {{amountWon}}
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="stat">
+          <mat-card-header>
+            <mat-card-title>
+              Matchgeschiedenis
+            </mat-card-title>
+            <mat-card-subtitle>
+              Details van alle afgelopen matchen
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div *ngFor="let match of matches" class="playedMatch">
+              <mat-card class="playedMatch">
+
+                <mat-card-content class="matchContainer">
+                  <div class="result">
+                    <div *ngIf="selectedUser.userId == match.winnerId" class="formWon">
+                      G
+                    </div>
+                    <div *ngIf="selectedUser.userId == match.loserId" class="formLoss">
+                      V
+                    </div>
+                  </div>
+
+                  <div class="oponent">
+                    <div *ngIf="selectedUser.userId == match.winnerId">
+                      {{match.loserFullName}}
+                    </div>
+                    <div *ngIf="selectedUser.userId == match.loserId">
+                      {{match.winnerFullName}}
+                    </div>
+                  </div>
+
+                  <table>
+                    <tr>
+                      <td>{{match.winnerFullName}}</td>
+                      <td>{{match.winnerSet1}}</td>
+                      <td>{{match.winnerSet2}}</td>
+                      <td>{{match.winnerSet3}}</td>
+                    </tr>
+                    <tr>
+                      <td>{{match.loserFullName}}</td>
+                      <td>{{match.loserSet1}}</td>
+                      <td>{{match.loserSet2}}</td>
+                      <td>{{match.loserSet3}}</td>
+                    </tr>
+                  </table>
+
+                </mat-card-content>
+              </mat-card>
             </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
-      <mat-card class="stat">
-        <mat-card-header>
-          <mat-card-title>
-            Matchgeschiedenis
-          </mat-card-title>
-          <mat-card-subtitle>
-            Details van alle afgelopen matchen
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <div *ngFor="let match of matches" class="playedMatch">
-            <mat-card class="playedMatch">
-
-              <mat-card-content class="matchContainer">
-                <div class="result">
-                  <div *ngIf="selectedUser.userId == match.winnerId" class="formWon">
-                    G
-                  </div>
-                  <div *ngIf="selectedUser.userId == match.loserId" class="formLoss">
-                    V
-                  </div>
-                </div>
-
-                <div class="oponent">
-                  <div *ngIf="selectedUser.userId == match.winnerId">
-                    {{match.loserFullName}}
-                  </div>
-                  <div *ngIf="selectedUser.userId == match.loserId">
-                    {{match.winnerFullName}}
-                  </div>
-                </div>
-
-                <table>
-                  <tr>
-                    <td>{{match.winnerFullName}}</td>
-                    <td>{{match.winnerSet1}}</td>
-                    <td>{{match.winnerSet2}}</td>
-                    <td>{{match.winnerSet3}}</td>
-                  </tr>
-                  <tr>
-                    <td>{{match.loserFullName}}</td>
-                    <td>{{match.loserSet1}}</td>
-                    <td>{{match.loserSet2}}</td>
-                    <td>{{match.loserSet3}}</td>
-                  </tr>
-                </table>
-
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </mat-card-content>
-      </mat-card>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <ng-template #loading>
+        <app-loading></app-loading>
+      </ng-template>
     </mat-expansion-panel>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
