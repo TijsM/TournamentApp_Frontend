@@ -17,6 +17,7 @@ import {
   MatDividerModule,
   MatTooltipModule,
   MatSnackBarModule,
+  MatBottomSheetModule,
   MAT_DATE_LOCALE
 } from '@angular/material';
 
@@ -39,7 +40,8 @@ import {
     MatIconModule,
     MatDividerModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatBottomSheetModule
   ],
   exports: [
     CommonModule,
@@ -58,7 +60,8 @@ import {
     MatIconModule,
     MatDividerModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatBottomSheetModule
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'nl-NL' }]
 })

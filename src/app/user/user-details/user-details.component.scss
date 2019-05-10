@@ -10,6 +10,33 @@
 
 
 
+.formWon {
+  width: 50px;
+  height: 50px;
+  background-color: #78c000;
+  border-radius: 100%;
+  text-align: center;
+  color: white;
+  padding-top: 12.5px;
+  box-sizing: border-box;
+}
+
+.formLoss {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(255, 87, 34);
+  border-radius: 100%;
+  text-align: center;
+  color: white;
+  padding-top: 12.5px;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
 .statsContainer {
   width: 80%;
   margin-left: 10%;
@@ -194,13 +221,34 @@
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 700px) {
-  .statsContainer{
+  .statsContainer {
     width: 98%;
     margin-left: 1%;
     box-sizing: border-box;
-  
+
   }
+
   .stats {
     .mat-card {
       width: 98%;

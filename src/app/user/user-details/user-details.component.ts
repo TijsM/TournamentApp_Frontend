@@ -9,7 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { async } from 'q';
 import { map } from 'rxjs/operators';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatBottomSheet } from '@angular/material';
+import { BottomSheetComponent } from 'src/app/hulp/bottom-sheet/bottom-sheet.component';
 
 @Component({
   selector: 'app-user-details',
@@ -40,7 +41,8 @@ export class UserDetailsComponent implements OnInit {
     private _route: ActivatedRoute,
     private _tournamenDataService: TournamentDataService,
     private _router: Router,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _bottomSheet: MatBottomSheet
   ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
@@ -161,15 +163,18 @@ export class UserDetailsComponent implements OnInit {
     return this._canChal;
   }
 
-  open(){
-    this.cantChallengeErrors.forEach(msg =>{
-      this._snackBar.open(msg, "x",{
-        duration: 2000
-      })
-    })
+  open() {
+    // this.cantChallengeErrors.forEach(msg => {
+    //   this._snackBar.open(msg, 'x', {
+    //     duration: 2000
+    //   });
+    // });
 
-    // this._snackBar.open("Test", "x",{
-    //   duration: 2000
-    // })
+    localStorage.setItem(
+      'challengeErros',
+      JSON.stringify(this.cantChallengeErrors)
+    );
+
+    this._bottomSheet.open(BottomSheetComponent);
   }
 }

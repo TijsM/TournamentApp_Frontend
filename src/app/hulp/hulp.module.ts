@@ -4,14 +4,17 @@ import { ConfirmationCommittedScoreComponent } from './confirmation-committed-sc
 import { MaterialModule } from '../material.module';
 import { Error404Component } from './error404/error404.component';
 import { ChallengeComponent } from './challenge/challenge.component';
+import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 
 @NgModule({
   declarations: [
     ConfirmationCommittedScoreComponent,
     Error404Component,
-    ChallengeComponent
+    ChallengeComponent,
+    BottomSheetComponent
   ],
   imports: [CommonModule, MaterialModule],
+  entryComponents: [BottomSheetComponent],
   exports: [
     ConfirmationCommittedScoreComponent,
     Error404Component,
