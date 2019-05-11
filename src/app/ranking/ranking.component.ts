@@ -13,9 +13,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class RankingComponent implements OnInit {
   private _fetchUsers$: User[];
-  private currentUser: User;
-  private pendingMatch: Match;
-  private insertScore: FormGroup;
+  public currentUser: User;
+  public pendingMatch: Match;
+  public insertScore: FormGroup;
   currentUserFromLogin: User;
   displayedColumns = ['ranking', 'name', 'daaguit'];
   userWantsToCommitScore = false;
@@ -75,8 +75,6 @@ export class RankingComponent implements OnInit {
     this.userWantsToCommitScore = false;
   }
   commitScore() {
-    
-
     this._tournamenDataService
       .commitScore(
         this.pendingMatch.matchId,
@@ -87,9 +85,7 @@ export class RankingComponent implements OnInit {
         this.insertScore.controls.set3User2.value,
         this.insertScore.controls.set3User1.value
       )
-      .subscribe(
-        value => this._router.navigate(['scoreConfirmed'])
-      );
+      .subscribe(value => this._router.navigate(['scoreConfirmed']));
 
     this._router.navigate(['/scoreConfirmed']);
 

@@ -11,7 +11,7 @@ import { TournamentDataService } from 'src/app/tournament.data.services';
 })
 export class GeneralHistoryComponent implements OnInit {
   public currentUser: User;
-  private matches: Match[];
+  public matches: Match[];
 
   constructor(
     private _route: ActivatedRoute,

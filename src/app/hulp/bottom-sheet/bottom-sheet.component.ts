@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bottom-sheet.component.scss']
 })
 export class BottomSheetComponent implements OnInit {
-  private errors: string[];
-  private errorsOutput: string = '';
+  public errors: string[];
+ errorsOutput: string = '';
   constructor() {
     this.errors = JSON.parse(localStorage.getItem('challengeErros'));
 

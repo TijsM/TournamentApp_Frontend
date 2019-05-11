@@ -12,7 +12,7 @@ import { Match } from 'src/app/match.model';
 })
 export class PersonalHistoryComponent implements OnInit {
   public currentUser: User;
-  private matches: Match[];
+  public matches: Match[];
 
   constructor(
     private _route: ActivatedRoute,

@@ -18,19 +18,19 @@ import { BottomSheetComponent } from 'src/app/hulp/bottom-sheet/bottom-sheet.com
   styleUrls: ['./user-details.component.scss']
 })
 export class UserDetailsComponent implements OnInit {
-  private selectedUser: User;
+  public selectedUser: User;
   private idFromRoute: number;
   private _fetchMatchesFromUser$: Observable<Match[]>;
   private _fetchTennisVlaanderenAverage$: Observable<
     number
   > = this._tournamenDataService.getAvarageTennisVlaanderenScore$();
-  private matches: Match[];
+  public matches: Match[];
   private wonMatches: Match[];
   private lostMatches: Match[];
-  private cantChallengeErrors: string[];
+  public cantChallengeErrors: string[];
   private _canChal: boolean;
   public okToChallenge: boolean;
-  currentUser: User;
+  public currentUser: User;
 
   //data voor circle
   private amountWon;
@@ -90,9 +90,9 @@ export class UserDetailsComponent implements OnInit {
   }
 
   //data voor grafiek "tennisvlaanderenscore"
-  private pieChartLabels: Label[] = ['score van speler', 'gemiddelde'];
-  private pieChartType: ChartType = 'pie';
-  private pieChartLegend = true;
+  public pieChartLabels: Label[] = ['score van speler', 'gemiddelde'];
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
 
   back() {
     console.log('back to ranking button clicked');

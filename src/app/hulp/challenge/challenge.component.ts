@@ -9,7 +9,7 @@ import { TournamentDataService } from '../../tournament.data.services';
   styleUrls: ['./challenge.component.scss']
 })
 export class ChallengeComponent implements OnInit {
-  private challengedUser: User;
+  public challengedUser: User;
   currentUser: User;
 
   constructor(
