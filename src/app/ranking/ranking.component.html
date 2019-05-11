@@ -5,128 +5,140 @@
 
 <!-- PendingMatch from user: {{ currentUser.hasChallenge }} -->
 
+<div *ngIf="currentUser; else loading">
 
-<div *ngIf="currentUser.hasChallenge" class="hasChallenge">
-  <mat-card class="info">
-    <mat-card-title>
-      U heeft al een uitdaging
-    </mat-card-title>
-    <mat-card-subtitle>
-      Neem Contact op met de tegenstander en speel de match.
-    </mat-card-subtitle>
-    <p>
-      {{ pendingMatch.loserFullName }} Vs. {{ pendingMatch.winnerFullName }}
-    </p>
+  <div *ngIf="currentUser.hasChallenge" class="hasChallenge">
+    <div *ngIf="pendingMatch; else loading">
+      <mat-card class="info">
+        <mat-card-title>
+          U heeft al een uitdaging
+        </mat-card-title>
+        <mat-card-subtitle>
+          Neem Contact op met de tegenstander en speel de match.
+        </mat-card-subtitle>
+        <p>
+          {{ pendingMatch.loserFullName }} Vs. {{ pendingMatch.winnerFullName }}
+        </p>
 
-    <div *ngIf="currentUser.userId == pendingMatch.loserId">
-      U kan contactopnemen met {{ pendingMatch.winnerFullName }} op volgende
-      manieren:
-      <ul>
-        <li>
-          telefoonnummer: {{ pendingMatch.winnerPhoneNumber }}
-        </li>
-        <li>
-          email : {{ pendingMatch.winnerEmail }}
-        </li>
-      </ul>
-      <br />
+        <div *ngIf="currentUser.userId == pendingMatch.loserId">
+          U kan contactopnemen met {{ pendingMatch.winnerFullName }} op volgende
+          manieren:
+          <ul>
+            <li>
+              telefoonnummer: {{ pendingMatch.winnerPhoneNumber }}
+            </li>
+            <li>
+              email : {{ pendingMatch.winnerEmail }}
+            </li>
+          </ul>
+          <br />
+        </div>
+        <div *ngIf="currentUser.userId == pendingMatch.winnerId">
+          U kan contactopnemen met {{ pendingMatch.loserFullName }} op volgende manieren:
+          <ul>
+            <li>
+              telefoonnummer: {{ pendingMatch.loserPhoneNumber }}
+            </li>
+            <li>
+              email : {{ pendingMatch.loserEmail }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="scoreButtons">
+          <button mat-flat-button color="primary" (click)='showCommitScore()'>
+            geef score in
+          </button>
+          <button mat-flat-button color="primary" (click)='showForfaitWarning()'>
+            geef forfait
+          </button>
+        </div>
+      </mat-card>
     </div>
-    <div *ngIf="currentUser.userId == pendingMatch.winnerId">
-      U kan contactopnemen met {{ pendingMatch.loserFullName }} op volgende manieren:
-      <ul>
-        <li>
-          telefoonnummer: {{ pendingMatch.loserPhoneNumber }}
-        </li>
-        <li>
-          email : {{ pendingMatch.loserEmail }}
-        </li>
-      </ul>
+
+    <ng-template #loading>
+      <app-loading></app-loading>
+    </ng-template>
+
+    <div *ngIf="userWantsToCommitScore" class="userActions">
+      <mat-card class="insertScore">
+        <form [formGroup]="insertScore" (ngSubmit)="commitScore()">
+          <table class="score">
+            <tr>
+              <td></td>
+              <td>set 1</td>
+              <td>set 2</td>
+              <td>set 3</td>
+            </tr>
+            <tr>
+              <td>{{pendingMatch.winnerFullName}}</td>
+              <td>
+                <mat-form-field class="setScore">
+                  <input matInput type="number" formControlName="set1User1" required />
+                </mat-form-field>
+              </td>
+              <!--set 1 user 1-->
+              <td>
+                <mat-form-field class="setScore">
+                  <input matInput type="number" formControlName="set2User1" required />
+                </mat-form-field>
+              </td>
+              <!--set 2 user 1-->
+              <td>
+                <mat-form-field class="setScore">
+                  <input matInput type="number" formControlName="set3User1" />
+                </mat-form-field>
+              </td>
+              <!--set 3 user 1-->
+            </tr>
+            <tr>
+              <td>{{pendingMatch.loserFullName}}</td>
+              <td>
+                <mat-form-field class="setScore">
+                  <input matInput type="number" formControlName="set1User2" required />
+                </mat-form-field>
+              </td>
+              <!--set 1 user 2-->
+              <td>
+                <mat-form-field class="setScore">
+                  <input matInput type="number" formControlName="set2User2" required />
+                </mat-form-field>
+              </td>
+              <!--set 2 user 2-->
+              <td>
+                <mat-form-field class="setScore">
+                  <input matInput type="number" formControlName="set3User2" />
+                </mat-form-field>
+              </td>
+              <!--set 3 user2-->
+            </tr>
+          </table>
+          <button mat-flat-button color="primary">
+            Bevestig
+          </button>
+        </form>
+      </mat-card>
     </div>
 
-    <div class="scoreButtons">
-      <button mat-flat-button color="primary" (click)='showCommitScore()'>
-        geef score in
-      </button>
-      <button mat-flat-button color="primary" (click)='showForfaitWarning()'>
-        geef forfait
-      </button>
-    </div>
-  </mat-card>
-
-  <div *ngIf="userWantsToCommitScore" class="userActions">
-    <mat-card class="insertScore">
-      <form [formGroup]="insertScore" (ngSubmit)="commitScore()">
-        <table class="score">
-          <tr>
-            <td></td>
-            <td>set 1</td>
-            <td>set 2</td>
-            <td>set 3</td>
-          </tr>
-          <tr>
-            <td>{{pendingMatch.winnerFullName}}</td>
-            <td>
-              <mat-form-field class="setScore">
-                <input matInput type="number" formControlName="set1User1" required />
-              </mat-form-field>
-            </td>
-            <!--set 1 user 1-->
-            <td>
-              <mat-form-field class="setScore">
-                <input matInput type="number" formControlName="set2User1" required />
-              </mat-form-field>
-            </td>
-            <!--set 2 user 1-->
-            <td>
-              <mat-form-field class="setScore">
-                <input matInput type="number" formControlName="set3User1" />
-              </mat-form-field>
-            </td>
-            <!--set 3 user 1-->
-          </tr>
-          <tr>
-            <td>{{pendingMatch.loserFullName}}</td>
-            <td>
-              <mat-form-field class="setScore">
-                <input matInput type="number" formControlName="set1User2" required />
-              </mat-form-field>
-            </td>
-            <!--set 1 user 2-->
-            <td>
-              <mat-form-field class="setScore">
-                <input matInput type="number" formControlName="set2User2" required />
-              </mat-form-field>
-            </td>
-            <!--set 2 user 2-->
-            <td>
-              <mat-form-field class="setScore">
-                <input matInput type="number" formControlName="set3User2" />
-              </mat-form-field>
-            </td>
-            <!--set 3 user2-->
-          </tr>
-        </table>
-        <button mat-flat-button color="primary">
+    <div *ngIf="userWantsForfait">
+      <mat-card class="forfait">
+        <mat-card-title>
+          Ben je zeker dat je forfait wil geven
+        </mat-card-title>
+        <mat-card-subtitle>
+          Dit zal resulteren in een 6-0 6-0 verlies
+        </mat-card-subtitle>
+        <button mat-flat-button (click)='commitForfait()' color="primary">
           Bevestig
         </button>
-      </form>
-    </mat-card>
-  </div>
-
-  <div *ngIf="userWantsForfait">
-    <mat-card class="forfait">
-      <mat-card-title>
-        Ben je zeker dat je forfait wil geven
-      </mat-card-title>
-      <mat-card-subtitle>
-        Dit zal resulteren in een 6-0 6-0 verlies
-      </mat-card-subtitle>
-      <button mat-flat-button (click)='commitForfait()' color="primary">
-        Bevestig
-      </button>
-    </mat-card>
+      </mat-card>
+    </div>
   </div>
 </div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
 
 
 

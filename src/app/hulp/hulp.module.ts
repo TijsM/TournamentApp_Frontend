@@ -6,6 +6,7 @@ import { Error404Component } from './error404/error404.component';
 import { ChallengeComponent } from './challenge/challenge.component';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { LoadingComponent } from './loading/loading.component';
+import { FormalLoadingComponent } from './formal-loading/formal-loading.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { LoadingComponent } from './loading/loading.component';
     Error404Component,
     ChallengeComponent,
     BottomSheetComponent,
-    LoadingComponent
+    LoadingComponent,
+    FormalLoadingComponent
   ],
   imports: [CommonModule, MaterialModule],
   entryComponents: [BottomSheetComponent],
