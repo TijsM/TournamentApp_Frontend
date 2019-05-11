@@ -43,7 +43,14 @@ export class AuthenticationService {
 
   get token(): string {
     const localToken = localStorage.getItem(this._tokenKey);
+
     return !!localToken ? localToken : '';
+  }
+
+  get onlyToken(): string {
+    let parsedToken = JSON.parse(localStorage.getItem(this._tokenKey));
+    console.log(parsedToken.token);
+    return !!parsedToken.token ? parsedToken.token : '';
   }
 
   login(email: string, password: string): Observable<boolean> {
