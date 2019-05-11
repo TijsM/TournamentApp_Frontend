@@ -23,7 +23,8 @@ import { FormalLoadingComponent } from './formal-loading/formal-loading.componen
     ConfirmationCommittedScoreComponent,
     Error404Component,
     ChallengeComponent,
-    LoadingComponent
+    LoadingComponent,
+    FormalLoadingComponent
   ]
 })
 export class HulpModule {}
