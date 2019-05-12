@@ -49,12 +49,12 @@ export class AuthenticationService {
 
   get onlyToken(): string {
     let parsedToken = JSON.parse(localStorage.getItem(this._tokenKey));
-    console.log(parsedToken.token);
+    // console.log(parsedToken.token);
     return !!parsedToken.token ? parsedToken.token : '';
   }
 
   login(email: string, password: string): Observable<boolean> {
-    console.log('entered auth service');
+    // console.log('entered auth service');
     return this.http
       .post(
         `${environment.apiUrl}/account`,

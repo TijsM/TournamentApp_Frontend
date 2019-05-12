@@ -73,65 +73,6 @@ export class TournamentDataService {
       .pipe(map(Number));
   }
 
-  login(email: string, password: string) {
-    return this.http
-      .post<any>(`${environment.apiUrl}/Account`, { email, password })
-      .pipe(
-        map(user => {
-          if (user && user.token) {
-            // user en jwt-token in localstorage steken
-            localStorage.setItem('currentUser', JSON.stringify(user));
-          }
-
-          console.log('vanuit dataservice');
-          console.log(user);
-          return user;
-        })
-      );
-  }
-
-  register(
-    firstName: string,
-    familyName: string,
-    dateOfBirth: Date,
-    tennisVlaanderenScore: number,
-    password: string,
-    passwordConfirmation: string,
-    phone: string,
-    email: string,
-    gender: number
-  ) {
-    console.log('entered tournament.data.services.ts');
-    console.log(email);
-    return this.http
-      .post(
-        `${environment.apiUrl}/Account/Register`,
-        {
-          email,
-          password,
-          firstName,
-          familyName,
-          dateOfBirth,
-          passwordConfirmation,
-          phone,
-          gender,
-          tennisVlaanderenScore
-        },
-        { responseType: 'text' }
-      )
-      .pipe(
-        map((token: any) => {
-          if (token) {
-            localStorage.setItem(this._tokenKey, token);
-            this._user$.next(email);
-            return true;
-          } else {
-            return false;
-          }
-        })
-      );
-  }
-
   createMatch(tournamentId: number, player1Id: number, player2Id: number) {
     console.log('in creatematch in dataservice');
     console.log(tournamentId);
@@ -167,4 +108,62 @@ export class TournamentDataService {
       LoserSet3
     });
   }
+  // login(email: string, password: string) {
+  //   return this.http
+  //     .post<any>(`${environment.apiUrl}/Account`, { email, password })
+  //     .pipe(
+  //       map(user => {
+  //         if (user && user.token) {
+  //           // user en jwt-token in localstorage steken
+  //           localStorage.setItem('currentUser', JSON.stringify(user));
+  //         }
+
+  //         console.log('vanuit dataservice');
+  //         console.log(user);
+  //         return user;
+  //       })
+  //     );
+  // }
+
+  // register(
+  //   firstName: string,
+  //   familyName: string,
+  //   dateOfBirth: Date,
+  //   tennisVlaanderenScore: number,
+  //   password: string,
+  //   passwordConfirmation: string,
+  //   phone: string,
+  //   email: string,
+  //   gender: number
+  // ) {
+  //   console.log('entered tournament.data.services.ts');
+  //   console.log(email);
+  //   return this.http
+  //     .post(
+  //       `${environment.apiUrl}/Account/Register`,
+  //       {
+  //         email,
+  //         password,
+  //         firstName,
+  //         familyName,
+  //         dateOfBirth,
+  //         passwordConfirmation,
+  //         phone,
+  //         gender,
+  //         tennisVlaanderenScore
+  //       },
+  //       { responseType: 'text' }
+  //     )
+  //     .pipe(
+  //       map((token: any) => {
+  //         if (token) {
+  //           localStorage.setItem(this._tokenKey, token);
+  //           this._user$.next(email);
+  //           return true;
+  //         } else {
+  //           return false;
+  //         }
+  //       })
+  //     );
+  // }
 }
