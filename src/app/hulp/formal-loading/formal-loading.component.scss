@@ -75,7 +75,7 @@ body {
 }
 
 .progress {
-  animation: loader 2s ease forwards;
+  animation: loader 7s ease both;
   // Change the animation fill mode 'infinite' to 'forwards' to stop the animation from repeating.
 
   background: $green;

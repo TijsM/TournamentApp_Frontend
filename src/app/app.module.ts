@@ -28,10 +28,7 @@ import { HistoryModule } from './history/history.module';
 @NgModule({
   declarations: [
     AppComponent,
-    // RegisterComponent,
     RankingComponent,
-    // UserDetailsComponent,
-    // ChallengeComponent,
     MenubarComponent,
     AccesPointComponent
   ],
@@ -45,9 +42,6 @@ import { HistoryModule } from './history/history.module';
     AngularFontAwesomeModule,
     ReactiveFormsModule,
     MaterialModule,
-    // NgCircleProgressModule.forRoot({
-    //   radius: 100
-    // }),
     UserModule,
     HulpModule,
     HistoryModule

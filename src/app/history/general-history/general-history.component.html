@@ -5,38 +5,45 @@
 
 
 
-<div *ngFor="let match of matches">
-  <mat-card class="playedMatch">
-    <mat-card-content class="matchContainer">
-      <!-- <div class="oponent">
-        <div *ngIf="currentUser.userId == match.winnerId">
-          {{match.loserFullName}}
-        </div>
-        <div *ngIf="currentUser.userId == match.loserId">
+<div *ngIf="matches; else loading">
+  <div *ngFor="let match of matches">
+    <mat-card class="playedMatch">
+      <mat-card-content class="matchContainer">
+        <!-- <div class="oponent">
+              <div *ngIf="currentUser.userId == match.winnerId">
+                {{match.loserFullName}}
+              </div>
+              <div *ngIf="currentUser.userId == match.loserId">
+                {{match.winnerFullName}}
+              </div>
+            </div> -->
+        <div class="players">
           {{match.winnerFullName}}
+          <br>
+          {{match.loserFullName}}
+          <br>
+
         </div>
-      </div> -->
-      <div class="players">
-        {{match.winnerFullName}}
-        <br>
-        {{match.loserFullName}}
-        <br>
 
-      </div>
+        <table>
+          <tr>
+            <td>{{match.winnerSet1}}</td>
+            <td>{{match.winnerSet2}}</td>
+            <td>{{match.winnerSet3}}</td>
+          </tr>
+          <tr>
+            <td>{{match.loserSet1}}</td>
+            <td>{{match.loserSet2}}</td>
+            <td>{{match.loserSet3}}</td>
+          </tr>
+        </table>
 
-      <table>
-        <tr>
-          <td>{{match.winnerSet1}}</td>
-          <td>{{match.winnerSet2}}</td>
-          <td>{{match.winnerSet3}}</td>
-        </tr>
-        <tr>
-          <td>{{match.loserSet1}}</td>
-          <td>{{match.loserSet2}}</td>
-          <td>{{match.loserSet3}}</td>
-        </tr>
-      </table>
-
-    </mat-card-content>
-  </mat-card>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
+
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

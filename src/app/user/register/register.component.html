@@ -12,6 +12,9 @@
           <div class="input">
             <mat-form-field>
               <input matInput placeholder="Voornaam" type="text" formControlName="firstName">
+              <mat-error *ngIf="user.get('firstName').errors && user.get('firstName').touched">
+                {{getErrorMessage(user.get('firstName')['errors'])}}
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -22,6 +25,9 @@
           <div class="input">
             <mat-form-field>
               <input matInput placeholder="Familienaaam" type="text" formControlName="familyName">
+              <mat-error *ngIf="user.get('familyName').errors && user.get('familyName').touched">
+                {{getErrorMessage(user.get('familyName')['errors'])}}
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -37,6 +43,9 @@
               <input matInput [matDatepicker]="picker" placeholder="Geboortedatum" formControlName="dateOfBirth">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="user.get('dateOfBirth').errors && user.get('dateOfBirth').touched">
+                {{getErrorMessage(user.get('dateOfBirth')['errors'])}}
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -50,6 +59,9 @@
           <div class="input">
             <mat-form-field>
               <input matInput placeholder="Waarde klassement" type="number" formControlName="tennisVlaanderenScore" />
+              <mat-error *ngIf="user.get('tennisVlaanderenScore').errors && user.get('tennisVlaanderenScore').touched">
+                {{getErrorMessage(user.get('tennisVlaanderenScore')['errors'])}}
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -67,6 +79,16 @@
           <div class="input">
             <mat-form-field>
               <input matInput placeholder="Wachtwoord" type="password" formControlName="password" />
+              <!-- <mat-error *ngIf="
+                user.get('passwordGroup').get('confirmPassword').errors &&
+                user.get('passwordGroup').get('confirmPassword').touched
+              ">
+                {{
+                getErrorMessage(
+                  user.get('passwordGroup').get('password').errors
+                )
+              }}
+              </mat-error> -->
             </mat-form-field>
           </div>
         </div>
@@ -79,6 +101,9 @@
             <mat-form-field>
               <input matInput placeholder="Bevestig Wachtwoord" type="password"
                 formControlName="passwordConfirmation" />
+              <!-- <mat-error *ngIf="user.get('passwordConfirmation').errors && user.get('passwordConfirmation').touched">
+                    {{getErrorMessage(user.get('passwordConfirmation')['errors'])}}
+                  </mat-error> -->
             </mat-form-field>
           </div>
         </div>
@@ -97,6 +122,9 @@
           <div class="input">
             <mat-form-field>
               <input matInput placeholder="GSM-nummer" type="text" formControlName="phone" />
+              <mat-error *ngIf="user.get('phone').errors && user.get('phone').touched">
+                {{getErrorMessage(user.get('phone')['errors'])}}
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -110,6 +138,9 @@
           <div class="input">
             <mat-form-field>
               <input matInput placeholder="Email adres" type="email" formControlName="email" />
+              <mat-error *ngIf="user.get('email').errors && user.get('email').touched">
+                {{getErrorMessage(user.get('email')['errors'])}}
+              </mat-error>
             </mat-form-field>
           </div>
         </div>

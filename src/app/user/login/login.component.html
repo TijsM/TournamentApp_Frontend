@@ -10,8 +10,9 @@
             <div class="input">
               <mat-form-field>
                 <input matInput placeholder="email" type="email" aria-label="email" formControlName="email" required />
-                <!-- <mat-error *ngIf="userLogin.get('email')['errors']  && userLogin.get('email').touched">
-                {{getErrorMessage(userLogin.get('email')['errors']) }}</mat-error> -->
+                <mat-error *ngIf="user.get('email').errors && user.get('email').touched">
+                  {{getErrorMessage(user.get('email')['errors'])}}
+                </mat-error>
               </mat-form-field>
             </div>
           </div>
@@ -26,8 +27,9 @@
               <mat-form-field>
                 <input matInput placeholder="wachtwoord" type="password" aria-label="wachtwoord"
                   formControlName="password" required />
-                <!-- <mat-error *ngIf="userLogin.get('wachtwoord')['errors']  && userLogin.get('wachtwoord').touched">
-                {{getErrorMessage(userLogin.get('wachtwoord')['errors']) }}</mat-error> -->
+                  <mat-error *ngIf="user.get('password').errors && user.get('password').touched">
+                      {{getErrorMessage(user.get('password')['errors'])}}
+                    </mat-error>
               </mat-form-field>
             </div>
           </div>

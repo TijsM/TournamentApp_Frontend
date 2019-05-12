@@ -29,8 +29,7 @@ export class LoginComponent implements OnInit {
     console.log('entered login comp');
     this.authService
       .login(this.user.value.email, this.user.value.password)
-      .subscribe(
-        val => {
+      .subscribe(val => {
         if (val) {
           if (this.authService.redirectUrl) {
             this.router.navigateByUrl(this.authService.redirectUrl);
@@ -41,7 +40,16 @@ export class LoginComponent implements OnInit {
         } else {
           this.errorMsg = `Could not login`;
         }
-      }
-      );
+      });
+  }
+
+  getErrorMessage(errors: any) {
+    if (!errors) {
+      return null;
+    }
+
+    if (errors.required) {
+      return 'dit moet moet ingevuld worden';
+    }
   }
 }

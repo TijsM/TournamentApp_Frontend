@@ -93,6 +93,10 @@ export class RankingComponent implements OnInit {
   }
 
   commitForfait() {
-    console.log('user bevestigd forfait');
+    this._tournamenDataService
+      .commitScore(this.pendingMatch.matchId, 6, 0, 6, 0, 0, 0)
+      .subscribe(value => this._router.navigate(['scoreConfirmed']));
+
+    this._router.navigate(['/scoreConfirmed']);
   }
 }
