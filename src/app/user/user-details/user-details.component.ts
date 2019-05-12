@@ -31,6 +31,7 @@ export class UserDetailsComponent implements OnInit {
   private _canChal: boolean;
   public okToChallenge: boolean;
   public currentUser: User;
+  private currentUserFromDb: User;
 
   //data voor circle
   private amountWon;
@@ -78,7 +79,15 @@ export class UserDetailsComponent implements OnInit {
           }
         });
       });
-    this.okToChallenge = this.canChallenge();
+
+    this._tournamenDataService
+      .getUserById$(this.currentUser.userId)
+      .subscribe(res => {
+        this.currentUserFromDb = res;
+        console.log(this.currentUserFromDb);
+
+        this.okToChallenge = this.canChallenge();
+      });
   }
 
   get matchesFromUser$(): Observable<Match[]> {
@@ -117,6 +126,7 @@ export class UserDetailsComponent implements OnInit {
     console.log('-----');
     this.cantChallengeErrors = [];
     this._canChal = true;
+    console.log(this.currentUserFromDb);
 
     if (this.currentUser.hasChallenge === true) {
       console.log('in conditie 1');
@@ -131,7 +141,8 @@ export class UserDetailsComponent implements OnInit {
       this._canChal = false;
     }
     if (
-      this.selectedUser.rankInTournament > this.currentUser.rankInTournament
+      this.selectedUser.rankInTournament >
+      this.currentUserFromDb.rankInTournament
     ) {
       console.log('in conditie 3');
       this.cantChallengeErrors.push(
@@ -140,7 +151,8 @@ export class UserDetailsComponent implements OnInit {
       this._canChal = false;
     }
     if (
-      this.currentUser.rankInTournament - this.selectedUser.rankInTournament >
+      this.currentUserFromDb.rankInTournament -
+        this.selectedUser.rankInTournament >
       2
     ) {
       console.log('in conditie 4');
