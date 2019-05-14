@@ -76,18 +76,12 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('entered onsubmit');
-    console.log(this.user.value.gender);
-    console.log(this.user.value.email);
-
     if (this.user.value.gender == 'man') {
       this.gendernumber = 0;
     }
     if (this.user.value.gender == 'vrouw') {
       this.gendernumber = 1;
     }
-
-    console.log(this.gendernumber);
 
     this.authService
       .register(
@@ -100,22 +94,23 @@ export class RegisterComponent implements OnInit {
         this.gendernumber,
         this.user.value.tennisVlaanderenScore
       )
-      .subscribe();
+      .subscribe(
+        
+      //   val => {
+      //   if (val) {
+      //     if (this.authService.redirectUrl) {
+      //       this.router.navigateByUrl(this.authService.redirectUrl);
+      //       this.authService.redirectUrl = undefined;
+      //     } else {
+      //       this.router.navigate(['/ranking']);
+      //     }
+      //   } else {
+      //     this.errorMsg = `Could not login`;
+      //   }
+      // }
+      );
 
-    this.router.navigate(['ranking']);
-
-    // val => {
-    //   if (val) {
-    //     if (this.authService.redirectUrl) {
-    //       this.router.navigateByUrl(this.authService.redirectUrl);
-    //       this.authService.redirectUrl = undefined;
-    //     } else {
-    //       this.router.navigate(['/ranking']);
-    //     }
-    //   } else {
-    //     this.errorMsg = `Could not login`;
-    //   }
-    // }
+      location.reload();
   }
 
   getErrorMessage(errors: any) {

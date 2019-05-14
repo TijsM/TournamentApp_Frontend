@@ -2,22 +2,18 @@
 
 html {
   font-family: 'Roboto Mono', monospace;
-
-  /* background-image: url(./assets/courtLigh.jpg); */
   background: linear-gradient(70deg, #5870cb 20%, rgba(0, 0, 0, 0) 1%),
     linear-gradient(20deg, white 85%, #5870cb 2%);
-  /* background-image: linear-gradient(to top, #092969 0%, #acbcdb 100%, #6f95e0 100%, #a2b6df 100%); */
-  /* background-image:  linear-gradient(#ffffff, transparent, #ffffff), url(./assets/courtLigh.jpg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-}
-
-html {
   height: 100vh;
 }
 
 body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
   font-family: 'Roboto Mono', monospace !important;
 }
