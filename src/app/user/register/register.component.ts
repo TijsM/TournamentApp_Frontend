@@ -94,23 +94,18 @@ export class RegisterComponent implements OnInit {
         this.gendernumber,
         this.user.value.tennisVlaanderenScore
       )
-      .subscribe(
-        
-      //   val => {
-      //   if (val) {
-      //     if (this.authService.redirectUrl) {
-      //       this.router.navigateByUrl(this.authService.redirectUrl);
-      //       this.authService.redirectUrl = undefined;
-      //     } else {
-      //       this.router.navigate(['/ranking']);
-      //     }
-      //   } else {
-      //     this.errorMsg = `Could not login`;
-      //   }
-      // }
-      );
-
-      location.reload();
+      .subscribe(val => {
+        if (val) {
+          if (this.authService.redirectUrl) {
+            this.router.navigateByUrl(this.authService.redirectUrl);
+            this.authService.redirectUrl = undefined;
+          } else {
+            this.router.navigate(['/ranking']);
+          }
+        } else {
+          this.errorMsg = `Could not login`;
+        }
+      });
   }
 
   getErrorMessage(errors: any) {
