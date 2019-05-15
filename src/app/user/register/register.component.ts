@@ -11,6 +11,8 @@ import { AuthenticationService } from '../authentication.service';
 
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { HttpErrorResponse } from '@angular/common/http';
 
 function comparePasswords(control: AbstractControl): { [key: string]: any } {
   const password = control.get('password');
@@ -48,7 +50,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private popUp: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -76,6 +79,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.user.value.gender);
+
     if (this.user.value.gender == 'man') {
       this.gendernumber = 0;
     }
@@ -94,18 +99,29 @@ export class RegisterComponent implements OnInit {
         this.gendernumber,
         this.user.value.tennisVlaanderenScore
       )
-      .subscribe(val => {
-        if (val) {
-          if (this.authService.redirectUrl) {
-            this.router.navigateByUrl(this.authService.redirectUrl);
-            this.authService.redirectUrl = undefined;
+      .subscribe(
+        val => {
+          if (val) {
+            if (this.authService.redirectUrl) {
+              this.router.navigateByUrl(this.authService.redirectUrl);
+              this.authService.redirectUrl = undefined;
+            } else {
+              this.router.navigate(['']).then(() => {
+                this.popUp.open('U bent geregistreerd, log in', 'x', {
+                  duration: 4000
+                });
+              });
+            }
           } else {
-            this.router.navigate(['/ranking']);
+            this.errorMsg = `Could not login`;
           }
-        } else {
-          this.errorMsg = `Could not login`;
+        },
+        (err: HttpErrorResponse) => {
+          this.popUp.open('Er ging iets mis, controlleer alle velden', 'x', {
+            duration: 6000
+          });
         }
-      });
+      );
   }
 
   getErrorMessage(errors: any) {

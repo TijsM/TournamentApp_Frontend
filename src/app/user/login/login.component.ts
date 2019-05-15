@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private popUp: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -28,18 +31,29 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.authService
       .login(this.user.value.email, this.user.value.password)
-      .subscribe(val => {
-        if (val) {
-          if (this.authService.redirectUrl) {
-            this.router.navigateByUrl(this.authService.redirectUrl);
-            this.authService.redirectUrl = undefined;
+      .subscribe(
+        val => {
+          if (val) {
+            if (this.authService.redirectUrl) {
+              this.router.navigateByUrl(this.authService.redirectUrl);
+              this.authService.redirectUrl = undefined;
+            } else {
+              this.router.navigate(['/ranking']);
+            }
           } else {
-            this.router.navigate(['/ranking']);
+            this.errorMsg = `Could not login`;
           }
-        } else {
-          this.errorMsg = `Could not login`;
+        },
+        (err: HttpErrorResponse) => {
+          this.popUp.open(
+            'De combinatie van het opgegeven mail adres en het paswoord werd niet gevonden',
+            'x',
+            {
+              duration: 6000
+            }
+          );
         }
-      });
+      );
   }
 
   getErrorMessage(errors: any) {

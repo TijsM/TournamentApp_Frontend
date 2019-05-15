@@ -104,7 +104,7 @@ export class AuthenticationService {
       .pipe(
         map((token: any) => {
           if (token) {
-            localStorage.setItem(this._tokenKey, token);
+            // localStorage.setItem(this._tokenKey, token);
             this._user$.next(email);
             return true;
           } else {
