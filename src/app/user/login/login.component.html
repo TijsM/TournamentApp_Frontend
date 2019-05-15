@@ -27,15 +27,15 @@
               <mat-form-field>
                 <input matInput placeholder="wachtwoord" type="password" aria-label="wachtwoord"
                   formControlName="password" required />
-                  <mat-error *ngIf="user.get('password').errors && user.get('password').touched">
-                      {{getErrorMessage(user.get('password')['errors'])}}
-                    </mat-error>
+                <mat-error *ngIf="user.get('password').errors && user.get('password').touched">
+                  {{getErrorMessage(user.get('password')['errors'])}}
+                </mat-error>
               </mat-form-field>
             </div>
           </div>
         </div>
         <!-- routerLink="/ranking" -->
-        <button mat-flat-button color="primary">
+        <button mat-flat-button color="primary" data-cy="submitLogin">
           Bevestig
         </button>
       </div>

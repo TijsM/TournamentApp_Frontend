@@ -19,5 +19,9 @@
    ==> OPGELOST
 
 7. Moet eerst uitloggen om te kunnen zien als pendingmatch is opgevuld, hoe kan ik sessio updaten
+   ==> opgelost
 
 8. RESOLVER voor errors in console
+   ==> opgelost
+
+9. Hoe groot mock maken, mag met huidige data van db?
