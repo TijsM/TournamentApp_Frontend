@@ -6,8 +6,6 @@ import { Router } from '@angular/router';
 import { Match } from '../match.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
-import { max } from 'rxjs/operators';
-import { platform } from 'os';
 
 @Component({
   selector: 'app-ranking',
@@ -104,32 +102,32 @@ export class RankingComponent implements OnInit {
     if (
       this.controlleerSet(s1u2, s1u1, 1) &&
       this.controlleerSet(s2u2, s2u1, 2) &&
-       this.controlleerSet3(s3u2, s2u1) &&
+      this.controlleerSet3(s3u2, s2u1) &&
       this.checkEmpty(s1u1) &&
       this.checkEmpty(s1u2) &&
       this.checkEmpty(s2u1) &&
       this.checkEmpty(s2u2) &&
       this.controlleerMatch(s1u2, s1u1, s2u2, s2u1, s3u2, s3u1)
     ) {
-      console.log('geslaagd');
+      // console.log('geslaagd');
 
-      // this._tournamenDataService
-      //   .commitScore(
-      //     this.pendingMatch.matchId,
-      //     this.insertScore.controls.set1User2.value,
-      //     this.insertScore.controls.set1User1.value,
-      //     this.insertScore.controls.set2User2.value,
-      //     this.insertScore.controls.set2User1.value,
-      //     this.insertScore.controls.set3User2.value,
-      //     this.insertScore.controls.set3User1.value
-      //   )
-      //   .subscribe(value => this._router.navigate(['scoreConfirmed']));
+      this._tournamenDataService
+        .commitScore(
+          this.pendingMatch.matchId,
+          this.insertScore.controls.set1User2.value,
+          this.insertScore.controls.set1User1.value,
+          this.insertScore.controls.set2User2.value,
+          this.insertScore.controls.set2User1.value,
+          this.insertScore.controls.set3User2.value,
+          this.insertScore.controls.set3User1.value
+        )
+        .subscribe(value => this._router.navigate(['scoreConfirmed']));
 
-      // this._router.navigate(['/scoreConfirmed']);
+      this._router.navigate(['/scoreConfirmed']);
 
-      this.popup.open(`GESLAAGD`, 'x', {
-        duration: 6000
-      });
+      // this.popup.open(`GESLAAGD`, 'x', {
+      //   duration: 6000
+      // });
     }
   }
 

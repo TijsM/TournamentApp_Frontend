@@ -26,6 +26,16 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
+
+
+    let hasJustRegistred: string = localStorage.getItem("hasJustRegistred");
+    localStorage.removeItem("hasJustRegistred");
+
+    if(hasJustRegistred === "true"){
+      this.popUp.open("U ben geregistreerd, u kan zich aanmelden", "x", {
+        duration: 6000
+      })
+    }
   }
 
   onSubmit() {

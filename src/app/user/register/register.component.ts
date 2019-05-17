@@ -105,12 +105,16 @@ export class RegisterComponent implements OnInit {
             if (this.authService.redirectUrl) {
               this.router.navigateByUrl(this.authService.redirectUrl);
               this.authService.redirectUrl = undefined;
-            } else {
-              this.router.navigate(['']).then(() => {
-                this.popUp.open('U bent geregistreerd, log in', 'x', {
-                  duration: 4000
-                });
-              });
+            } else {    
+              localStorage.setItem("hasJustRegistred", "true");
+
+              // this.router.navigate(['']).then(() => {
+              //   this.popUp.open('U bent geregistreerd, log in', 'x', {
+              //     duration: 4000
+              //   });
+              // });
+
+              location.reload();
             }
           } else {
             this.errorMsg = `Could not login`;
