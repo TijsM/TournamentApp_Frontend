@@ -40,7 +40,8 @@
           email: {{ selectedUser.email }}<br />
           plaats in ladder: {{selectedUser.rankInTournament}} <br />
           matchen gespeeld: {{ selectedUser.matches.length }} <br>
-          heeft een match (boolean): {{ selectedUser.hasChallenge }} <br>
+
+          heeft een match (boolean): {{ selectedUser.hasChallenge? "ja": "nee" }} <br>
         </mat-card-content>
       </mat-card>
     </mat-expansion-panel>
@@ -187,8 +188,7 @@
           <div>
             <canvas height="100" class="diagram" baseChart [data]="[selectedUser.tennisVlaanderenRanking,
                         tennisVlaanderenAverage$ | async
-                      ]" [labels]="pieChartLabels" [chartType]="pieChartType" 
-              [legend]="pieChartLegend">
+                      ]" [labels]="pieChartLabels" [chartType]="pieChartType" [legend]="pieChartLegend">
             </canvas>
           </div>
         </mat-card-content>

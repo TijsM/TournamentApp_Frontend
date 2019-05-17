@@ -11,8 +11,13 @@ import { AuthenticationService } from '../authentication.service';
 
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import {
+  MatSnackBar,
+  MatSnackBarConfig,
+  MatBottomSheet
+} from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
+import { BottomSheetPasswordRulesComponent } from 'src/app/hulp/bottom-sheet-password-rules/bottom-sheet-password-rules.component';
 
 function comparePasswords(control: AbstractControl): { [key: string]: any } {
   const password = control.get('password');
@@ -51,8 +56,9 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthenticationService,
     private router: Router,
-    private popUp: MatSnackBar
-  ) {}
+    private popUp: MatSnackBar,
+    private rules: MatBottomSheet
+  ) { }
 
   ngOnInit() {
     this.user = this.fb.group({
@@ -105,8 +111,8 @@ export class RegisterComponent implements OnInit {
             if (this.authService.redirectUrl) {
               this.router.navigateByUrl(this.authService.redirectUrl);
               this.authService.redirectUrl = undefined;
-            } else {    
-              localStorage.setItem("hasJustRegistred", "true");
+            } else {
+              localStorage.setItem('hasJustRegistred', 'true');
 
               // this.router.navigate(['']).then(() => {
               //   this.popUp.open('U bent geregistreerd, log in', 'x', {
@@ -126,6 +132,11 @@ export class RegisterComponent implements OnInit {
           });
         }
       );
+  }
+
+  showPasswordRules(e) {
+    e.preventDefault();
+    this.rules.open(BottomSheetPasswordRulesComponent);
   }
 
   getErrorMessage(errors: any) {
@@ -148,7 +159,7 @@ export class RegisterComponent implements OnInit {
     if (errors.minLength) {
       return `needs at least ${
         errors.minlength.requiredLength
-      } characters (got ${errors.minlength.actualLength})`;
+        } characters (got ${errors.minlength.actualLength})`;
     }
   }
 }

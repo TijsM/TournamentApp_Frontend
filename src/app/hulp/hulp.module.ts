@@ -7,6 +7,7 @@ import { ChallengeComponent } from './challenge/challenge.component';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { LoadingComponent } from './loading/loading.component';
 import { FormalLoadingComponent } from './formal-loading/formal-loading.component';
+import { BottomSheetPasswordRulesComponent } from './bottom-sheet-password-rules/bottom-sheet-password-rules.component';
 
 @NgModule({
   declarations: [
@@ -15,16 +16,18 @@ import { FormalLoadingComponent } from './formal-loading/formal-loading.componen
     ChallengeComponent,
     BottomSheetComponent,
     LoadingComponent,
-    FormalLoadingComponent
+    FormalLoadingComponent,
+    BottomSheetPasswordRulesComponent
   ],
   imports: [CommonModule, MaterialModule],
-  entryComponents: [BottomSheetComponent],
+  entryComponents: [BottomSheetComponent, BottomSheetPasswordRulesComponent],
   exports: [
     ConfirmationCommittedScoreComponent,
     Error404Component,
     ChallengeComponent,
     LoadingComponent,
-    FormalLoadingComponent
+    FormalLoadingComponent,
+    BottomSheetPasswordRulesComponent
   ]
 })
 export class HulpModule {}

@@ -11,9 +11,11 @@
           </div>
           <div class="input">
             <mat-form-field>
-              <input matInput placeholder="Voornaam" type="text" formControlName="firstName">
-              <mat-error *ngIf="user.get('firstName').errors && user.get('firstName').touched">
-                {{getErrorMessage(user.get('firstName')['errors'])}}
+              <input matInput placeholder="Voornaam" type="text" formControlName="firstName" />
+              <mat-error *ngIf="
+                  user.get('firstName').errors && user.get('firstName').touched
+                ">
+                {{ getErrorMessage(user.get('firstName')['errors']) }}
               </mat-error>
             </mat-form-field>
           </div>
@@ -24,9 +26,12 @@
           </div>
           <div class="input">
             <mat-form-field>
-              <input matInput placeholder="Familienaaam" type="text" formControlName="familyName">
-              <mat-error *ngIf="user.get('familyName').errors && user.get('familyName').touched">
-                {{getErrorMessage(user.get('familyName')['errors'])}}
+              <input matInput placeholder="Familienaaam" type="text" formControlName="familyName" />
+              <mat-error *ngIf="
+                  user.get('familyName').errors &&
+                  user.get('familyName').touched
+                ">
+                {{ getErrorMessage(user.get('familyName')['errors']) }}
               </mat-error>
             </mat-form-field>
           </div>
@@ -40,11 +45,14 @@
           </div>
           <div class="input">
             <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="Geboortedatum" formControlName="dateOfBirth">
+              <input matInput [matDatepicker]="picker" placeholder="Geboortedatum" formControlName="dateOfBirth" />
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
-              <mat-error *ngIf="user.get('dateOfBirth').errors && user.get('dateOfBirth').touched">
-                {{getErrorMessage(user.get('dateOfBirth')['errors'])}}
+              <mat-error *ngIf="
+                  user.get('dateOfBirth').errors &&
+                  user.get('dateOfBirth').touched
+                ">
+                {{ getErrorMessage(user.get('dateOfBirth')['errors']) }}
               </mat-error>
             </mat-form-field>
           </div>
@@ -59,17 +67,26 @@
           <div class="input">
             <mat-form-field>
               <input matInput placeholder="Waarde klassement" type="number" formControlName="tennisVlaanderenScore" />
-              <mat-error *ngIf="user.get('tennisVlaanderenScore').errors && user.get('tennisVlaanderenScore').touched">
-                {{getErrorMessage(user.get('tennisVlaanderenScore')['errors'])}}
+              <mat-error *ngIf="
+                  user.get('tennisVlaanderenScore').errors &&
+                  user.get('tennisVlaanderenScore').touched
+                ">
+                {{
+                  getErrorMessage(user.get('tennisVlaanderenScore')['errors'])
+                }}
               </mat-error>
             </mat-form-field>
           </div>
         </div>
       </div>
 
-      <br>
+      <br />
       <mat-card-subtitle>Wachtwoord</mat-card-subtitle>
-      <br>
+      <br />
+
+      <button (click)="showPasswordRules($event)" mat-flat-button class="showRules">
+        bekijk wachtwoord regels
+      </button>
 
       <div class="RegistreerFormRij" formGroupName="passwordGroup">
         <div class="item itemTwoOneRow">
@@ -109,10 +126,9 @@
         </div>
       </div>
 
-
-      <br>
+      <br />
       <mat-card-subtitle>Contactgegevens</mat-card-subtitle>
-      <br>
+      <br />
 
       <div class="RegistreerFormRij">
         <div class="item">
@@ -123,7 +139,7 @@
             <mat-form-field>
               <input matInput placeholder="GSM-nummer" type="text" formControlName="phone" />
               <mat-error *ngIf="user.get('phone').errors && user.get('phone').touched">
-                {{getErrorMessage(user.get('phone')['errors'])}}
+                {{ getErrorMessage(user.get('phone')['errors']) }}
               </mat-error>
             </mat-form-field>
           </div>
@@ -139,7 +155,7 @@
             <mat-form-field>
               <input matInput placeholder="Email adres" type="email" formControlName="email" />
               <mat-error *ngIf="user.get('email').errors && user.get('email').touched">
-                {{getErrorMessage(user.get('email')['errors'])}}
+                {{ getErrorMessage(user.get('email')['errors']) }}
               </mat-error>
             </mat-form-field>
           </div>
@@ -164,8 +180,5 @@
         Bevestig
       </button>
     </div>
-
-
   </mat-card>
-
 </form>
