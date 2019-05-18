@@ -13,7 +13,7 @@ De backend is te vinden op: https://github.com/TijsM/TournamentAppDotNet
 
 # users
 
-web4@student.hogent.be  -> gelukkiggeennetbeans
+web4@student.hogent.be  -> P@ssword1111  
 (het wachtwoord is niet "gelukkiggeennetbeans", de wachtwoordregels verwachten een hoofdletter en een cijfer)
 
 ## andere users
