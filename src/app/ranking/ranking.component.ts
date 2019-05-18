@@ -113,12 +113,11 @@ export class RankingComponent implements OnInit {
       this.checkEmpty(s2u2) &&
       this.controlleerMatch(s1u2, s1u1, s2u2, s2u1, s3u2, s3u1)
     ) {
-      // console.log('geslaagd');
 
       this._tournamenDataService
         .commitScore(
           this.pendingMatch.matchId,
-          s1u2, s1u1, s2u2, s2u1, s3u2, s3u1
+         s1u1, s1u2, s2u1, s2u2, s3u1, s3u2
         )
         .subscribe(value => this._router.navigate(['scoreConfirmed']));
 
@@ -271,7 +270,7 @@ export class RankingComponent implements OnInit {
 
   commitForfait() {
     this._tournamenDataService
-      .commitScore(this.pendingMatch.matchId, 6,0,6,0,0,0)
+      .commitScore(this.pendingMatch.matchId, 6, 0, 6, 0, 0, 0)
       .subscribe(value => this._router.navigate(['scoreConfirmed']));
 
     this._router.navigate(['/scoreConfirmed']);

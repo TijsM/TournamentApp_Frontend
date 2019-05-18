@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://tournamentappapi.azurewebsites.net/api'
+  apiUrl: '/api'
 };
+
+// apiUrl: 'https://tournamentappapi.azurewebsites.net/api'
