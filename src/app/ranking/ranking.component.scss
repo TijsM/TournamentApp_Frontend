@@ -84,6 +84,24 @@
 }
 
 
+.rulesContainer{
+  width: 100%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 15px;
+  z-index: 1000;
+
+  .showRules{
+    margin-bottom: 15px;
+    padding: 7.5px;
+    border: 0.5px solid rgb(102, 102, 102);
+    width: 125px;
+    margin: auto !important;
+  }
+  
+}
 .ranking {
   overflow: auto;
   width: 75%;

@@ -5,7 +5,8 @@ import { User } from '../user.model';
 import { Router } from '@angular/router';
 import { Match } from '../match.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatBottomSheet } from '@angular/material';
+import { BottomSheetTournamentRulesComponent } from '../hulp/bottom-sheet-tournament-rules/bottom-sheet-tournament-rules.component';
 
 @Component({
   selector: 'app-ranking',
@@ -23,11 +24,13 @@ export class RankingComponent implements OnInit {
   userWantsForfait = false;
   pendingmatchId: number;
 
+
   constructor(
     private _tournamenDataService: TournamentDataService,
     private _router: Router,
     private _ulfb: FormBuilder,
-    private popup: MatSnackBar
+    private popup: MatSnackBar,
+    private bottom: MatBottomSheet
   ) {
     this.currentUserFromLogin = JSON.parse(localStorage.getItem('currentUser'));
   }
@@ -56,7 +59,7 @@ export class RankingComponent implements OnInit {
       set1User2: ['', Validators.required],
       set2User2: ['', Validators.required],
       set3User2: ['']
-      
+
     });
   }
 
@@ -103,7 +106,7 @@ export class RankingComponent implements OnInit {
     if (
       this.controlleerSet(s1u2, s1u1, 1) &&
       this.controlleerSet(s2u2, s2u1, 2) &&
-      this.controlleerSet3(s3u2, s2u1) &&
+      this.controlleerSet3(s3u2, s3u1) &&
       this.checkEmpty(s1u1) &&
       this.checkEmpty(s1u2) &&
       this.checkEmpty(s2u1) &&
@@ -115,12 +118,7 @@ export class RankingComponent implements OnInit {
       this._tournamenDataService
         .commitScore(
           this.pendingMatch.matchId,
-          this.insertScore.controls.set1User2.value,
-          this.insertScore.controls.set1User1.value,
-          this.insertScore.controls.set2User2.value,
-          this.insertScore.controls.set2User1.value,
-          this.insertScore.controls.set3User2.value,
-          this.insertScore.controls.set3User1.value
+          s1u2, s1u1, s2u2, s2u1, s3u2, s3u1
         )
         .subscribe(value => this._router.navigate(['scoreConfirmed']));
 
@@ -267,9 +265,13 @@ export class RankingComponent implements OnInit {
     }
   }
 
+  viewRules() {
+    this.bottom.open(BottomSheetTournamentRulesComponent);
+  }
+
   commitForfait() {
     this._tournamenDataService
-      .commitScore(this.pendingMatch.matchId, 6, 0, 6, 0, 0, 0)
+      .commitScore(this.pendingMatch.matchId, 6,0,6,0,0,0)
       .subscribe(value => this._router.navigate(['scoreConfirmed']));
 
     this._router.navigate(['/scoreConfirmed']);

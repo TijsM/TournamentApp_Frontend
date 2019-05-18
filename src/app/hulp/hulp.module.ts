@@ -8,6 +8,7 @@ import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { LoadingComponent } from './loading/loading.component';
 import { FormalLoadingComponent } from './formal-loading/formal-loading.component';
 import { BottomSheetPasswordRulesComponent } from './bottom-sheet-password-rules/bottom-sheet-password-rules.component';
+import { BottomSheetTournamentRulesComponent } from './bottom-sheet-tournament-rules/bottom-sheet-tournament-rules.component';
 
 @NgModule({
   declarations: [
@@ -17,17 +18,20 @@ import { BottomSheetPasswordRulesComponent } from './bottom-sheet-password-rules
     BottomSheetComponent,
     LoadingComponent,
     FormalLoadingComponent,
-    BottomSheetPasswordRulesComponent
+    BottomSheetPasswordRulesComponent,
+    BottomSheetTournamentRulesComponent,
+    BottomSheetTournamentRulesComponent
   ],
   imports: [CommonModule, MaterialModule],
-  entryComponents: [BottomSheetComponent, BottomSheetPasswordRulesComponent],
+  entryComponents: [BottomSheetComponent, BottomSheetPasswordRulesComponent, BottomSheetTournamentRulesComponent],
   exports: [
     ConfirmationCommittedScoreComponent,
     Error404Component,
     ChallengeComponent,
     LoadingComponent,
     FormalLoadingComponent,
-    BottomSheetPasswordRulesComponent
+    BottomSheetPasswordRulesComponent,
+    BottomSheetTournamentRulesComponent
   ]
 })
-export class HulpModule {}
+export class HulpModule { }
