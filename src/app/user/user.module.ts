@@ -9,7 +9,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ChartsModule } from 'ng2-charts';
 import { HulpModule } from '../hulp/hulp.module';
-  
+
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, UserDetailsComponent],
   imports: [
@@ -26,4 +26,4 @@ import { HulpModule } from '../hulp/hulp.module';
   exports: [LoginComponent, RegisterComponent, UserDetailsComponent],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'nl-NL' }]
 })
-export class UserModule {}
+export class UserModule { }

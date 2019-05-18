@@ -21,7 +21,9 @@ import { BottomSheetPasswordRulesComponent } from 'src/app/hulp/bottom-sheet-pas
 
 function comparePasswords(control: AbstractControl): { [key: string]: any } {
   const password = control.get('password');
+  console.log(password);
   const confirmPassword = control.get('passwordConfirmation');
+  console.log(confirmPassword)
   return password.value === confirmPassword.value
     ? null
     : { passwordsDiffer: true };
@@ -51,25 +53,28 @@ export class RegisterComponent implements OnInit {
   public user: FormGroup;
   private gendernumber: number;
   public errorMsg: string;
-
+  public maxDate = new Date(); //new date heeft standaard de dag van vandaag
   constructor(
     private fb: FormBuilder,
     private authService: AuthenticationService,
     private router: Router,
     private popUp: MatSnackBar,
-    private rules: MatBottomSheet
+    private rules: MatBottomSheet,
+
   ) { }
 
   ngOnInit() {
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}$/
     this.user = this.fb.group({
       firstName: ['', Validators.required],
       familyName: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
       tennisVlaanderenScore: ['', Validators.required],
       phone: ['', Validators.required],
+
       passwordGroup: this.fb.group(
         {
-          password: ['', [Validators.required, Validators.minLength(8)]],
+          password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(regex)]],
           passwordConfirmation: ['', Validators.required]
         },
         { validator: comparePasswords }
@@ -113,13 +118,6 @@ export class RegisterComponent implements OnInit {
               this.authService.redirectUrl = undefined;
             } else {
               localStorage.setItem('hasJustRegistred', 'true');
-
-              // this.router.navigate(['']).then(() => {
-              //   this.popUp.open('U bent geregistreerd, log in', 'x', {
-              //     duration: 4000
-              //   });
-              // });
-
               location.reload();
             }
           } else {
@@ -143,23 +141,21 @@ export class RegisterComponent implements OnInit {
     if (!errors) {
       return null;
     }
-
     if (errors.required) {
-      return 'dit moet moet ingevuld worden';
-    }
-
-    if (errors.email) {
-      return 'geen correct email';
-    }
-
-    // if (errors.comparePasswords) {
-    //   return 'wachtwoorden niet gelijk';
-    // }
-
-    if (errors.minLength) {
-      return `needs at least ${
+      return 'Mag niet leeg zijn';
+    } else if (errors.minlength) {
+      return `Moet minstens  ${
         errors.minlength.requiredLength
-        } characters (got ${errors.minlength.actualLength})`;
+        } karakakters hebben (heeft er ${errors.minlength.actualLength})`;
+    } else if (errors.userAlreadyExists) {
+      return `Email adres bestaat al`;
+    } else if (errors.email) {
+      return `Geen correct email adres`;
+    } else if (errors.passwordsDiffer) {
+      return `Wachtwoorden zijn niet gelik`;
+    }
+    else if (errors.pattern) {
+      return `Wachtwoord voldoet niet aan de vereisten`
     }
   }
 }

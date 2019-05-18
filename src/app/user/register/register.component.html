@@ -45,7 +45,8 @@
           </div>
           <div class="input">
             <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="Geboortedatum" formControlName="dateOfBirth" />
+              <input [max]="maxDate" matInput [matDatepicker]="picker" placeholder="Geboortedatum"
+                formControlName="dateOfBirth" />
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
               <mat-error *ngIf="
@@ -90,40 +91,48 @@
 
       <div class="RegistreerFormRij" formGroupName="passwordGroup">
         <div class="item itemTwoOneRow">
-          <!-- <div class="ico">
-            <mat-icon aria-hidden="false" aria-label="naam">vpn_key</mat-icon>
-          </div> -->
+
           <div class="input">
             <mat-form-field>
               <input matInput placeholder="Wachtwoord" type="password" formControlName="password" />
-              <!-- <mat-error *ngIf="
-                user.get('passwordGroup').get('confirmPassword').errors &&
-                user.get('passwordGroup').get('confirmPassword').touched
+              <mat-error *ngIf="
+                user.get('passwordGroup').get('password').errors &&
+                user.get('passwordGroup').get('password').touched
               ">
                 {{
                 getErrorMessage(
                   user.get('passwordGroup').get('password').errors
                 )
               }}
-              </mat-error> -->
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
 
         <div class="item itemTwoOneRow">
-          <!-- <div class=" ico">
-            <mat-icon aria-hidden="false" aria-label="naam">vpn_key</mat-icon>
-          </div> -->
           <div class="input">
             <mat-form-field>
               <input matInput placeholder="Bevestig Wachtwoord" type="password"
                 formControlName="passwordConfirmation" />
-              <!-- <mat-error *ngIf="user.get('passwordConfirmation').errors && user.get('passwordConfirmation').touched">
-                    {{getErrorMessage(user.get('passwordConfirmation')['errors'])}}
-                  </mat-error> -->
+              <mat-error *ngIf="
+                user.get('passwordGroup').get('passwordConfirmation').errors &&
+                user.get('passwordGroup').get('passwordConfirmation').touched">
+                {{
+                getErrorMessage(
+                  user.get('passwordGroup').get('passwordConfirmation').errors
+                )
+              }}
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
+        <mat-error class="wwErrors" *ngIf="
+              user.get('passwordGroup').errors &&
+              user.get('passwordGroup').get('passwordConfirmation').touched &&
+              user.get('passwordGroup').get('password').touched
+            ">
+          {{ getErrorMessage(user.get('passwordGroup').errors) }}
+        </mat-error>
       </div>
 
       <br />
