@@ -89,6 +89,11 @@
   width: 75%;
   margin: auto;
   margin-bottom: 100px;
+
+  .btnContainer{
+    display: flex;
+    align-items: center;
+  }
 }
 
 table {

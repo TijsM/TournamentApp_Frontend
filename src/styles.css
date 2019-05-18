@@ -2,8 +2,8 @@
 
 html {
   font-family: 'Roboto Mono', monospace;
-  background: linear-gradient(70deg, #5870cb 20%, rgba(0, 0, 0, 0) 1%),
-    linear-gradient(20deg, white 85%, #5870cb 2%);
+  background: linear-gradient(30deg, #5870cb 20%, rgba(0, 0, 0, 0) 1%),
+    linear-gradient(20deg, white 80%, #5870cb 2%);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

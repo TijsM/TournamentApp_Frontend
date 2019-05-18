@@ -90,9 +90,9 @@
 
       <div class="RegistreerFormRij" formGroupName="passwordGroup">
         <div class="item itemTwoOneRow">
-          <div class="ico">
+          <!-- <div class="ico">
             <mat-icon aria-hidden="false" aria-label="naam">vpn_key</mat-icon>
-          </div>
+          </div> -->
           <div class="input">
             <mat-form-field>
               <input matInput placeholder="Wachtwoord" type="password" formControlName="password" />
@@ -111,9 +111,9 @@
         </div>
 
         <div class="item itemTwoOneRow">
-          <div class=" ico">
+          <!-- <div class=" ico">
             <mat-icon aria-hidden="false" aria-label="naam">vpn_key</mat-icon>
-          </div>
+          </div> -->
           <div class="input">
             <mat-form-field>
               <input matInput placeholder="Bevestig Wachtwoord" type="password"
@@ -169,14 +169,14 @@
           </div>
           <div class="input">
             <mat-radio-group name="geslacht" formControlName="gender">
-              <mat-radio-button value="man" color="primary">Man</mat-radio-button>
-              <mat-radio-button value="vrouw" color="primary">Vrouw</mat-radio-button>
+              <mat-radio-button value="man" color="primary" class="genderbutton">Man</mat-radio-button>
+              <mat-radio-button value="vrouw" color="primary" class="genderbutton">Vrouw</mat-radio-button>
             </mat-radio-group>
           </div>
         </div>
       </div>
 
-      <button mat-flat-button color="primary">
+      <button mat-flat-button color="primary" class="submit">
         Bevestig
       </button>
     </div>

@@ -1,60 +1,39 @@
-describe('RankingTest', function () {
-  beforeEach(function () {
-    cy.login();
+/// <reference types="Cypress" />
+
+it('login page', () => {
+  cy.visit("http://localhost:4200/");
+  cy.get('[data-cy=txtLoginMail]').type('novak.djokovich@gmail.com');
+  cy.get('[data-cy=txtLoginPassword]').type('P@ssword1111');
+  cy.get('[data-cy=submitLogin]').click();
+
+})
+
+it('load ranking', () => {
+  cy.server();
+  cy.route({
+    method: 'GET',
+    url: 'https://tournamentappapi.azurewebsites.net/api/Tournament/GiveRanking/2',
+    status: 200,
+    response: 'fixture:UsersMen.json'
+  });
+
+  cy.get('[data-cy=rankingTable]');
+})
+
+it('check ranking', () => {
+  cy.server();
+  cy.route({
+    method: 'GET',
+    url: 'https://tournamentappapi.azurewebsites.net/api/Tournament/GiveRanking/2',
+    status: 200,
+    response: 'fixture:UsersMen.json'
   });
 
 
-
-  it('mock ranking', function () {
-    cy.server();
-    cy.route({
-      method: 'GET',
-      url: '/api/Tournament/ranking/2',
-      status: 200,
-      response: 'fixtures:UsersMen.json'
-    });
-  });
-
-
-  it('Go to ranking', function () {
-    cy.visit('http://localhost:4200/ranking');
-
-  });
-
-  it("check Ranking is present", function () {
-    cy.get('[data-cy=rankingTable]')
-  })
-
-});
+  cy.get('[data-cy=rankingTable]').find('tr').should('have.length', 6)
+})
 
 
 
-// describe('Ranking Test', function () {
-//   cy.server({
-//     delay: 1000
-//   });
-//   // elk request met cy.route of cy.request moet door deze 'server' gaan
-//   cy.route({
-//     method: 'GET',
-//     url: '/api/Tournament/GiveRanking/2',
-//     status: 200,
-//     response: 'fixtures:UsersMen.json'
-//   });
-
-//   cy.visit("/ranking");
-//   cy.get('[data-cy=rankingTable]')
-
-// });
 
 
-// it('Eroror ', function() {
-//     cy.server();
-//     cy.route({
-//       method: 'GET',
-//       url: '/api/Tournament/GiveRanking/2',
-//       status: 500,
-//       response: 'ERROR'
-//     });
-//     cy.visit('/');
-//     cy.get('[data-cy=appError]').should('be.visible');
-//   });

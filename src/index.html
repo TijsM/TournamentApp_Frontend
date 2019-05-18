@@ -35,11 +35,12 @@
       // set scrollPercentage, if we have available scroll (0 otherwise):
       const availableScroll = bodyHeight - viewportHeight;
       const percentage = availableScroll > 0 ? scroll_pos * 100 / availableScroll : 0;
+    
       // this is what the question is about:
       const fromPercent = (from, to, current) => ((to - from) * current / 100) + from;
       html.style.backgroundImage = `
- linear-gradient(${fromPercent(70, 90, percentage)}deg, #5870cb 20%, rgba(0,0,0,0) 0),
- linear-gradient(${fromPercent(10, 25, percentage)}deg, white 85%, #5870cb 1%)
+ linear-gradient(${fromPercent(40, 60, percentage)}deg, #5870cb ${fromPercent(20, 30, percentage)}%, rgba(0,0,0,0) 0),
+ linear-gradient(${fromPercent(20, 60, percentage)}deg, white ${fromPercent(80, 70, percentage)}%, #5870cb 1%)
  `;
     }
     // rest of example, from MDN:

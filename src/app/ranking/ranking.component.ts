@@ -56,6 +56,7 @@ export class RankingComponent implements OnInit {
       set1User2: ['', Validators.required],
       set2User2: ['', Validators.required],
       set3User2: ['']
+      
     });
   }
 
