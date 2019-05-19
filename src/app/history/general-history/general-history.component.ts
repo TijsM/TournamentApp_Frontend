@@ -25,6 +25,6 @@ export class GeneralHistoryComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this._tournamenDataService
       .getAllMatches$()
-      .subscribe(res => (this.matches = res));
+      .subscribe(res => (this.matches = res.reverse()));
   }
 }

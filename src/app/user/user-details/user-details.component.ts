@@ -44,7 +44,7 @@ export class UserDetailsComponent implements OnInit {
     private _router: Router,
     private _snackBar: MatSnackBar,
     private _bottomSheet: MatBottomSheet
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.amountLost = 0;
@@ -66,7 +66,7 @@ export class UserDetailsComponent implements OnInit {
     this._tournamenDataService
       .getMatchesFromUser$(this.idFromRoute)
       .subscribe(res => {
-        this.matches = res;
+        this.matches = res.reverse();
         this.amountPlayed = res.length;
 
         console.log(this.matches);
@@ -152,7 +152,7 @@ export class UserDetailsComponent implements OnInit {
     }
     if (
       this.currentUserFromDb.rankInTournament -
-        this.selectedUser.rankInTournament >
+      this.selectedUser.rankInTournament >
       2
     ) {
       console.log('in conditie 4');

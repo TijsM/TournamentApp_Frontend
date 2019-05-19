@@ -69,7 +69,7 @@ export class RegisterComponent implements OnInit {
       firstName: ['', Validators.required],
       familyName: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
-      tennisVlaanderenScore: ['', Validators.required],
+      tennisVlaanderenScore: ['', [Validators.max(500),  Validators.required]],
       phone: ['', Validators.required],
 
       passwordGroup: this.fb.group(
@@ -141,21 +141,29 @@ export class RegisterComponent implements OnInit {
     if (!errors) {
       return null;
     }
-    if (errors.required) {
+    else if (errors.required) {
       return 'Mag niet leeg zijn';
-    } else if (errors.minlength) {
+    }
+    else if (errors.minlength) {
       return `Moet minstens  ${
         errors.minlength.requiredLength
         } karakakters hebben (heeft er ${errors.minlength.actualLength})`;
-    } else if (errors.userAlreadyExists) {
+    }
+    else if (errors.userAlreadyExists) {
       return `Email adres bestaat al`;
-    } else if (errors.email) {
+    }
+    else if (errors.email) {
       return `Geen correct email adres`;
-    } else if (errors.passwordsDiffer) {
-      return `Wachtwoorden zijn niet gelik`;
+    }
+    else if (errors.passwordsDiffer) {
+      return `Wachtwoorden zijn niet gelijk`;
     }
     else if (errors.pattern) {
       return `Wachtwoord voldoet niet aan de vereisten`
     }
+    else if (errors.max) {
+      return `Geef een kleinere waarde in`
+    }
+
   }
 }

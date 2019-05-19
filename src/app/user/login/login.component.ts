@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.fb.group({
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
 
@@ -50,8 +50,6 @@ export class LoginComponent implements OnInit {
             } else {
               this.router.navigate(['/ranking']);
             }
-          } else {
-            this.errorMsg = `Could not login`;
           }
         },
         (err: HttpErrorResponse) => {
@@ -71,8 +69,12 @@ export class LoginComponent implements OnInit {
       return null;
     }
 
-    if (errors.required) {
-      return 'dit moet moet ingevuld worden';
+    else if (errors.required) {
+      return 'Dit moet moet ingevuld worden';
+    }
+
+    else if (errors.email){
+      return 'Geen geldige email'
     }
   }
 }

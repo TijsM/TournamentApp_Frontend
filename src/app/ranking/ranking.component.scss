@@ -21,9 +21,10 @@
   }
 
   .info:hover {
-    transform: scale(1.04);
+    // transform: scale(1.04);
     box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
     // background-colo:r: rgb(252, 137, 102);
+    transition: all 0.3s linear;
   }
 
   .insertScore {
@@ -49,8 +50,8 @@
   }
 
   .insertScore:hover {
-    transform: scale(1.04);
-    transition: all 0.3s linear;
+    // transform: scale(1.04);
+   
     box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
   }
 
@@ -66,7 +67,7 @@
   }
 
   .forfait:hover {
-    transform: scale(1.04);
+    // transform: scale(1.04);
     transition: all 0.3s linear;
     box-shadow: 10px 10px 50px 0px rgba(53, 68, 155, 0.527);
     background-color: rgba(238, 96, 96, 0.555);

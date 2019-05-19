@@ -26,6 +26,6 @@ export class PersonalHistoryComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this._tournamenDataService
       .getMatchesFromUser$(this.currentUser.userId)
-      .subscribe(res => (this.matches = res));
+      .subscribe(res => (this.matches = res.reverse()));
   }
 }
