@@ -269,9 +269,17 @@ export class RankingComponent implements OnInit {
   }
 
   commitForfait() {
+   if(this.currentUser.userId === this.pendingMatch.winnerId){
     this._tournamenDataService
-      .commitScore(this.pendingMatch.matchId, 6, 0, 6, 0, 0, 0)
-      .subscribe(value => this._router.navigate(['scoreConfirmed']));
+    .commitScore(this.pendingMatch.matchId, 0,6,0,6,0,0)
+    .subscribe(value => this._router.navigate(['scoreConfirmed']));
+   }
+
+   else{
+    this._tournamenDataService
+    .commitScore(this.pendingMatch.matchId, 6,0,6,0,0,0)
+    .subscribe(value => this._router.navigate(['scoreConfirmed']));
+   }
 
     this._router.navigate(['/scoreConfirmed']);
   }

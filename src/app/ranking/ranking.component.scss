@@ -89,9 +89,10 @@
   display: flex;
   align-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 15px;
-  z-index: 1000;
+  margin-top: 100px;  
+  margin-bottom: 40px;
+
+  box-sizing: border-box;
 
   .showRules{
     margin-bottom: 15px;
