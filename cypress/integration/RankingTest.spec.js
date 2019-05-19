@@ -12,7 +12,7 @@ it('load ranking', () => {
   cy.server();
   cy.route({
     method: 'GET',
-    url: 'https://tournamentappapi.azurewebsites.net/api/Tournament/GiveRanking/2',
+    url: 'http://localhost:4200/api/Tournament/GiveRanking/2',
     status: 200,
     response: 'fixture:UsersMen.json'
   });
@@ -24,16 +24,44 @@ it('check ranking', () => {
   cy.server();
   cy.route({
     method: 'GET',
-    url: 'https://tournamentappapi.azurewebsites.net/api/Tournament/GiveRanking/2',
+    url: 'http://localhost:4200/api/Tournament/GiveRanking/2',
     status: 200,
     response: 'fixture:UsersMen.json'
   });
 
 
   cy.get('[data-cy=rankingTable]').find('tr').should('have.length', 6)
+
+
+
+})
+
+it('Find details button', () => {
+  cy.server();
+  cy.route({
+    method: 'GET',
+    url: 'http://localhost:4200/api/Tournament/GiveRanking/2',
+    status: 200,
+    response: 'fixture:UsersMen.json'
+  });
+
+
+  cy.get('[data-cy=viewDetails]').first().click()
 })
 
 
+// it('view details', () => {
+//   cy.server();
+//   cy.route({
+//     method: 'GET',
+//     url: 'https://tournamentappapi.azurewebsites.net/api/Tournament/GiveRanking/2',
+//     status: 200,
+//     response: 'fixture:UsersMen.json'
+//   });
+
+
+//   cy.get('[data-cy=buttonBack]')
+// })
 
 
 
