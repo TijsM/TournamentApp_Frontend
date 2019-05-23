@@ -49,7 +49,7 @@
           <button mat-flat-button color="primary" (click)='showCommitScore()'>
             geef score in
           </button>
-          <button mat-flat-button color="primary" (click)='showForfaitWarning()'>
+          <button mat-flat-button color="primary" data-cy="wantsForfait" (click)='showForfaitWarning()'>
             geef forfait
           </button>
 
@@ -129,7 +129,7 @@
         <mat-card-subtitle>
           Dit zal resulteren in een 6-0 6-0 verlies
         </mat-card-subtitle>
-        <button mat-flat-button (click)='commitForfait()' color="primary">
+        <button mat-flat-button (click)='commitForfait()' data-cy="confirmForfait" color="primary">
           Bevestig
         </button>
       </mat-card>
@@ -168,7 +168,7 @@
       <th mat-header-cell *matHeaderCellDef>Daag uit</th>
       <td mat-cell *matCellDef="let element">
         <button (click)="onClick(element.userId)" mat-flat-button color="primary" data-cy="viewDetails">
-          Bekijk details
+          Bekijk detailsf
         </button>
       </td>
       <td>

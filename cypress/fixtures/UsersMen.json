@@ -1,4 +1,5 @@
-[{
+[
+  {
     "userId": 7,
     "firstName": "Rafael",
     "familyName": "Nadal",
@@ -8,7 +9,8 @@
     "email": "rafael.nadal@gmail.com",
     "gender": 0,
     "rankInTournament": 1,
-    "matches": [{
+    "matches": [
+      {
         "matchId": 1,
         "winnerFullName": "",
         "winnerId": 0,
@@ -75,6 +77,23 @@
         "winnerEmail": null,
         "loserPhoneNumber": null,
         "loserEmail": null
+      },
+      {
+        "matchId": 26,
+        "winnerFullName": "Rafael Nadal",
+        "winnerId": 7,
+        "loserFullName": "",
+        "loserId": 0,
+        "winnerSet1": 0,
+        "winnerSet2": 0,
+        "winnerSet3": 0,
+        "loserSet1": 0,
+        "loserSet2": 0,
+        "loserSet3": 0,
+        "winnerPhoneNumber": null,
+        "winnerEmail": null,
+        "loserPhoneNumber": null,
+        "loserEmail": null
       }
     ],
     "tournamentId": 2,
@@ -107,7 +126,8 @@
     "email": "roger.federer@gmail.com",
     "gender": 0,
     "rankInTournament": 2,
-    "matches": [{
+    "matches": [
+      {
         "matchId": 1,
         "winnerFullName": "Roger Federer",
         "winnerId": 6,
@@ -208,6 +228,23 @@
         "winnerEmail": null,
         "loserPhoneNumber": null,
         "loserEmail": null
+      },
+      {
+        "matchId": 24,
+        "winnerFullName": "",
+        "winnerId": 0,
+        "loserFullName": "Roger Federer",
+        "loserId": 6,
+        "winnerSet1": 0,
+        "winnerSet2": 0,
+        "winnerSet3": 0,
+        "loserSet1": 0,
+        "loserSet2": 0,
+        "loserSet3": 0,
+        "winnerPhoneNumber": null,
+        "winnerEmail": null,
+        "loserPhoneNumber": null,
+        "loserEmail": null
       }
     ],
     "tournamentId": 2,
@@ -240,7 +277,8 @@
     "email": "novak.djokovich@gmail.com",
     "gender": 0,
     "rankInTournament": 3,
-    "matches": [{
+    "matches": [
+      {
         "matchId": 12,
         "winnerFullName": "",
         "winnerId": 0,
@@ -341,6 +379,23 @@
         "winnerEmail": null,
         "loserPhoneNumber": null,
         "loserEmail": null
+      },
+      {
+        "matchId": 23,
+        "winnerFullName": "Novak Djokovich",
+        "winnerId": 4,
+        "loserFullName": "",
+        "loserId": 0,
+        "winnerSet1": 0,
+        "winnerSet2": 0,
+        "winnerSet3": 0,
+        "loserSet1": 0,
+        "loserSet2": 0,
+        "loserSet3": 0,
+        "winnerPhoneNumber": null,
+        "winnerEmail": null,
+        "loserPhoneNumber": null,
+        "loserEmail": null
       }
     ],
     "tournamentId": 2,
@@ -373,7 +428,8 @@
     "email": "david.gofin@tv.be",
     "gender": 0,
     "rankInTournament": 4,
-    "matches": [{
+    "matches": [
+      {
         "matchId": 13,
         "winnerFullName": "",
         "winnerId": 0,
@@ -423,6 +479,23 @@
         "winnerEmail": null,
         "loserPhoneNumber": null,
         "loserEmail": null
+      },
+      {
+        "matchId": 25,
+        "winnerFullName": "",
+        "winnerId": 0,
+        "loserFullName": "David Gofin",
+        "loserId": 3,
+        "winnerSet1": 0,
+        "winnerSet2": 0,
+        "winnerSet3": 0,
+        "loserSet1": 0,
+        "loserSet2": 0,
+        "loserSet3": 0,
+        "winnerPhoneNumber": null,
+        "winnerEmail": null,
+        "loserPhoneNumber": null,
+        "loserEmail": null
       }
     ],
     "tournamentId": 2,
@@ -455,7 +528,8 @@
     "email": "Andy@wimbledon.com",
     "gender": 0,
     "rankInTournament": 5,
-    "matches": [{
+    "matches": [
+      {
         "matchId": 12,
         "winnerFullName": "Andy Murray",
         "winnerId": 10,
@@ -495,6 +569,23 @@
         "winnerId": 10,
         "loserFullName": "",
         "loserId": 0,
+        "winnerSet1": 0,
+        "winnerSet2": 0,
+        "winnerSet3": 0,
+        "loserSet1": 0,
+        "loserSet2": 0,
+        "loserSet3": 0,
+        "winnerPhoneNumber": null,
+        "winnerEmail": null,
+        "loserPhoneNumber": null,
+        "loserEmail": null
+      },
+      {
+        "matchId": 27,
+        "winnerFullName": "",
+        "winnerId": 0,
+        "loserFullName": "Andy Murray",
+        "loserId": 10,
         "winnerSet1": 0,
         "winnerSet2": 0,
         "winnerSet3": 0,

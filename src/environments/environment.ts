@@ -5,6 +5,11 @@
 export const environment = {
   production: false,
   apiUrl: 'https://tournamentappapi.azurewebsites.net/api'
+  // apiUrl: '/api',
+  // backend: 'https://tournamentappapi.azurewebsites.net/'
+
+  // apiUrl: '/api',
+  // backend: 'https://localhost:44366/'
 };
 
 /*
