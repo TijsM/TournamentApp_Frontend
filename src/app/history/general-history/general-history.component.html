@@ -6,17 +6,9 @@
 
 
 <div *ngIf="matches; else loading">
-  <div *ngFor="let match of matches">
-    <mat-card class="playedMatch">
-      <mat-card-content class="matchContainer">
-        <!-- <div class="oponent">
-              <div *ngIf="currentUser.userId == match.winnerId">
-                {{match.loserFullName}}
-              </div>
-              <div *ngIf="currentUser.userId == match.loserId">
-                {{match.winnerFullName}}
-              </div>
-            </div> -->
+  <div *ngFor="let match of matches" data-cy="general">
+    <mat-card class="playedMatch" data-cy="match" >
+      <mat-card-content class="matchContainer" data-cy="container">
         <div class="players">
           {{match.winnerFullName}}
           <br>

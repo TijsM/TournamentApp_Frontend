@@ -5,14 +5,14 @@
 
 
 <div *ngIf="matches; else loading">
-  <div *ngFor="let match of matches">
+  <div *ngFor="let match of matches" data-cy="personal">
     <mat-card class="playedMatch">
       <mat-card-content class="matchContainer">
         <div class="result">
-          <div *ngIf="currentUser.userId == match.winnerId" class="formWon">
+          <div *ngIf="currentUser.userId == match.winnerId" data-cy="won" class="formWon">
             G
           </div>
-          <div *ngIf="currentUser.userId == match.loserId" class="formLoss">
+          <div *ngIf="currentUser.userId == match.loserId" data-cy="lost" class="formLoss">
             V
           </div>
         </div>
