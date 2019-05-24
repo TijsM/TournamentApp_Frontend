@@ -28,6 +28,9 @@ web4@student.hogent.be  -> P@ssword1111
 
 Andy@wimbledon.com -> P@ssword1111  
 david.gofin@tv.be -> P@ssword1111  
-novak.djokovich@gmail.com -> P@ssword1111  
 roger.federer@gmail.com -> P@ssword1111  
-rafael.nadal@gmail.com -> P@ssword1111  
+
+# extra technologie
+https://www.npmjs.com/package/ng-circle-progress
+https://valor-software.com/ng2-charts/
+
