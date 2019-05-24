@@ -31,6 +31,6 @@ david.gofin@tv.be -> P@ssword1111
 roger.federer@gmail.com -> P@ssword1111  
 
 # extra technologie
-https://www.npmjs.com/package/ng-circle-progress
+https://www.npmjs.com/package/ng-circle-progress  
 https://valor-software.com/ng2-charts/
 
