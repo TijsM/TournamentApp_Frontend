@@ -96,12 +96,6 @@ export class RankingComponent implements OnInit {
       s3u1 = 0;
     }
 
-    console.log(s1u2);
-    console.log(s1u1);
-    console.log(s2u2);
-    console.log(s2u1);
-    console.log(s3u2);
-    console.log(s3u1);
 
     if (
       this.controlleerSet(s1u2, s1u1, 1) &&
@@ -250,8 +244,6 @@ export class RankingComponent implements OnInit {
       amountWonUser1++;
     }
 
-    console.log(amountWonUser2);
-    console.log(amountWonUser1);
 
     if (Math.max(amountWonUser1, amountWonUser2) < 2) {
       this.popup.open(`Zorg dat er een speler 2 sets heeft gewonnen`, 'x', {

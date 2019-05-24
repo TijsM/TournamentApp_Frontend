@@ -53,7 +53,6 @@ export class UserDetailsComponent implements OnInit {
     this.idFromRoute = +this._route.snapshot.params['id']; // id uit de route halen
 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log(this.currentUser);
 
     this._fetchMatchesFromUser$ = this._tournamenDataService.getMatchesFromUser$(
       this.idFromRoute
@@ -69,7 +68,6 @@ export class UserDetailsComponent implements OnInit {
         this.matches = res.reverse();
         this.amountPlayed = res.length;
 
-        console.log(this.matches);
         this.matches.forEach(mat => {
           if (mat.loserId == this.selectedUser.userId) {
             this.amountLost++;
@@ -84,7 +82,6 @@ export class UserDetailsComponent implements OnInit {
       .getUserById$(this.currentUser.userId)
       .subscribe(res => {
         this.currentUserFromDb = res;
-        console.log(this.currentUserFromDb);
 
         this.okToChallenge = this.canChallenge();
       });
@@ -104,7 +101,6 @@ export class UserDetailsComponent implements OnInit {
   public pieChartLegend = true;
 
   back() {
-    console.log('back to ranking button clicked');
     this._router.navigate(['/ranking']);
   }
 
@@ -122,19 +118,18 @@ export class UserDetailsComponent implements OnInit {
   }
 
   canChallenge(): boolean {
-    console.log('test');
-    console.log('-----');
+
     this.cantChallengeErrors = [];
     this._canChal = true;
-    console.log(this.currentUserFromDb);
+
 
     if (this.currentUser.hasChallenge === true) {
-      console.log('in conditie 1');
+
       this.cantChallengeErrors.push('U heeft al een uitdaging');
       this._canChal = false;
     }
     if (this.selectedUser.hasChallenge === true) {
-      console.log('in conditie 2');
+
       this.cantChallengeErrors.push(
         'De geselecteerde speler heeft al een uitdaging'
       );
@@ -144,7 +139,6 @@ export class UserDetailsComponent implements OnInit {
       this.selectedUser.rankInTournament >
       this.currentUserFromDb.rankInTournament
     ) {
-      console.log('in conditie 3');
       this.cantChallengeErrors.push(
         'U kan geen speler uitdagen die achter jou in de ranking staat'
       );
@@ -155,22 +149,20 @@ export class UserDetailsComponent implements OnInit {
       this.selectedUser.rankInTournament >
       2
     ) {
-      console.log('in conditie 4');
+
       this.cantChallengeErrors.push(
         'De speler die u probeert uit te dagen staat te hoog, kies iemand anders'
       );
       this._canChal = false;
     }
     if (this.selectedUser.userId === this.currentUser.userId) {
-      console.log('in conditie 5');
       this.cantChallengeErrors.push(
         'Jezelf uitdagen is geen echte uitdaging he ;-)'
       );
       this._canChal = false;
     }
 
-    console.log(this.cantChallengeErrors);
-    return this._canChal;
+        return this._canChal;
   }
 
   open() {

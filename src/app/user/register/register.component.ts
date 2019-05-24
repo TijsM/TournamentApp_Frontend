@@ -21,9 +21,7 @@ import { BottomSheetPasswordRulesComponent } from 'src/app/hulp/bottom-sheet-pas
 
 function comparePasswords(control: AbstractControl): { [key: string]: any } {
   const password = control.get('password');
-  console.log(password);
   const confirmPassword = control.get('passwordConfirmation');
-  console.log(confirmPassword)
   return password.value === confirmPassword.value
     ? null
     : { passwordsDiffer: true };
@@ -69,7 +67,7 @@ export class RegisterComponent implements OnInit {
       firstName: ['', Validators.required],
       familyName: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
-      tennisVlaanderenScore: ['', [Validators.max(500),  Validators.required]],
+      tennisVlaanderenScore: ['', [Validators.max(500), Validators.required]],
       phone: ['', Validators.required],
 
       passwordGroup: this.fb.group(
@@ -90,7 +88,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.user.value.gender);
 
     if (this.user.value.gender == 'man') {
       this.gendernumber = 0;

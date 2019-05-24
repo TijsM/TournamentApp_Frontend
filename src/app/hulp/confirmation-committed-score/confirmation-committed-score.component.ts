@@ -12,6 +12,6 @@ export class ConfirmationCommittedScoreComponent implements OnInit {
   ngOnInit() {}
 
   back() {
-    console.log('back to ranking button clicked');
+
     this._router.navigate(['/ranking']);  }
 }

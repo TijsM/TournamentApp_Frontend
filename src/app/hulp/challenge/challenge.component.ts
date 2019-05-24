@@ -31,7 +31,7 @@ export class ChallengeComponent implements OnInit {
       this.challengedUser = item['sellectedUser'];
     });
 
-    console.log(this.challengedUser.firstName);
+
   }
 
   goToRanking() {

@@ -84,7 +84,6 @@ export class AuthenticationService {
     gender: number,
     tennisVlaanderenScore: number
   ): Observable<boolean> {
-    console.log('entered auth service');
     return this.http
       .post(
         `${environment.apiUrl}/Account/register`,
