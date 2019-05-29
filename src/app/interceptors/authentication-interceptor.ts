@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthenticationInterceptor implements HttpInterceptor {
+  //implementeerd HttpInterceptor
+
   constructor(private authService: AuthenticationService) {}
 
   intercept(
@@ -17,6 +19,10 @@ export class AuthenticationInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     if (this.authService.token.length) {
+      // als er wel een token aanwezig is
+      // de http request "intercepten"
+      // bearer header toevoegen
+      // http requist uitvoeren met deze authenticatie header
       const clonedRequest = req.clone({
         headers: req.headers.set(
           'Authorization',
@@ -25,6 +31,8 @@ export class AuthenticationInterceptor implements HttpInterceptor {
       });
       return next.handle(clonedRequest);
     }
+
+    //als er geen token is, gwn request uitvoeren zonder token
     return next.handle(req);
   }
 }

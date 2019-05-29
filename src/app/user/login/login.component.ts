@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     });
 
 
+    // als user net heeft geregistreerd, gepaste melding geven
     let hasJustRegistred: string = localStorage.getItem("hasJustRegistred");
     localStorage.removeItem("hasJustRegistred");
 
@@ -44,6 +45,8 @@ export class LoginComponent implements OnInit {
       .subscribe(
         val => {
           if (val) {
+            //als de user op de login pagine komt omdat hij naar een guarded pagine wou gaan
+            // na aanemalden moet de user naar deze eerste gevraagde pagine geredirect worden
             if (this.authService.redirectUrl) {
               this.router.navigateByUrl(this.authService.redirectUrl);
               this.authService.redirectUrl = undefined;
@@ -52,6 +55,7 @@ export class LoginComponent implements OnInit {
             }
           }
         },
+        //als de server een error geeft
         (err: HttpErrorResponse) => {
           this.popUp.open(
             'De combinatie van het opgegeven mail adres en het paswoord werd niet gevonden',
@@ -65,6 +69,7 @@ export class LoginComponent implements OnInit {
   }
 
   getErrorMessage(errors: any) {
+    //opvangen van de validators
     if (!errors) {
       return null;
     }

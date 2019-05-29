@@ -28,6 +28,7 @@ export class ChallengeComponent implements OnInit {
     //   .subscribe(res => (this.challengedUser = res));
 
     this._route.data.subscribe(item => {
+      // using the resolver
       this.challengedUser = item['sellectedUser'];
     });
 

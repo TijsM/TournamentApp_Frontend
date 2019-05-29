@@ -27,6 +27,7 @@ const routes: Routes = [
   {
     path: 'userDetails/:id',
     canActivate: [AuthGuard],
+    // beperken van toegang tot componenten voor niet aangemalde user
     component: UserDetailsComponent,
     resolve: { sellectedUser: UserResolver }
   },

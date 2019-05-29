@@ -21,12 +21,10 @@ export class UserDetailsComponent implements OnInit {
   public selectedUser: User;
   private idFromRoute: number;
   private _fetchMatchesFromUser$: Observable<Match[]>;
-  private _fetchTennisVlaanderenAverage$: Observable<
-    number
-  > = this._tournamenDataService.getAvarageTennisVlaanderenScore$();
+  private _fetchTennisVlaanderenAverage$: Observable<number> = this._tournamenDataService.getAvarageTennisVlaanderenScore$();
   public matches: Match[];
-  private wonMatches: Match[];
-  private lostMatches: Match[];
+  // private wonMatches: Match[];
+  // private lostMatches: Match[];
   public cantChallengeErrors: string[];
   private _canChal: boolean;
   public okToChallenge: boolean;
@@ -38,11 +36,16 @@ export class UserDetailsComponent implements OnInit {
   private amountLost;
   private amountPlayed;
 
+  //data voor grafiek "tennisvlaanderenscore"
+  public pieChartLabels: Label[] = ['score van speler', 'gemiddelde'];
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
+
   constructor(
     private _route: ActivatedRoute,
     private _tournamenDataService: TournamentDataService,
     private _router: Router,
-    private _snackBar: MatSnackBar,
+    // private _snackBar: MatSnackBar,
     private _bottomSheet: MatBottomSheet
   ) { }
 
@@ -50,14 +53,22 @@ export class UserDetailsComponent implements OnInit {
     this.amountLost = 0;
     this.amountPlayed = 0;
     this.amountWon = 0;
-    this.idFromRoute = +this._route.snapshot.params['id']; // id uit de route halen
 
+    //id ophalen uit de link. werd in de link gestoken door ranking.html
+    this.idFromRoute = +this._route.snapshot.params['id'];
+
+    // de aangemelde user ophalen uit de localstorage
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
+    //de matchen van de geselecteerde speler ophalen
     this._fetchMatchesFromUser$ = this._tournamenDataService.getMatchesFromUser$(
       this.idFromRoute
     );
 
+
+    // route parameter prefetching = resolver
+    // router --> user.resolver --> userdetails
+    // vanaf resolver user heeft, zal hij deze doorgeven
     this._route.data.subscribe(
       item => (this.selectedUser = item['sellectedUser'])
     );
@@ -65,6 +76,7 @@ export class UserDetailsComponent implements OnInit {
     this._tournamenDataService
       .getMatchesFromUser$(this.idFromRoute)
       .subscribe(res => {
+        // nieuw vanbonven
         this.matches = res.reverse();
         this.amountPlayed = res.length;
 
@@ -95,10 +107,7 @@ export class UserDetailsComponent implements OnInit {
     return this._fetchTennisVlaanderenAverage$;
   }
 
-  //data voor grafiek "tennisvlaanderenscore"
-  public pieChartLabels: Label[] = ['score van speler', 'gemiddelde'];
-  public pieChartType: ChartType = 'pie';
-  public pieChartLegend = true;
+  
 
   back() {
     this._router.navigate(['/ranking']);
@@ -162,7 +171,7 @@ export class UserDetailsComponent implements OnInit {
       this._canChal = false;
     }
 
-        return this._canChal;
+    return this._canChal;
   }
 
   open() {

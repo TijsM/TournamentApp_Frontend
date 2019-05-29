@@ -104,6 +104,7 @@ export class TournamentDataService {
       LoserSet3
     });
   }
+}
   // login(email: string, password: string) {
   //   return this.http
   //     .post<any>(`${environment.apiUrl}/Account`, { email, password })
@@ -162,4 +163,4 @@ export class TournamentDataService {
   //       })
   //     );
   // }
-}
+//}

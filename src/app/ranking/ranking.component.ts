@@ -32,10 +32,14 @@ export class RankingComponent implements OnInit {
     private popup: MatSnackBar,
     private bottom: MatBottomSheet
   ) {
+
+    //aangemelde user ophalen uit localstorage
     this.currentUserFromLogin = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
+    //currentuser opnieuw ophalen
+    //user in localstorage kan verouderd zijn. matchen zitten mischien niet juist in storage
     this._tournamenDataService
       .getUserById$(this.currentUserFromLogin.userId)
       .subscribe(res => {

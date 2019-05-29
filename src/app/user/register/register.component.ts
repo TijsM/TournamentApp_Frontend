@@ -20,6 +20,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { BottomSheetPasswordRulesComponent } from 'src/app/hulp/bottom-sheet-password-rules/bottom-sheet-password-rules.component';
 
 function comparePasswords(control: AbstractControl): { [key: string]: any } {
+  //custom vallidaton
+  // return key value pair, {name, boolean}
+  // ture als wachtwoorden gelijk zijn
   const password = control.get('password');
   const confirmPassword = control.get('passwordConfirmation');
   return password.value === confirmPassword.value
@@ -28,6 +31,7 @@ function comparePasswords(control: AbstractControl): { [key: string]: any } {
 }
 
 function serverSideValidateUsername(
+  //bij elke toetsslag in email veld in bakcend kijken als email adres reeds geregistreerd is
   checkAvailabilityFn: (n: string) => Observable<boolean>
 ): ValidatorFn {
   return (control: AbstractControl): Observable<{ [key: string]: any }> => {

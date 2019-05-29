@@ -15,9 +15,9 @@ export class PersonalHistoryComponent implements OnInit {
   public matches: Match[];
 
   constructor(
-    private _route: ActivatedRoute,
+    // private _route: ActivatedRoute,
     private _tournamenDataService: TournamentDataService,
-    private _router: Router
+    // private _router: Router
   ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }

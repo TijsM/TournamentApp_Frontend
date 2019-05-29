@@ -12,12 +12,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserResolver implements Resolve<User> {
-  constructor(private _dataService: TournamentDataService) {}
+  //implementeerd inteface
+
+  constructor(private _dataService: TournamentDataService) { }
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<User> {
+    //route.params = ophalen van id uit link
+    //vanaf hij de volledige user heeft van backend, zal hij deze retourneren
     return this._dataService.getUserById$(route.params['id']);
   }
 }

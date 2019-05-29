@@ -10,6 +10,7 @@ export class BottomSheetComponent implements OnInit {
  errorsOutput: string = '';
   constructor() {
     this.errors = JSON.parse(localStorage.getItem('challengeErros'));
+    // array van strings
 
     this.errors.forEach(val => {
       this.errorsOutput = this.errorsOutput.concat(val + '\r\n');
